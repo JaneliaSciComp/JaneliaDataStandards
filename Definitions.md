@@ -1,7 +1,8 @@
 # Definitions
 
 ### "array" 
-an n-dimensional collection of discrete samples whose domain is a regular grid.
+(1) An n-dimensional collection of discrete samples whose domain is a regular grid.
+(2) A node in a hierarchy that contains a data structure of the type described in (1). Array nodes cannot have child nodes.
 
 ### "aliasing"
 
@@ -12,6 +13,12 @@ The act of resampling an image to a lower resolution, often by an integer factor
 The physical extent of the domain of an image.
 
 ### "filtering"
+
+### "group"
+A node in a hierarchy that can have child nodes, and cannot contain data.
+
+### "hierarchy"
+A collection of groups and arrays, connected in a tree-like structure.
 
 ### "image"
 an array whose samples are interpreted as measurements over a physical space, with a particular sampling rate, or "resolution".
