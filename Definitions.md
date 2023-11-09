@@ -1,10 +1,8 @@
 # Definitions
 
 ### "array" 
-1. An n-dimensional collection of discrete samples whose domain is a regular grid.
+1. An n-dimensional collection of discrete samples whose domain is a regular discrete (integer) grid. C
 2. A node in a hierarchy that contains a data structure of the type described in (1). Array nodes cannot have child nodes.
-
-### "aliasing"
 
 ### "downsampling"
 The act of resampling an image to a lower resolution, often by an integer factor.
@@ -23,7 +21,8 @@ A node in a hierarchy that can have child nodes, and can contain metadata, but c
 A collection of groups and arrays, connected in a tree-like structure.
 
 ### "image"
-an array whose samples are interpreted as measurements over a physical space, with a particular sampling rate, or "resolution".
+an array whose samples are interpreted as measurements over a physical coordinate system, with a particular sampling rate (i.e.
+"resolution").
 
 ### "interpolation"
 A process that, given an image, produces new samples at points in the domain not on the discrete image grid.
@@ -35,6 +34,25 @@ The most common methods for interpolation are "nearest-neighbor", "bi-/tri-/n-li
 2. Of an image: the point in the physical domain corresponding to the array origin.
 
 The term "offset" is sometimes used to refer to the "origin".
+
+### "physical"
+Relating to quantities or measurements of the physical world.
+
+Examples:
+* sample intensities measured by a physical sensor
+    * photon count
+    * [Hounsfield unit](https://en.wikipedia.org/wiki/Hounsfield_scale)
+* distances / areas / volumes / times measured in images in physical units (um, mm, seconds)
+    * "the area of segment A is 12 mm^2"
+    * "mitosis begins at time = 3.2s"
+
+Non-examples:
+* sample intensities not derived from sensors
+    * segmentation id
+    * the output of a deep neural network model
+* distances / areas / volumes / times described by sample / array indexes
+    * "the area of segment B is 85 pixels"
+    * "mitosis begins at frame 51"
 
 ### "pixel" 
 A single sample of a two-dimensional image.
@@ -52,7 +70,7 @@ consist of filtering and interpolation steps.
 Related terms: "downsampling", "resolution"
 
 ### "resolution"
-the physical (often spatial) sampling rate of an image. 
+The physical (often spatial) sampling rate of an image.
 
 A high resolution image will comprise of more samples for the same field of view compared to a low resolution image.
 
