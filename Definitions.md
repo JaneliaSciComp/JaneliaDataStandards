@@ -87,7 +87,7 @@ Related terms: "downsampling", "resolution"
 
 ### "resolution"
 1. The level of detail in an image. A high resolution image will have more samples than a low resolution image for the same field of view.
-2. The frequency of sampling for an image. Usually expressed as the physical or temporal distance between samples in each dimension (e.g. millimeters per pixel).  
+2. The frequency of spatial or temporal sampling for an image. Usually expressed separately for each dimension (e.g. millimeters per pixel in x). Reciprocal of the distance between samples in each dimension.
 3. The total number of samples in each dimension of an image. For example, a 2-dimensional image with 1000 pixels along the x dimension and 1500 pixels along the y dimension would have a resolution of 1000 x 1500. 
 
 "Resolution" should be considered synonymous with "spatial resolution" unless otherwise specified (e.g. gray-level resolution, temporal resolution, etc.). 
