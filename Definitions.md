@@ -18,7 +18,7 @@
 
 
 ### "array" 
-1. An n-dimensional collection of discrete samples whose domain is a regular discrete (integer) grid. C
+1. An n-dimensional collection of discrete samples whose domain is a regular discrete (integer) grid.
 2. A node in a hierarchy that contains a data structure of the type described in (1). Array nodes cannot have child nodes.
 
 ### "downsampling"
@@ -38,7 +38,7 @@ A node in a hierarchy that can have child nodes, and can contain metadata, but c
 A collection of groups and arrays, connected in a tree-like structure.
 
 ### "image"
-An array of numbers intended to be displayed on a screen. Typically, an image is acquired by a detector situated within an optical system. The detector samples particles from a field--either photons (as in light microscopy) or electrons (as in electron microscopy). This process can also be conceptualized as sampling waveforms. Alternatively, images can be synthesized by a computer, rather than acquired by sampling a field. Ancillary data structures may be required to display an image (such as a lookup table) or to interpret an image (such as a physical coordinate system), but these are not part of the image itself. 
+A set of numbers intended to be displayed on a screen. An image is usually represented as an array or array-like data structure, but can also be represented as the discrete set of solutions for a function over a finite domain. Typically, an image is acquired by a detector situated within an optical system. The detector samples particles from a field--either photons (as in light microscopy) or electrons (as in electron microscopy). This process can also be conceptualized as sampling waveforms. Alternatively, images can be synthesized by a computer, rather than acquired by sampling a field. Ancillary data structures may be required to display an image (such as a lookup table) or to interpret an image (such as a physical coordinate system), but these are not part of the image itself. 
 
 ### "interpolation"
 A process that, given an image, produces new samples at points in the domain not on the discrete image grid.
@@ -86,11 +86,9 @@ consist of filtering and interpolation steps.
 Related terms: "downsampling", "resolution"
 
 ### "resolution"
-The physical (often spatial) sampling rate of an image.
+The spatial sampling rate of an image. "Resolution" is synonymous with "spatial resolution" unless otherwise specified (e.g. gray-level resolution, temporal resolution, etc.). Usually expressed as the total number of samples (pixels/voxels, etc.) in each dimension of an image. For example, a 2-dimensional image with 1000 pixels along the x dimension and 1500 pixels along the y dimension would have a resolution of 1000 x 1500. A high resolution image will have more samples than a low resolution image for the same field of view. 
 
-A high resolution image will comprise of more samples for the same field of view compared to a low resolution image.
-
-The terms: "spacing", "pixel spacing", "pixel resolution" are commonly used to refer to "resolution".
+The terms "spacing", "pixel spacing", "pixel resolution" are commonly used to refer to "resolution".
 
 ### "sample" 
 A single element of an array or image, located at a particular point in the domain, and
