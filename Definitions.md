@@ -1,5 +1,22 @@
 # Definitions
 
+- ["array"](#array)                                                                                                                                                                                                
+- ["downsampling"](#downsampling)
+- ["field of view"](#field-of-view)
+- ["filtering"](#filtering)
+- ["group"](#group)
+- ["hierarchy"](#hierarchy)
+- ["image"](#image)
+- ["interpolation"](#interpolation)
+- ["origin"](#origin)
+- ["physical"](#physical)
+- ["pixel"](#pixel)
+- ["resampling"](#resampling)
+- ["resolution"](#resolution)
+- ["sample"](#sample)
+- ["voxel"](#voxel)
+
+
 ### "array" 
 1. An n-dimensional collection of discrete samples whose domain is a regular discrete (integer) grid. C
 2. A node in a hierarchy that contains a data structure of the type described in (1). Array nodes cannot have child nodes.
