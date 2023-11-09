@@ -38,8 +38,7 @@ A node in a hierarchy that can have child nodes, and can contain metadata, but c
 A collection of groups and arrays, connected in a tree-like structure.
 
 ### "image"
-an array whose samples are interpreted as measurements over a physical coordinate system, with a particular sampling rate (i.e.
-"resolution").
+An array of numbers intended to be displayed on a screen. Typically, an image is acquired by a detector situated within an optical system. The detector samples particles from a field--either photons (as in light microscopy) or electrons (as in electron microscopy). This process can also be conceptualized as sampling waveforms. Alternatively, images can be synthesized by a computer, rather than acquired by sampling a field. Ancillary data structures may be required to display an image (such as a lookup table) or to interpret an image (such as a physical coordinate system), but these are not part of the image itself. 
 
 ### "interpolation"
 A process that, given an image, produces new samples at points in the domain not on the discrete image grid.
