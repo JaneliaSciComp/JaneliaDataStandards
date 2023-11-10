@@ -38,7 +38,7 @@ A node in a hierarchy that can have child nodes, and can contain metadata, but c
 A collection of groups and arrays, connected in a tree-like structure.
 
 ### "image"
-A set of numbers intended to be displayed on a screen. An image is usually represented as an array or array-like data structure, but can also be represented as the set of solutions for a discrete function over a finite domain. Ancillary data structures may be required to display an image (such as a lookup table) or to interpret an image (such as a physical coordinate system), but these are not part of the image itself. 
+A set of numbers intended to be displayed on a screen. An image is usually represented as an array or array-like data structure, but can also be represented as the set of solutions for a discrete function over a finite domain. Ancillary data structures may be required to display an image or to interpret an image, but these are not part of the image itself. 
 
 ### "interpolation"
 A process that, given an image, produces new samples at points in the domain not on the discrete image grid.
@@ -86,9 +86,9 @@ consist of filtering and interpolation steps.
 Related terms: "downsampling", "resolution"
 
 ### "resolution"
-1. The level of detail in an image. A high resolution image will have more samples, and more visible detail, than a low resolution image for the same field of view.
-2. The physical (usually spatial) sampling interval for an image. In other words, the distance between samples. Usually expressed separately for each dimension, e.g. millimeters per pixel in x. (Note: The sampling *interval* is the reciprocal of the sampling *rate* (also called sampling *frequency*), which is the number of samples over a physical interval, e.g. pixels per millimeter.) 
-3. The total number of samples in each dimension of an image. For example, a 2-dimensional image with 1500 pixels along the x dimension and 1000 pixels along the y dimension would have a resolution of 1500 x 1000 (the colloquial convention is to express the dimensions in x, y, z order). 
+1. The level of detail in an image. A high resolution image will have more samples than a low resolution image for the same field of view.
+2. The physical (usually spatial) sampling interval for an image. In other words, the distance between samples. Usually expressed separately for each dimension, e.g. millimeters per pixel in x. (Note: The sampling *interval* is the reciprocal of the sampling *rate*.) 
+3. The total number of samples in each dimension of an image. For example, a 2-dimensional image with 1500 pixels along the x dimension and 1000 pixels along the y dimension could be said to have a resolution of 1500 x 1000 (the colloquial convention is to express the dimensions in x, y, z order). 
 
 "Resolution" should be considered synonymous with "spatial resolution" unless otherwise specified (e.g. gray-level resolution, temporal resolution, etc.). 
 
