@@ -86,13 +86,13 @@ consist of filtering and interpolation steps.
 Related terms: "downsampling", "resolution"
 
 ### "resolution"
-1. The level of detail in an image. A high resolution image will have more samples than a low resolution image for the same field of view.
-2. The frequency of spatial or temporal sampling for an image. Usually expressed separately for each dimension (e.g. millimeters per pixel in x). Reciprocal of the distance between samples in each dimension.
-3. The total number of samples in each dimension of an image. For example, a 2-dimensional image with 1000 pixels along the x dimension and 1500 pixels along the y dimension would have a resolution of 1000 x 1500. 
+1. The level of detail in an image. A high resolution image will have more samples, and more visible detail, than a low resolution image for the same field of view.
+2. The physical (usually spatial) sampling interval for an image. In other words, the distance between samples. Usually expressed separately for each dimension, e.g. millimeters per pixel in x. (Note: The sampling *interval* is the reciprocal of the sampling *rate* (also called sampling *frequency*), which is the number of samples over a physical interval, e.g. pixels per millimeter.) 
+3. The total number of samples in each dimension of an image. For example, a 2-dimensional image with 1500 pixels along the x dimension and 1000 pixels along the y dimension would have a resolution of 1500 x 1000 (the colloquial convention is to express the dimensions in x, y, z order). 
 
 "Resolution" should be considered synonymous with "spatial resolution" unless otherwise specified (e.g. gray-level resolution, temporal resolution, etc.). 
 
-The terms "spacing", "pixel spacing", "pixel resolution" are commonly used to refer to "resolution".
+The terms "spacing", "pixel spacing", and "pixel resolution" are commonly used to refer to "resolution".
 
 ### "sample" 
 A single element of an array or image, located at a particular point in the domain, and
