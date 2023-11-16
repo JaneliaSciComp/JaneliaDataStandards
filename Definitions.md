@@ -25,7 +25,7 @@
 The act of resampling an image to a lower resolution, often by an integer factor.
 
 ### "field of view"
-The physical extent of the domain of an image.
+The physical extent of the observed space. In microscopy, FOV may be expressed as the diameter of the circular view seen through the eyepiece. In scientific bioimaging, FOV is typically expressed as linear measurements of the horizontal, vertical, and/or diagonal space captured by the digital sensor.   
 
 ### "filtering"
 1. Usually referes to a convolution operation (a local, linear operation on the intensity values of an image).
