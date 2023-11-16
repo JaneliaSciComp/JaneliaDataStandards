@@ -95,8 +95,7 @@ Related terms: "downsampling", "resolution"
 The terms "spacing", "pixel spacing", and "pixel resolution" are commonly used to refer to "resolution".
 
 ### "sample" 
-A single element of an array or image, located at a particular point in the domain, and
-have a single value (intensity).
+A digital number representing a measurement of the energy sensed by a particular cell on a sensor at a discrete point in time. Because cells on a sensor correspond to elements of an array and pixels of an image, "sample" is often used interchangeably with "pixel".
 
 ### "voxel" 
 A single sample of a three-dimensional image.
