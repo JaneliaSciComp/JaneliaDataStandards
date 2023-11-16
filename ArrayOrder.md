@@ -43,27 +43,13 @@ Suppose we have this flat array:
 
 `0, 1, 2, 3, 4, 5`
 
-and two dimensions having strides 1 and 3.
+and two dimensions having strides 1 and 3, equivalently having dimensions 3 and 2.
 
 
 `(0, 1, 2), (3, 4, 5)`
 `[(0, 1, 2), (3, 4, 5)]`
 
 
-### row- / column- major
-
-The terms row- and column-major derive for the storage of matrices -
-often represented as a 2D array of numbers.  Horizontal groupings of
-these numbers are called "rows" and vertical groupings are called
-"columns." In mathematics, the entries of a matrix $A$ are denoted
-$a_{ij}$. Where rows of the matrix are indexed by $i$ the "first", or
-"left" index, and columns of the matrix are indexed by $j$, the
-"second", or "right" index.
-
-Discussion of row- and column- major depends on first agreeing which
-index (left or right) refers to rows vs columns, and for matrices in
-mathematics, the left indexs **always** (in this author's experience)
-refers to rows.
 
 ### C- and F-order
 
@@ -74,3 +60,78 @@ refers to rows.
 
 These terms come from conventions for storing arrays in the C and
 Fortran programming languages.
+
+### array size
+
+When discussing an array that is stored in C-order, dimension size will
+be descibed using a list if sizes per dimension. For example: `[ 3, 5, 7 ].`
+In this example, the left-most dimension has size `3`, the right-most
+dimension has size `7`.
+
+As always the *first* dimension will have stride 1. Because we're using
+C-order, is the right-most index. As a result, the *second* dimension
+will have stride `7`, and the *third* dimension will have stride `7*5 =
+35`. 
+
+Consider again an array of size `[ 3, 5, 7 ]`, but using F-order.
+Again, the left-most dimension has size `3`, the right-most dimension
+has size `7`.
+
+As always the *first* dimension will have stride 1.  However, now using
+F-order, the *second* dimension will have stride `3`, and the *second*
+dimension will have stride `3*5=15`.
+
+### row- / column- major
+
+Matrices are often represented as a 2D array of numbers.  Horizontal
+groupings of these numbers are called "rows" and vertical groupings are
+called "columns." In mathematics, the entries of a matrix $A$ are
+denoted $a_{ij}$. Where rows of the matrix are indexed by $i$ the
+"first", or "left" index, and columns of the matrix are indexed by $j$,
+the "second", or "right" index.
+
+* **Universal Matrix Convention**: Left indexes refer to rows,
+  right indexes refer to columns.
+
+The terms row- and column-major derive for the storage of matrices.
+Defining these terms first depends on first agreeing which index (left
+or right) refers to rows vs columns, and for matrices in mathematics.
+
+* **Define:** Arrays storing matrices in "row-major" give columns stride 1. 
+* **Define:** Arrays storing matrices in "column-major" give rows stride 1. 
+
+* **Consequence:** Given matrix storage conventions C-order storage is
+  equivalent to "row-major".
+* **Consequence:** Given matrix storage conventions F-order storage is
+  equivalent to "column-major".
+
+#### example
+
+As a result of the *Universal Matrix Convention* the size of a matrix
+with `2` rows and `3` columns is `[2, 3]` for both C- and F-orderings.
+Consider:
+
+```
+          column 0   column 1   column 2
+  row 0  [    0          1          2   ]
+  row 1  [    3          4          5   ]
+```
+
+* The flat C-ordered array will be: `[0, 1, 2, 3, 4, 5]`
+* The flat F-ordered array will be: `[0, 3, 1, 4, 2, 5]
+
+
+### image analysis
+
+Most formats for storing image files store data such that the
+"horizontal axis" / rows have a smaller stride than the "vertical axis"
+/ columns.  (Note: while rows have smaller stride than columns, it is
+common for rows NOT to have stride 1, for example when using
+"interleaved" color components, the "color" dimension often will have a
+stride of 1.)
+
+
+### refs
+
+1) [nrrd axis ordering](https://teem.sourceforge.net/nrrd/format.html#general.4)
+2) [n5 ordering discussion](https://github.com/saalfeldlab/n5/issues/31)
