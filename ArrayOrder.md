@@ -1,4 +1,4 @@
-## Arrays, coordinates, and indexes
+## Multi-dimensional array indexing
 
 Zarr stores multi-dimensional arrays into regularly sized chunks.
 Chunks are themselves multi-dimensional arrays of a smaller size than
@@ -81,7 +81,7 @@ As always the *first* dimension will have stride 1.  However, now using
 F-order, the *second* dimension will have stride `3`, and the *second*
 dimension will have stride `3*5=15`.
 
-### row- / column- major
+### row- and column-major
 
 Matrices are often represented as a 2D array of numbers.  Horizontal
 groupings of these numbers are called "rows" and vertical groupings are
@@ -118,7 +118,7 @@ Consider:
 ```
 
 * The flat C-ordered array will be: `[0, 1, 2, 3, 4, 5]`
-* The flat F-ordered array will be: `[0, 3, 1, 4, 2, 5]
+* The flat F-ordered array will be: `[0, 3, 1, 4, 2, 5]`
 
 
 ### image analysis
@@ -130,6 +130,17 @@ common for rows NOT to have stride 1, for example when using
 "interleaved" color components, the "color" dimension often will have a
 stride of 1.)
 
+## Conclusions
+
+If a convention is such that the meaning / interpretation of the index
+in a particular position (left / rightmost) is strong, then C- and F-
+order will agree on the ordering of an array's dimensions, but will
+store the arrays differently when flattened.
+
+If a convention is such that the meaning / interpretation of a
+particular stride (fastest / slowest) is strong, then C- and F- order
+will dis-agree on the ordering of an array's dimensions, but will store the
+arrays the same way when flattened.
 
 ### refs
 
