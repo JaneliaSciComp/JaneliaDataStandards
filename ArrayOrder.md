@@ -77,7 +77,7 @@ Again, the left-most dimension has size `3`, the right-most dimension
 has size `7`.
 
 As always the *first* dimension will have stride 1.  However, now using
-F-order, the *second* dimension will have stride `3`, and the *second*
+F-order, the *second* dimension will have stride `3`, and the *third*
 dimension will have stride `3*5=15`.
 
 ### row- and column-major
