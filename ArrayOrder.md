@@ -9,8 +9,8 @@ Indexing into a multi-dimensional array is done with an ordered tuple,
 each element of which indexes into one of the arrays dimensions.
 Elements of this tuple are called "coordinates." For example, the tuple
 `(i,j,k)` indexes a three-dimensional array, and `i`, `j`, and `k` are
-its coordinates. We will call `i` the left-most index, and `k` the
-right-most index (avoiding "first" and "last").
+its coordinates. We will call `i` the "left" or "first" index, and `k` the
+"right" or "last" index.
 
 The only valid coordinates for arrays are the non-negative integers.
 
@@ -23,66 +23,94 @@ flattened 1D array.
 One can think of reshaping a 1D as a recursive process of grouping a
 number of adjacent elements.
 
-A 1D array is reshaped to an n-dimensional array by grouping a number
-adjacent elements belonging to the same dimension. 
+A (n-1)-dimnensional array is reshaped to an n-dimensional array by
+grouping a number adjacent elements belonging to the same dimension. 
 
 * **Define:** the "size" of a dimension is the number of grouped elements.
 
-The stride of the next dimension is the size of the previous dimension. 
-
 * **Define:** the stride of a dimension is the (positive) step in the
-  flat array that corresponds to the adjacent element (step of one)
-  along that dimension.
+  flat array that corresponds to the adjacent element along that dimension.
 
-* **Define:** the "first" dimension is the dimension with a stride of 1.
-* **Define:** the "last" dimension is the dimension with the largest stride.
+The stride of a dimension is the product of sizes of all previous dimensions. 
 
-#### example
+* **Define:** the "inner" dimension is the dimension with a stride of 1.
+* **Define:** the "outer" dimension is the dimension with the largest stride.
+
+#### examples
 
 Suppose we have this flat array:
 
 `0, 1, 2, 3, 4, 5`
 
-and two dimensions having strides 1 and 3, equivalently having dimensions 3 and 2.
+and two dimensions having sizes 3 and 2. The first stride is always 1.
+The second stride is the previous dimenions' size: 3 in this example. So
+our strides are 1 and 3. There is no grouping to be done for a
+dimensions of stride one, so the first and only step is to group
+elements into groups of 3 (the larger stride):
 
 `(0, 1, 2), (3, 4, 5)`
-`[(0, 1, 2), (3, 4, 5)]`
+
+<details>
+
+<summary>a larger example</summary>
+
+Suppose we have this flat array:
+
+`0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23`
+
+
+and three dimensions having sizes 2, 3, and 4. Their strides are 1, 2, and 6
+where `2*3 = 6`. There is no grouping to be done for a dimensions of stride 1,
+so the first step is to join elements into groups of 2 (the
+second stride):
+
+`(0, 1), (2, 3), (4, 5), (6, 7), (8, 9), (10, 11), (12, 13), (14, 15), (16, 17), (18, 19), (20, 21), (22, 23)`
+
+Next group elements of the new list (which are themselves groups) into
+groups of 3 (the largest stride).
+
+`[(0, 1), (2, 3), (4, 5)], [(6, 7), (8, 9), (10, 11)], [(12, 13), (14, 15), (16, 17)], [(18, 19), (20, 21), (22, 23)]`
+
+Notice:
+* The element adjacent to `0` in the inner group is `1`, hence stride `1`.
+* The element adjacent to `0` in the intermediate grouping is `2`, hence stride `2`.
+* The element adjacent to `0` in the outer grouping is `6`, hence stride `6`.
+
+</details>
 
 
 ### C- and F-order
 
-* **Define:** C-order reshapes flat arrays into multiple dimensions such
-  that the **rightmost** index has stride 1.
-* **Define:** F-order reshapes flat arrays into multiple dimensions such
-  that the **leftmost** index has stride 1.
+* **Define:** C-order indexes multi-dimensional arrays such that the **last** index has stride 1.
+* **Define:** F-order indexes multi-dimensional arrays such that the **first** index has stride 1.
 
-These terms come from conventions for storing arrays in the C and
-Fortran programming languages.
-
+These terms come from conventions for storing arrays in the C and Fortran programming languages.
 
 ### array size
 
-When discussing an array that is stored in C-order, dimension size will
-be described using a list if sizes per dimension. For example: `[ 3, 5, 7 ].`
-In this example, the left-most dimension has size `3`, the right-most
-dimension has size `7`.
+The size of a multidimensional array is described by a list of sizes per
+dimension. For example: `[ 3, 5, 7 ].` In this example, the *first*
+dimension has size `3`, the *last* dimension has size `7`.
 
-As always the *first* dimension will have stride 1. Because we're using
-C-order, is the right-most index. As a result, the *second* dimension
-will have stride `7`, and the *third* dimension will have stride `7*5 =
-35`. 
+If this array is indexed using C-order, then the last index has stride
+`1`. As a result, the middle index will have stride `7`, and the *first*
+dimension will have stride `7*5 = 35`. 
 
-Consider again an array of size `[ 3, 5, 7 ]`, but using F-order.
-Again, the left-most dimension has size `3`, the right-most dimension
-has size `7`.
+Consider again an array of size `[ 3, 5, 7 ]`, but using F-order
+indexing. Again, the *first* dimension has size `3`, the *last*
+dimension has size `7`. Now, however, using F-order, the 
+*first* dimension will have stride `1`, the *second* dimension will have
+stride `3`, and the *third* dimension will have stride `3*5=15`.
 
-As always the *first* dimension will have stride 1.  However, now using
-F-order, the *second* dimension will have stride `3`, and the *third*
-dimension will have stride `3*5=15`.
+## Interpretation of multi-dimensional arrays
+
+The following sections require adding an interpretation or semantics to
+the dimensions of a multi-dimensional array. We'll discuss interpreting
+arrays as matrices and images.
 
 ### row- and column-major
 
-Matrices are often represented as a 2D array of numbers.  Horizontal
+Matrices are usually represented as a 2D array of numbers. Horizontal
 groupings of these numbers are called "rows" and vertical groupings are
 called "columns." In mathematics, the entries of a matrix $A$ are
 denoted $a_{ij}$. Where rows of the matrix are indexed by $i$ the
@@ -171,3 +199,4 @@ arrays the same way when flattened.
 
 1) [nrrd axis ordering](https://teem.sourceforge.net/nrrd/format.html#general.4)
 2) [n5 ordering discussion](https://github.com/saalfeldlab/n5/issues/31)
+3) [multi-dimensional arrays in vigra](http://ukoethe.github.io/vigra/doc-release/vigranumpy/index.html#more-on-the-motivation-and-use-of-axistags)
