@@ -12,7 +12,7 @@
 			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5compressionSpec.json"
 		},
 		"resolution": {
-			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/bigcatresolutionSpec.json"
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/bigcat/schemas/bigcatresolutionSpec.json"
 		}
 	},
 	"required":["dataType", "compression", "resolution"],
