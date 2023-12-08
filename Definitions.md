@@ -21,6 +21,15 @@
 1. An n-dimensional collection of discrete samples whose domain is a regular discrete (integer) grid.
 2. A node in a hierarchy that contains a data structure of the type described in (1). Array nodes cannot have child nodes.
 
+### "axis"
+The physical interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have physical units.
+
+### "dimension"
+An independent extent of a domain. A domain has N dimensions where N is the minimum number of coordinates needed to identify any particular point within the domain. The length of a discrete, numeric, finite dimension establishes the number of indexable locations along that dimension.
+
+### "domain"
+A set of discrete locations in abstract space. A domain, or any location within a domain, may be described by multiple variables, but any given variable has only one domain. A domain has zero or more dimensions. The component dimensions of a domain need not be numeric, but when they are, the domain may be thought of as situated in a coordinate space. If a domain's dimensions are all axes, then that domain is situated in a physical space.
+
 ### "downsampling"
 The act of resampling an image to a lower resolution, often by an integer factor.
 
@@ -38,7 +47,7 @@ A node in a hierarchy that can have child nodes, and can contain metadata, but c
 A collection of groups and arrays, connected in a tree-like structure.
 
 ### "image"
-A set of numbers intended to be displayed on a screen. An image is usually represented as an array or array-like data structure, but can also be represented as the set of solutions for a discrete function over a finite domain. Ancillary data structures may be required to display an image or to interpret an image, but these are not part of the image itself. 
+A set of numbers intended to be displayed on a screen. Ancillary data structures may be required to display or interpret an image (such as a lookup table), but these are not part of the image itself. An image is often, but not necessarily, acquired by a sensor situated within an optical system. Images can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain, but these are not canonical uses of the word “image”, and the word “image” by itself should refer only to arrays and array-like data structures.
 
 ### "interpolation"
 A process that, given an image, produces new samples at points in the domain not on the discrete image grid.
@@ -86,11 +95,12 @@ consist of filtering and interpolation steps.
 Related terms: "downsampling", "resolution"
 
 ### "resolution"
-1. The level of detail in an image. A high resolution image will have more samples than a low resolution image for the same field of view.
-2. The physical (usually spatial) sampling interval for an image. In other words, the distance between samples. Usually expressed separately for each dimension, e.g. millimeters per pixel in x. (Note: The sampling *interval* is the reciprocal of the sampling *rate*.) 
-3. The total number of samples in each dimension of an image. For example, a 2-dimensional image with 1500 pixels along the x dimension and 1000 pixels along the y dimension could be said to have a resolution of 1500 x 1000 (the colloquial convention is to express the dimensions in x, y, z order). 
 
-"Resolution" should be considered synonymous with "spatial resolution" unless otherwise specified (e.g. gray-level resolution, temporal resolution, etc.). 
+1. The level of detail in an image. A high resolution image will have more samples than a low resolution image for the same field of view. 
+2. The total number of samples in each dimension of an image. For example, a 2-dimensional image with 1500 pixels along the x dimension and 1000 pixels along the y dimension could be said to have a resolution of 1500 x 1000 (the colloquial convention is to express the dimensions in x, y, z order).
+3. The set of physical (usually spatial) sampling intervals for an image. In other words, the distance between samples. Usually expressed separately for each dimension, e.g. millimeters per pixel in x. (Note: The sampling *interval* is the reciprocal of the sampling *rate*.)
+
+"Resolution" should be considered synonymous with "spatial resolution" unless otherwise specified.
 
 The terms "spacing", "pixel spacing", and "pixel resolution" are commonly used to refer to "resolution".
 
