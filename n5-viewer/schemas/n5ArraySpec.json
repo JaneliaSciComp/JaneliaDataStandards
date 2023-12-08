@@ -1,12 +1,12 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
-	"$id": "https://github.com/JaneliaSciComp/JaneliaDataStandards/tree/main/n5-viewer/schemas/n5ArraySpec.json",
+	"$id": "https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5ArraySpec.json",
 	"title": "n5ArraySpec",
 	"description": "Generic base schema for representing n5 arrays",
 	"type": "object",
 	"properties": {
 		"dataType": {
-			"$ref":"https://github.com/JaneliaSciComp/JaneliaDataStandards/tree/main/n5-viewer/schemas/n5dataTypeSpec.json"
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5dataTypeSpec.json"
 		}
 	},
 	"required":["dataType"]
