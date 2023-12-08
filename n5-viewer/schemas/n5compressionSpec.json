@@ -1,8 +1,17 @@
 {
 	"$schema": "https://json-schema.org/draft/2020-12/schema",
 	"$id": "https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5compressionSpec.json",
-	"title": "n5CompressionSpec",
+	"title": "n5 compression Spec",
 	"description": "Schema for the n5 compression object",
+	"type": "object",
+	"oneOf": [
+		{"$ref": "#/$defs/blosc"}, 
+		{"$ref": "#/$defs/bzip2"},
+		{"$ref": "#/$defs/gzip"},
+		{"$ref": "#/$defs/lz4"},
+		{"$ref": "#/$defs/raw"},
+		{"$ref": "#/$defs/xz"}
+		],
 	"$defs": {
 		"blosc": {
 			"type": "object",
@@ -62,14 +71,5 @@
 			"required": ["type", "preset"],
 			"additionalProperties": false
 		}
-},
-	"oneOf": [
-		{"$ref": "#/$defs/blosc"}, 
-		{"$ref": "#/$defs/bzip2"},
-		{"$ref": "#/$defs/gzip"},
-		{"$ref": "#/$defs/lz4"},
-		{"$ref": "#/$defs/raw"},
-		{"$ref": "#/$defs/xz"}
-	],
-	"additionalProperties": false
+	}
 }
