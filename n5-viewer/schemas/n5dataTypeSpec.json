@@ -1,0 +1,7 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://github.com/JaneliaSciComp/JaneliaDataStandards/tree/main/n5-viewer/schemas/n5dataTypeSpec.json",
+	"title": "n5 dataType Spec",
+	"description": "Schema for the dataType object used in n5",
+	"enum": ["uint8","uint16", "uint32", "uint64", "int8", "int16", "int32", "int64", "float32", "float64", "string", "object"]
+}
