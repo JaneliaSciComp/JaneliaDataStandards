@@ -1,0 +1,20 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/bigcat/schemas/bigcatArraySpec.json",
+	"title": "bigcat Array Spec",
+	"description": "Schema for representing bigcat arrays",
+	"type": "object",
+	"properties": {
+		"dataType": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5dataTypeSpec.json"
+		},
+		"compression": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5compressionSpec.json"
+		},
+		"resolution": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/bigcatresolutionSpec.json"
+		}
+	},
+	"required":["dataType", "compression", "resolution"],
+	"additionalProperties": false
+}
