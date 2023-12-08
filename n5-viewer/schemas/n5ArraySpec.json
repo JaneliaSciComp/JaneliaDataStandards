@@ -10,6 +10,9 @@
 		},
 		"compression": {
 			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5compressionSpec.json"
+		},
+		"pixelResolution": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5pixelResolutionSpec.json"
 		}
 	},
 	"required":["dataType", "compression"]
