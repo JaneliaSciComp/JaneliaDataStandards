@@ -7,7 +7,10 @@
 	"properties": {
 		"dataType": {
 			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5dataTypeSpec.json"
+		},
+		"compression": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5compressionSpec.json"
 		}
 	},
-	"required":["dataType"]
+	"required":["dataType", "compression"]
 }

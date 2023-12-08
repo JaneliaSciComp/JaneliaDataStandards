@@ -1,0 +1,75 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5compressionSpec.json",
+	"title": "n5CompressionSpec",
+	"description": "Schema for the n5 compression object",
+	"$defs": {
+		"blosc": {
+			"type": "object",
+			"properties": {
+				"type": {"const":"blosc"},
+				"clevel": {"type":"integer"}, 
+				"blocksize": {"type":"integer"}, 
+				"cname": {"enum":["lz4", "lz4hc", "blosclz", "zstd", "snappy", "zlib"]}, 
+				"nthreads": {"type":"integer"}, 
+				"shuffle": {"type": "integer"}
+			},
+			"required": ["type", "clevel", "blocksize", "cname", "nthreads", "shuffle"],
+			"additionalProperties": false
+		},
+		"bzip2": {
+			"type": "object",
+			"properties": {
+				"type": {"const":"bzip2"},
+				"blockSize": {"type":"integer"}
+		},
+			"required": ["type", "blockSize"],
+			"additionalProperties": false
+		},
+		"gzip": {
+			"type": "object",
+			"properties": {
+				"type": {"const":"gzip"},
+				"useZlib": {"type": "boolean"},
+				"level": {"type": "integer", "minimum": -1, "maximum": 9} 
+			},
+			"required": ["type", "useZlib", "level"],
+			"additionalProperties": false
+		},
+		"lz4": {
+			"type": "object",
+			"properties": {
+				"type":{"const":"lz4"},
+				"blockSize": {"type":"integer"}
+		},
+			"required": ["type", "blockSize"],
+			"additionalProperties": false
+		},
+		"raw": {
+			"type": "object",
+			"properties": {
+				"type":{"const":"raw"}
+		},
+			"required": ["type"],
+			"additionalProperties": false
+		},
+		"xz": {
+			"type": "object",
+			"properties": {
+				"type":{"const":"xz"},
+				"preset": {"type":"integer"}
+		},
+			"required": ["type", "preset"],
+			"additionalProperties": false
+		}
+},
+	"oneOf": [
+		{"$ref": "#/$defs/blosc"}, 
+		{"$ref": "#/$defs/bzip2"},
+		{"$ref": "#/$defs/gzip"},
+		{"$ref": "#/$defs/lz4"},
+		{"$ref": "#/$defs/raw"},
+		{"$ref": "#/$defs/xz"}
+	],
+	"additionalProperties": false
+}
