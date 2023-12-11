@@ -11,10 +11,19 @@
 		"compression": {
 			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5compressionSpec.json"
 		},
+		"blockSize": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5blockSizeOrdimensionsSpec.json"
+		},
+		"dimensions": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5blockSizeOrdimensionsSpec.json"
+		},
 		"resolution": {
 			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/bigcat/schemas/bigcatresolutionSpec.json"
+		},
+		"offset": {
+			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/bigcatoffsetSpec.json"
 		}
 	},
-	"required":["dataType", "compression", "resolution"],
+	"required":["dataType", "compression", "blockSize", "resolution"],
 	"additionalProperties": false
 }

@@ -24,6 +24,6 @@
 			"$ref":"https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5downsamplingFactorsSpec.json"
 		}
 	},
-	"required":["dataType", "compression"],
+	"required":["dataType", "compression", "blockSize", "dimensions", "pixelResolution"],
 	"additionalProperties": false
 }
