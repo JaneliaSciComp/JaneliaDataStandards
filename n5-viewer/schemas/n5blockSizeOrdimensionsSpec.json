@@ -1,0 +1,13 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "https://raw.githubusercontent.com/JaneliaSciComp/JaneliaDataStandards/main/n5-viewer/schemas/n5blockSizeOrdimensionsSpec.json",
+	"title": "n5 blockSize or dimensions Spec",
+	"description": "Schema for the blockSize and dimensions objects used in n5",
+	"type": "array",
+    "minItems": 1,
+	"maxItems": 4,
+    "items":{
+        "type":"integer",
+        "minimum": 0
+        }
+}
