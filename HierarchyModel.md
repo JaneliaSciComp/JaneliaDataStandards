@@ -33,15 +33,12 @@ N5 Container trees are defined [here](https://github.com/saalfeldlab/n5-ij/wiki/
 
 ## Toy Example (Work in progress!)
 
-Let's say we have an imaginary chunked file format, based on Zarr or n5, specifically formatted for a particular application.
+Let's say we have an imaginary chunked file format specifically intended for a particular application.
+Restrictions:
+* The top level of the hierarchy (right after the root) can only be groups, and the groups must either be named c0, c1, etc., or s0, s1, etc.
+* Within the s0, s1, etc. groups, arrays must be 1D to 4D.
+* Within the s0, s1, etc. groups, the number of files must be equal to the number of chunks specified in the array metadata.
+* The application accepts both Zarr and n5 files.
 
-Here is a text description of our rudimentary, imaginary file format:
-* The top level of the hierarchy (right after the root) can only be groups, and the groups must be named c0, c1, etc. 
-* The second level of the hierarchy can only be 2-dimensional arrays, and the arrays must be named s0, s1, etc.
-* Arrays have the following metadata: dataType, dimensions, blockSize, and compression.
-	* dataType is a string specifying the data type of the data in the array, which in turn specifies all the possible values for a given datum. This field is required. While it can be anything, some reasonable data types are listed here: https://zarr-specs.readthedocs.io/en/latest/v3/core/v3.0.html#data-types
-	* dimensions is a JSON array of integers defining the length of each dimension of the array. This property is required.
-	* blockSize is a JSON array of integers defining the length of each dimension of a chunk of the array. This property is required.
-	* compression is a JSON object identifying the compression scheme and relevant parameters, or an empty object if no compression was used. The object must contain a `type` key identifying the compression scheme. Common compression types are gzip AND…?. If the type is gzip, the parameters should be “useZlib” and “level”. (UseZlib indicates whether or not Zlib was used. The level indicates the level of compression on a scale of 1 to 9, including -1, where 1 is the least compressed, 9 is the most compressed, and -1 indicates the default compression level. The compression level was specified at the time of compression.) This object is required. Multiple compressors are not allowed.
-
-TODO: Create a JSON Schema for the toy format!
+TODO: Decide on modeling approach and start creating schemas.
+Separate validation of the zarr/n5 part from validation of the more specific application requirements?
