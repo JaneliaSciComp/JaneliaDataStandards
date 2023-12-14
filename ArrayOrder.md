@@ -6,7 +6,7 @@ the complete multidimensional array and are stored as a 1D array of
 values, called a "flattened" array.
 
 Indexing into a multi-dimensional array is done with an ordered tuple,
-each element of which indexes into one of the arrays dimensions.
+each element of which indexes into one of the array's dimensions.
 Elements of this tuple are called "coordinates." For example, the tuple
 `(i,j,k)` indexes a three-dimensional array, and `i`, `j`, and `k` are
 its coordinates. We will call `i` the "left" or "first" index, and `k` the
@@ -20,10 +20,10 @@ flattened 1D array.
 
 ### Reshaping and stride
 
-One can think of reshaping a 1D as a recursive process of grouping a
+One can think of reshaping a 1D array as a recursive process of grouping a
 number of adjacent elements.
 
-A (n-1)-dimnensional array is reshaped to an n-dimensional array by
+An (n-1)-dimensional array is reshaped to an n-dimensional array by
 grouping a number adjacent elements belonging to the same dimension. 
 
 * **Define:** the "size" of a dimension is the number of grouped elements.
@@ -66,7 +66,7 @@ second stride):
 
 `(0, 1), (2, 3), (4, 5), (6, 7), (8, 9), (10, 11), (12, 13), (14, 15), (16, 17), (18, 19), (20, 21), (22, 23)`
 
-Next group elements of the new list (which are themselves groups) into
+Next, group elements of the new list (which are themselves groups) into
 groups of 3 (the largest stride).
 
 `[(0, 1), (2, 3), (4, 5)], [(6, 7), (8, 9), (10, 11)], [(12, 13), (14, 15), (16, 17)], [(18, 19), (20, 21), (22, 23)]`
@@ -113,9 +113,9 @@ arrays as matrices and images.
 Matrices are usually represented as a 2D array of numbers. Horizontal
 groupings of these numbers are called "rows" and vertical groupings are
 called "columns." In mathematics, the entries of a matrix $A$ are
-denoted $a_{ij}$. Where rows of the matrix are indexed by $i$ the
-"first", or "left" index, and columns of the matrix are indexed by $j$,
-the "second", or "right" index.
+denoted $a_{ij}$. Rows of the matrix are indexed by $i$, the
+"first" or "left" index, and columns of the matrix are indexed by $j$,
+the "second" or "right" index.
 
 * **Universal Matrix Convention**: Left indexes refer to rows,
   right indexes refer to columns.
@@ -128,11 +128,11 @@ or right) refers to rows vs columns for matrices in mathematics.
 * **Define:** Arrays storing matrices in "column-major" give rows stride 1. 
 
 The names come from the fact that varying the column index changes the
-position along a single row
+position along a single row.
 
-* **Consequence:** Given matrix storage conventions C-order storage is
+* **Consequence:** Given matrix storage conventions, C-order storage is
   equivalent to "row-major".
-* **Consequence:** Given matrix storage conventions F-order storage is
+* **Consequence:** Given matrix storage conventions, F-order storage is
   equivalent to "column-major".
 
 #### example
@@ -173,7 +173,7 @@ stride of 1.)
 ### cartesian coordinates
 
 In contrast to the matrix row/column index convention, cartesian
-coordinates label the horizontal and vertical dimensions `x` and `y`
+coordinates label the horizontal and vertical dimensions `x` and `y`,
 respectively. Referencing positions in the 2D plane is done using
 ordered two-tuples `(x,y)`, where `x` is conventionally the left-index
 and `y` is the right-index. Using cartesian coordinates, varying
