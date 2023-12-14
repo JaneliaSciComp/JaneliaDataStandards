@@ -40,7 +40,7 @@ The stride of a dimension is the product of sizes of all previous dimensions.
 
 Suppose we have this flat array:
 
-`0, 1, 2, 3, 4, 5`
+`[0, 1, 2, 3, 4, 5]`
 
 and two dimensions having sizes 3 and 2. The first stride is always 1.
 The second stride is the previous dimenions' size: 3 in this example. So
@@ -48,7 +48,7 @@ our strides are 1 and 3. There is no grouping to be done for a
 dimensions of stride one, so the first and only step is to group
 elements into groups of 3 (the larger stride):
 
-`(0, 1, 2), (3, 4, 5)`
+`[(0, 1, 2), (3, 4, 5)]`
 
 <details>
 
@@ -56,7 +56,7 @@ elements into groups of 3 (the larger stride):
 
 Suppose we have this flat array:
 
-`0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23`
+`[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]`
 
 
 and three dimensions having sizes 2, 3, and 4. Their strides are 1, 2, and 6
@@ -64,12 +64,12 @@ where `2*3 = 6`. There is no grouping to be done for a dimensions of stride 1,
 so the first step is to join elements into groups of 2 (the
 second stride):
 
-`(0, 1), (2, 3), (4, 5), (6, 7), (8, 9), (10, 11), (12, 13), (14, 15), (16, 17), (18, 19), (20, 21), (22, 23)`
+`[(0, 1), (2, 3), (4, 5), (6, 7), (8, 9), (10, 11), (12, 13), (14, 15), (16, 17), (18, 19), (20, 21), (22, 23)]`
 
 Next, group elements of the new list (which are themselves groups) into
 groups of 3 (the largest stride).
 
-`[(0, 1), (2, 3), (4, 5)], [(6, 7), (8, 9), (10, 11)], [(12, 13), (14, 15), (16, 17)], [(18, 19), (20, 21), (22, 23)]`
+`[((0, 1), (2, 3), (4, 5)), ((6, 7), (8, 9), (10, 11)), ((12, 13), (14, 15), (16, 17)), ((18, 19), (20, 21), (22, 23))]`
 
 Notice:
 * The element adjacent to `0` in the inner group is `1`, hence stride `1`.
@@ -89,14 +89,14 @@ These terms come from conventions for storing arrays in the C and Fortran progra
 ### array size
 
 The size of a multidimensional array is described by a list of sizes per
-dimension. For example: `[ 3, 5, 7 ].` In this example, the *first*
+dimension. For example: `[3, 5, 7].` In this example, the *first*
 dimension has size `3`, the *last* dimension has size `7`.
 
 If this array is indexed using C-order, then the last index has stride
 `1`. As a result, the middle index will have stride `7`, and the *first*
 dimension will have stride `7*5 = 35`. 
 
-Consider again an array of size `[ 3, 5, 7 ]`, but using F-order
+Consider again an array of size `[3, 5, 7]`, but using F-order
 indexing. Again, the *first* dimension has size `3`, the *last*
 dimension has size `7`. Now, however, using F-order, the 
 *first* dimension will have stride `1`, the *second* dimension will have
