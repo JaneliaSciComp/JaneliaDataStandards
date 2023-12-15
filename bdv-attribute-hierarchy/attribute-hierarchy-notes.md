@@ -37,7 +37,7 @@ Axes with `type: space` MUST also have `storage: array`.
 For example:
 
 ```json
-"axes: [
+{ "axes": [
     { "name": "i", "type": "tile", "storage": "group" },
     { "name": "a", "type": "angle", "storage": "group" },
     { "name": "c", "type": "channel", "storage": "array" },
@@ -45,7 +45,7 @@ For example:
     { "name": "z", "type": "space", "storage": "array" },
     { "name": "y", "type": "space", "storage": "array" },
     { "name": "x", "type": "space", "storage": "array" }
-]
+]}
 ```
 
 The `tile` and `angle` attributes are stored as part of the zarr
@@ -79,29 +79,29 @@ of the hierarchy that may not exist.
     "attributes": [
         {
             "name": "i",
-            "type: "tile",
+            "type": "tile",
             "objects": [
                 {
                     "id": "0",
-                    "metadata": { <custom metadata> }
+                    "metadata": { "tile metadata": {} }
                 },
                 {
                     "id": "1",
-                    "metadata": { <custom metadata> }
+                    "metadata": { "tile metadata": {} }
                 }
             ]
         },
         {
             "name": "a",
-            "type: "angle",
+            "type": "angle",
             "objects": [
                 {
                     "id": "00",
-                    "metadata": { <custom metadata> }
+                    "metadata": { "angle metadata": "foo" }
                 },
                 {
                     "id": "01",
-                    "metadata": { <custom metadata> }
+                    "metadata": { "angle metadata": "bar" }
                 }
             ]
         }
