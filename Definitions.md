@@ -1,27 +1,55 @@
 # Definitions
 
-- [*array*](#array)
-- [*downsampling*](#downsampling)
-- [*field of view*](#field-of-view)
-- [*filtering*](#filtering)
-- [*group*](#group)
-- [*hierarchy*](#hierarchy)
-- [*image*](#image)
-- [*interpolation*](#interpolation)
-- [*origin*](#origin)
-- [*physical*](#physical)
-- [*pixel*](#pixel)
-- [*resampling*](#resampling)
-- [*resolution*](#resolution)
-- [*sample*](#sample)
-- [*voxel*](#voxel)
+- Basic definitions
+    - [*array*](#array)
+    - [*image*](#image)
+    - [*pixel*](#pixel)
+    - [*sample*](#sample)
+    - [*voxel*](#voxel)
+- Other definitions
+    - [*downsampling*](#downsampling)
+    - [*field of view*](#field-of-view)
+    - [*filtering*](#filtering)
+    - [*group*](#group)
+    - [*hierarchy*](#hierarchy)
+    - [*interpolation*](#interpolation)
+    - [*origin*](#origin)
+    - [*physical*](#physical)
+    - [*resampling*](#resampling)
+    - [*resolution*](#resolution)
 
+
+## Basic definitions
 
 ### *array*
 1. An n-dimensional collection of discrete *samples* whose domain is a regular discrete (integer) grid.
 2. A node in a *hierarchy* that contains a data structure of the type described in (1). *Array* nodes cannot have child nodes.
 
 Related terms: [*sample*](#sample), [*image*](#image), [*hierarchy*](#hierarchy)
+
+### *image*
+A set of numbers intended to be displayed on a screen. Ancillary data structures may be required to display or interpret an *image* (such as a lookup table), but these are not part of the *image* itself. An *image* is often, but not necessarily, acquired by a sensor situated within an optical system. *Images* can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain, but these are not canonical uses of the word “image”, and the word “image” by itself should refer only to *arrays* and array-like data structures.
+
+Related terms: [*array*](#array), [*sample*](#sample), [*pixel*](#pixel), [*voxel*](#voxel), [*axis*](#axis), [*dimension*](#dimension)
+
+### *pixel*
+A single *sample* of a two-dimensional *image*.
+
+Often used interchangeably with *sample*.
+
+Related terms: [*sample*](#sample), [*voxel*](#voxel)
+
+### *sample*
+A digital number representing a measurement of the energy sensed by a particular cell on a sensor at a discrete point in time. Because cells on a sensor correspond to elements of an *array* and *pixels* of an *image*, *sample* is often used interchangeably with *pixel*.
+
+Related terms: [*pixel*](#pixel), [*voxel*](#voxel), [*image*](#image), [*array*](#array)
+
+### *voxel*
+A single *sample* of a three-dimensional *image*.
+
+Related terms: [*sample*](#sample), [*pixel*](#pixel)
+
+## Other definitions
 
 ### *axis*
 The *physical* interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have *physical* units.
@@ -53,11 +81,6 @@ Related terms: [*hierarchy*](#hierarchy)
 A collection of *groups* and *arrays*, connected in a tree-like structure.
 
 Related terms: [*group*](#group), [*array*](#array)
-
-### *image*
-A set of numbers intended to be displayed on a screen. Ancillary data structures may be required to display or interpret an *image* (such as a lookup table), but these are not part of the *image* itself. An *image* is often, but not necessarily, acquired by a sensor situated within an optical system. *Images* can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain, but these are not canonical uses of the word “image”, and the word “image” by itself should refer only to *arrays* and array-like data structures.
-
-Related terms: [*array*](#array), [*sample*](#sample), [*pixel*](#pixel), [*voxel*](#voxel), [*axis*](#axis), [*dimension*](#dimension)
 
 ### *interpolation*
 A process that, given an *image*, produces new *samples* at points in the domain not on the discrete image grid.
@@ -91,13 +114,6 @@ Non-examples:
     * "the area of segment $B$ is $85$ pixels"
     * "mitosis begins at frame $51$"
 
-### *pixel*
-A single *sample* of a two-dimensional *image*.
-
-Often used interchangeably with *sample*.
-
-Related terms: [*sample*](#sample), [*voxel*](#voxel)
-
 ### *resampling*
 A process that generates a new *array* representing an *image* at a new *resolution*. 
 
@@ -115,13 +131,3 @@ Related terms: [*downsampling*](#downsampling), [*interpolation*](#interpolation
 *Resolution* should be considered synonymous with "spatial resolution" unless otherwise specified.
 
 The terms "spacing", "pixel spacing", and "pixel resolution" are commonly used to refer to *resolution*.
-
-### *sample*
-A digital number representing a measurement of the energy sensed by a particular cell on a sensor at a discrete point in time. Because cells on a sensor correspond to elements of an *array* and *pixels* of an *image*, *sample* is often used interchangeably with *pixel*.
-
-Related terms: [*pixel*](#pixel), [*voxel*](#voxel), [*image*](#image), [*array*](#array)
-
-### *voxel*
-A single *sample* of a three-dimensional *image*.
-
-Related terms: [*sample*](#sample), [*pixel*](#pixel)
