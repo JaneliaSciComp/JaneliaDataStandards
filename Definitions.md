@@ -22,8 +22,7 @@
 ## Basic definitions
 
 ### *array*
-1. An n-dimensional collection of discrete *samples* whose domain is a regular discrete (integer) grid.
-2. A node in a *hierarchy* that contains a data structure of the type described in (1). *Array* nodes cannot have child nodes.
+An n-dimensional collection of discrete *samples* whose domain is a regular discrete (integer) grid.
 
 Related terms: [*sample*](#sample), [*image*](#image), [*hierarchy*](#hierarchy)
 
@@ -73,12 +72,13 @@ The *physical* extent of the observed space. In microscopy, FOV may be expressed
 2. Any operation that modifies the intensity values of an *image*.
 
 ### *group*
-A node in a *hierarchy* that can have child nodes, and can contain metadata, but cannot contain *array* data.
-
-Related terms: [*hierarchy*](#hierarchy)
+See [*hierarchy*](#hierarchy).
 
 ### *hierarchy*
-A collection of *groups* and *arrays*, connected in a tree-like structure.
+A collection of nodes, connected in a tree-like structure.
+A node can be either:
+1. A group, i.e., a node that can have child nodes, and can contain metadata, but cannot contain *array* data.
+2. An *array*. *Array* nodes cannot have child nodes.
 
 Related terms: [*group*](#group), [*array*](#array)
 
