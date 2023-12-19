@@ -25,7 +25,7 @@
 The *physical* interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have *physical* units.
 
 ### *dimension*
-An independent extent of a domain. A domain has N dimensions where N is the minimum number of coordinates needed to identify any particular point within the domain. The length of a discrete, numeric, finite dimension establishes the number of indexable locations along that dimension.
+An independent extent of a domain. A domain has $N$ dimensions where $N$ is the minimum number of coordinates needed to identify any particular point within the domain. The length of a discrete, numeric, finite dimension establishes the number of indexable locations along that dimension.
 
 ### *domain*
 A set of discrete locations in abstract space. A domain, or any location within a domain, may be described by multiple variables, but any given variable has only one domain. A domain has zero or more dimensions. The component dimensions of a domain need not be numeric, but when they are, the domain may be thought of as situated in a coordinate space. If a domain's dimensions are all axes, then that domain is situated in a *physical* space.
@@ -67,17 +67,17 @@ Examples:
 * *sample* intensities measured by a *physical* sensor
     * photon count
     * [Hounsfield unit](https://en.wikipedia.org/wiki/Hounsfield_scale)
-* distances / areas / volumes / times measured in *images* in *physical* units (um, mm, seconds)
-    * "the area of segment A is 12 mm^2"
-    * "mitosis begins at time = 3.2s"
+* distances / areas / volumes / times measured in *images* in *physical* units ($\mu m$, $mm$, seconds)
+    * "the area of segment $A$ is $12 mm^2$"
+    * "mitosis begins at time = $3.2 s$"
 
 Non-examples:
 * *sample* intensities not derived from sensors
     * segmentation id
     * the output of a deep neural network model
 * distances / areas / volumes / times described by *sample* / *array* indexes
-    * "the area of segment B is 85 pixels"
-    * "mitosis begins at frame 51"
+    * "the area of segment $B$ is $85$ pixels"
+    * "mitosis begins at frame $51$"
 
 ### *pixel*
 A single *sample* of a two-dimensional *image*.
@@ -97,7 +97,7 @@ Related terms: *downsampling*, *resolution*
 ### *resolution*
 
 1. The level of detail in an *image*. A high *resolution* *image* will have more *samples* than a low *resolution* *image* for the same *field of view*. 
-2. The total number of *samples* in each dimension of an *image*. For example, a 2-dimensional *image* with 1500 *pixels* along the x dimension and 1000 *pixels* along the y dimension could be said to have a *resolution* of 1500 x 1000 (the colloquial convention is to express the dimensions in x, y, z order).
+2. The total number of *samples* in each dimension of an *image*. For example, a 2-dimensional *image* with $1500$ *pixels* along the x dimension and $1000$ *pixels* along the y dimension could be said to have a *resolution* of $1500 \times 1000$ (the colloquial convention is to express the dimensions in x, y, z order).
 3. The set of *physical* (usually spatial) sampling intervals for an *image*. In other words, the distance between *samples*. Usually expressed separately for each dimension, e.g. millimeters per *pixel* in x. (Note: The sampling *interval* is the reciprocal of the sampling *rate*.)
 
 *Resolution* should be considered synonymous with "spatial resolution" unless otherwise specified.
