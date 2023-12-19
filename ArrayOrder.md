@@ -88,6 +88,9 @@ Notice:
 
 These terms come from conventions for storing arrays in the C and Fortran programming languages.
 
+C-order is equivalent to "lexicographical order". F-order is equivalent to "co-lexicographical
+order".
+
 ### array size
 
 The size of a multi-dimensional array is described by a list of sizes per
