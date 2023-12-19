@@ -61,6 +61,7 @@ A set of discrete locations in abstract space. A domain, or any location within 
 
 ### *downsampling*
 The act of *resampling* an *image* to a lower *resolution*, often by an integer factor.
+Sometimes this can require *interpolation*.
 
 Related terms: [*resampling*](#resampling), [*resolution*](#resolution), [*interpolation*](#interpolation)
 
@@ -96,7 +97,7 @@ Related terms: [*resampling*](#resampling), [*downsampling*](#downsampling)
 The term "offset" is sometimes used to refer to the *origin*.
 
 ### *physical*
-Relating to quantities or measurements of the physical world.
+Relating to quantities or measurements of the real world.
 
 Examples:
 * *sample* intensities measured by a *physical* sensor
@@ -117,7 +118,7 @@ Non-examples:
 ### *resampling*
 A process that generates a new *array* representing an *image* at a new *resolution*. 
 
-The new *resolution* is often an integer multiple of the original image *resolution*, but need not be. *Resampling* methods often
+The new *resolution* is often an integer multiple or fraction of the original image *resolution*, but need not be. *Resampling* methods often
 consist of *filtering* and *interpolation* steps.
 
 Related terms: [*downsampling*](#downsampling), [*interpolation*](#interpolation), [*resolution*](#resolution)
