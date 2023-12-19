@@ -1,9 +1,9 @@
 ## Multi-dimensional array indexing
 
 Zarr stores multi-dimensional arrays into regularly sized chunks.
-Chunks are themselves multi-dimensional arrays of a smaller size than
-the complete multidimensional array and are stored as a 1D array of
-values, called a "flattened" array.
+Chunks are themselves multi-dimensional arrays of a (usually) smaller
+size than the complete multi-dimensional array and are stored as a 1D
+array of values, called a "flattened" array.
 
 Indexing into a multi-dimensional array is done with an ordered tuple,
 each element of which indexes into one of the array's dimensions.
@@ -12,7 +12,9 @@ Elements of this tuple are called "coordinates." For example, the tuple
 its coordinates. We will call `i` the "left" or "first" index, and `k` the
 "right" or "last" index.
 
-The only valid coordinates for arrays are the non-negative integers.
+In this document, we will consider the non-negative integers as the only
+valid coordinates for arrays (though this can be different in other
+contexts).
 
 The following will describe conventions for mapping multi-dimensional
 indexes (ordered tuples of integers) to the scalar integer index of the
@@ -43,7 +45,7 @@ Suppose we have this flat array:
 `[0, 1, 2, 3, 4, 5]`
 
 and two dimensions having sizes 3 and 2. The first stride is always 1.
-The second stride is the previous dimenions' size: 3 in this example. So
+The second stride is the previous dimensions' size: 3 in this example. So
 our strides are 1 and 3. There is no grouping to be done for a
 dimensions of stride one, so the first and only step is to group
 elements into groups of 3 (the larger stride):
@@ -88,7 +90,7 @@ These terms come from conventions for storing arrays in the C and Fortran progra
 
 ### array size
 
-The size of a multidimensional array is described by a list of sizes per
+The size of a multi-dimensional array is described by a list of sizes per
 dimension. For example: `[3, 5, 7].` In this example, the *first*
 dimension has size `3`, the *last* dimension has size `7`.
 
