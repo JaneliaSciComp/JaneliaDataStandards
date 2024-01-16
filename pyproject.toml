@@ -8,8 +8,10 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
-mkdocs-material = "^9.5.4"
 
+[tool.poetry.group.docs.dependencies]
+mkdocs-material = "^9.5.4"
+mkdocs = "^1.5.3"
 
 [build-system]
 requires = ["poetry-core"]
