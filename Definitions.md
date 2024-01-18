@@ -7,6 +7,8 @@
     - [*sample*](#sample)
     - [*voxel*](#voxel)
 - Other definitions
+    - [*axis*](#axis)
+    - [*domain*](#domain)
     - [*downsampling*](#downsampling)
     - [*field of view*](#field-of-view)
     - [*filtering*](#filtering)
