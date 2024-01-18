@@ -8,7 +8,7 @@
     - [*voxel*](#voxel)
 - Other definitions
     - [*axis*](#axis)
-    - [*bit depth*](#bit depth)
+    - [*bit-depth*](#bit-depth)
     - [*domain*](#domain)
     - [*downsampling*](#downsampling)
     - [*field of view*](#field-of-view)
@@ -57,7 +57,7 @@ Related terms: [*sample*](#sample), [*pixel*](#pixel)
 ### *axis*
 The *physical* interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have *physical* units.
 
-### *bit depth*
+### *bit-depth*
 The number of bits used in the *quantization* a digital image that defines the number of unique values that can be represented by samples. For example, samples of images with a bit depth of ("8-bit images") can take up to 256 unique values.
 
 Related terms: [*quantization*](#quantization)
