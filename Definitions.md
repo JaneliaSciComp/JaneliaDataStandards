@@ -127,7 +127,7 @@ Non-examples:
 ### *quantization*
 A process that converts a physical or continuous value to a digital representation with a particular precision. Samples of a quantized image can take one of a finite set of values defined by its [*bit depth*](#bit depth).
 
-Related terms: [*bit depth*](#bit depth)
+Related terms: [*bit-depth*](#bit-depth)
 
 ### *resampling*
 A process that generates a new *array* representing an *image* at a new *resolution*. 
