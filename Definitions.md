@@ -8,6 +8,7 @@
     - [*voxel*](#voxel)
 - Other definitions
     - [*axis*](#axis)
+    - [*bit depth*](#bit depth)
     - [*domain*](#domain)
     - [*downsampling*](#downsampling)
     - [*field of view*](#field-of-view)
@@ -17,6 +18,7 @@
     - [*interpolation*](#interpolation)
     - [*origin*](#origin)
     - [*physical*](#physical)
+    - [*quantization*](#quantization)
     - [*resampling*](#resampling)
     - [*resolution*](#resolution)
 
@@ -54,6 +56,11 @@ Related terms: [*sample*](#sample), [*pixel*](#pixel)
 
 ### *axis*
 The *physical* interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have *physical* units.
+
+### *bit depth*
+The number of bits used in the *quantization* a digital image that defines the number of unique values that can be represented by samples. For example, samples of images with a bit depth of ("8-bit images") can take up to 256 unique values.
+
+Related terms: [*quantization*](#quantization)
 
 ### *dimension*
 An independent extent of a domain. A domain has $N$ dimensions where $N$ is the minimum number of coordinates needed to identify any particular point within the domain. The length of a discrete, numeric, finite dimension establishes the number of indexable locations along that dimension.
@@ -116,6 +123,11 @@ Non-examples:
 * distances / areas / volumes / times described by *sample* / *array* indexes
     * "the area of segment $B$ is $85$ pixels"
     * "mitosis begins at frame $51$"
+
+### *quantization*
+A process that converts a physical or continuous value to a digital representation with a particular precision. Samples of a quantized image can take one of a finite set of values defined by its [*bit depth*](#bit depth).
+
+Related terms: [*bit depth*](#bit depth)
 
 ### *resampling*
 A process that generates a new *array* representing an *image* at a new *resolution*. 
