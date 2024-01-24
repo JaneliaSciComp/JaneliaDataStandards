@@ -31,7 +31,7 @@ An n-dimensional collection of discrete *samples* whose domain is a regular disc
 Related terms: [*sample*](#sample), [*image*](#image), [*hierarchy*](#hierarchy)
 
 ### *image*
-A set of numbers intended to be displayed on a screen. Ancillary data structures may be required to display or interpret an *image* (such as a lookup table), but these are not part of the *image* itself. An *image* is often, but not necessarily, acquired by a sensor situated within an optical system. *Images* can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain, but these are not canonical uses of the word “image”, and the word “image” by itself should refer only to *arrays* and array-like data structures.
+A set of numbers intended to be displayed on a screen. It is also a set of values, each of which is associated with a position in a *domain*. Ancillary data structures may be required to display or interpret an *image* (such as a lookup table), but these are not part of the *image* itself. An *image* is often, but not necessarily, acquired by a sensor situated within an optical system. *Images* can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain, but these are not canonical uses of the word “image”, and the word “image” by itself should refer only to *arrays* and array-like data structures.
 
 Related terms: [*array*](#array), [*sample*](#sample), [*pixel*](#pixel), [*voxel*](#voxel), [*axis*](#axis), [*dimension*](#dimension)
 
@@ -75,7 +75,7 @@ Sometimes this can require *interpolation*.
 Related terms: [*resampling*](#resampling), [*resolution*](#resolution), [*interpolation*](#interpolation)
 
 ### *field of view*
-The *physical* extent of the observed space. In microscopy, FOV may be expressed as the diameter of the circular view seen through the eyepiece. In scientific bioimaging, FOV is typically expressed as linear measurements of the horizontal, vertical, and/or diagonal space captured by the digital sensor.   
+The *physical* extent of the observed space. In microscopy, FOV may be expressed as the diameter of the circular view seen through the eyepiece. In scientific bioimaging, FOV is typically expressed as the horizontal, vertical, and/or diagonal extent of the space captured by the digital sensor. For example, the FOW for a 2D image may be $44mm$ by $22mm$, where $44mm$ is the width and $22mm$ is the height of the observed space.
 
 ### *filtering*
 1. Usually referes to a convolution operation (a local, linear operation on the intensity values of an *image*).
@@ -100,8 +100,7 @@ The most common methods for *interpolation* are "nearest-neighbor", "bi-/tri-/n-
 Related terms: [*resampling*](#resampling), [*downsampling*](#downsampling)
 
 ### *origin*
-1. Of an *array*: the point in the discrete domain with the minimum index (usually zero) for all dimensions.
-2. Of an *image*: the point in the *physical* domain corresponding to the *array* *origin*.
+A special location that acts as a reference point, relative to which relative to which other locations are defined. Unless otherwise specified, the image's origin is the same as the array's origin (assuming the image is an *array*). An array's origin is typically the point in the discrete domain with the minimum index (usually zero) for all dimensions. Physical or anatomical spaces can also have origins; for example, in MR imaging, the anterior/posterior commissure is commonly regarded as an origin for the brain.
 
 The term "offset" is sometimes used to refer to the *origin*.
 
