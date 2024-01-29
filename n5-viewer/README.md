@@ -58,7 +58,7 @@ A couple of requirements are not currently enforced by the schema:
 ## Optional fields
 
 #### offset
-A JSON array indicating, loosely speaking, the extent of translation relative to the original image. More precisely, it indicates the new location of the origin. (Note that here 'origin' refers to the sample that was at (0,0) in the original image.) In general, this can be in arbitrary or physical units, but in bigcat they are always presumed to be physical. The three above requirements for `downsamplingFactors` that are not currently enforced by the schema also apply to `offset`, except that in the first point above, s0/ should have `offset`s of 0. This property appears in the bigcat format but not the n5 format. This property is optional. 
+A JSON array indicating, loosely speaking, the extent of translation relative to the original image. More precisely, it indicates the new location of the origin. (Note that here 'origin' refers to the sample that was at (0,0) in the original image.) In general, this can be in arbitrary or physical units, but in bigcat they are always presumed to be physical. The three above requirements for `downsamplingFactors` that are not currently enforced by the schema also apply to `offset`, except that in the first point above, s0/ should have `offset`s of 0. This property appears in the bigcat format but not the n5-viewer format. This property is optional. 
 
 ## Conditionally required fields
 
