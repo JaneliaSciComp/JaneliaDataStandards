@@ -4,24 +4,26 @@ Code for the n5 viewer is here: https://github.com/saalfeldlab/n5-viewer
 Some documentation on the n5 fiji plugin/API is here: https://github.com/saalfeldlab/n5-ij/wiki
 
 # n5 metadata definitions
-## Required fields (n5 array)
+#### Required fields (n5 array)
 - [dataType](#dataType)
 - [compression](#compression)
 - [blockSize](#blockSize)
 - [dimensions](#dimensions)
-## Optional fields
+#### Optional fields
 - [offset](#offset)
-## Conditionally required fields
+#### Conditionally required fields
 - [pixelResolution](#pixelResolution)
 - [resolution](#resolution)
 - [downsamplingFactors](#downsamplingFactors)
 
+___
+
 ## Required fields (n5 array)
 
-### dataType
+#### dataType
 A string specifying the data type of the data in the array, which in turn specifies all the possible values for a given datum. Must be one of the following: `uint8`, `uint16`, `uint32`, `uint64`, `int8`, `int16`, `int32`, `int64`, `float32`, `float64`, `string`, or `object`. This property is required.
 
-### compression
+#### compression
 A JSON object identifying the compression method and related parameters. The `compression` object must contain the `type` property. `type` must be one of the following six options:
 1. `blosc`: If the type is `blosc`, then the `compression` object must also contain the properties `clevel`, `blocksize`, `cname`, `nthreads`, and `shuffle`. The additional `typesize` property is optional.
     * `clevel` is an integer indicating the level of compression on a scale of -1 to 9. 1 is the lowest level of compression, and 9 is the highest. -1 indicates the default compression level. Compression level of 0 (no compression) is not recommended, but is technically permitted by n5 viewer. The user should use `type`:`raw` instead.
@@ -43,10 +45,10 @@ A JSON object identifying the compression method and related parameters. The `co
 
 Multiple compressors are not allowed. This property is required. 
 
-### blockSize
+#### blockSize
 A JSON array of positive integers indicating the length of each dimension of a chunk of the array. (Assumes the chunks are on a regular grid.) Must contain at least one item and cannot contain more than 4. This array must be the same length as `dimensions`, `pixelResolution`/`resolution`, `offset` (if present) and `downsamplingFactors` (if present), though this is not currently enforced by the schema. This property is required.
 
-### dimensions
+#### dimensions
 A JSON array of positive integers indicating the length of each dimension of the whole array. Must contain at least one item and cannot contain more than 4. This property is required.
 
 A couple of requirements are not currently enforced by the schema:
@@ -55,12 +57,12 @@ A couple of requirements are not currently enforced by the schema:
 
 ## Optional fields
 
-### offset
+#### offset
 A JSON array indicating, loosely speaking, the extent of translation relative to the original image. More precisely, it indicates the new location of the origin. (Note that here 'origin' refers to the sample that was at (0,0) in the original image.) In general, this can be in arbitrary or physical units, but in bigcat they are always presumed to be physical. The three above requirements for `downsamplingFactors` that are not currently enforced by the schema also apply to `offset`, except that in the first point above, s0/ should have `offset`s of 0. This property appears in the bigcat format but not the n5 format. This property is optional. 
 
 ## Conditionally required fields
 
-### pixelResolution
+#### pixelResolution
 This property is only valid for the n5-viewer format. For the bigcat format, use `resolution`. 
 
 `pixelResolution` is a JSON object with exactly two properties:
@@ -69,14 +71,14 @@ This property is only valid for the n5-viewer format. For the bigcat format, use
 
 This property is required, except in the following case: if a multiscale image has `pixelResolution` for s0, and the other levels have downsamplingFactors, then `pixelResolution` is not required for any of the other levels.
 
-### resolution
+#### resolution
 This property is only valid for the bigcat format. For the n5-viewer format, use `pixelResolution`. 
 
 `resolution` is a JSON array containing the spatial sampling intervals for each dimension of the image. Can be any positive integer or float, or 0. Must contain at least one item and cannot contain more than 4. Neither allows nor assumes units. 
 
 This property is required, except in the following case: if a multiscale image has resolution for s0, and the other levels have downsamplingFactors, then `resolution` is not required for any of the other levels.
 
-### downsamplingFactors
+#### downsamplingFactors
 A JSON array indicating the integer factor by which spatial resolution for each dimension was uniformly decreased, relative to the original image. Presumably, this happened in one of two ways: 
 1. Naive downsampling, in which data are uniformly discarded. For example, downsamplingFactors of 4 means every fourth sample was discarded along a particular dimension. 
 2. Average downsampling, in which subsets of samples are averaged to produce a new, smaller array. For example, downsamplingFactors of 4 means every four samples were averaged to produce a new sample. If dimensions are downsampled evenly, the total number of samples is reduced by a factor of N^M, where N is the number of dimensions and M is the downsampling factor.   
