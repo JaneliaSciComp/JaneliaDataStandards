@@ -4,15 +4,19 @@ Code for the n5 viewer is here: https://github.com/saalfeldlab/n5-viewer
 Some documentation on the n5 fiji plugin/API is here: https://github.com/saalfeldlab/n5-ij/wiki
 
 # n5 metadata definitions
-
+## Required fields (n5 array)
 - [dataType](#dataType)
 - [compression](#compression)
 - [blockSize](#blockSize)
 - [dimensions](#dimensions)
+## Optional fields
+- [offset](#offset)
+## Conditionally required fields
 - [pixelResolution](#pixelResolution)
 - [resolution](#resolution)
 - [downsamplingFactors](#downsamplingFactors)
-- [offset](#offset)
+
+## Required fields (n5 array)
 
 ### dataType
 A string specifying the data type of the data in the array, which in turn specifies all the possible values for a given datum. Must be one of the following: `uint8`, `uint16`, `uint32`, `uint64`, `int8`, `int16`, `int32`, `int64`, `float32`, `float64`, `string`, or `object`. This property is required.
@@ -49,30 +53,37 @@ A couple of requirements are not currently enforced by the schema:
 1. The order of dimensions must be xyzt (or xyz, xyt, or xy). Dimension order is assumed by the software and is not expressed anywhere in the metadata, so a metadata document with incorrect dimension order will pass schema validation. 
 2. Channel is expressed in the hierarchy structure, not the metadata. Folders for each channel must be named e.g. c0/, c1/. 
 
+## Optional fields
+
+### offset
+A JSON array indicating, loosely speaking, the extent of translation relative to the original image. More precisely, it indicates the new location of the origin. (Note that here 'origin' refers to the sample that was at (0,0) in the original image.) In general, this can be in arbitrary or physical units, but in bigcat they are always presumed to be physical. The three above requirements for `downsamplingFactors` that are not currently enforced by the schema also apply to `offset`, except that in the first point above, s0/ should have `offset`s of 0. This property appears in the bigcat format but not the n5 format. This property is optional. 
+
+## Conditionally required fields
+
 ### pixelResolution
-A JSON object with exactly two properties:
+This property is only valid for the n5-viewer format. For the bigcat format, use `resolution`. 
+
+`pixelResolution` is a JSON object with exactly two properties:
 1. `unit`: The units of the spatial sampling interval. Can be any string. This property is required.
 2. `dimensions`: A JSON array containing the spatial sampling intervals for each dimension of the image. Can be any positive integer or float, including 0. Must contain at least one item and cannot contain more than 4. This property is required.
 
-This property is required for the n5 format.
+This property is required, except in the following case: if a multiscale image has `pixelResolution` for s0, and the other levels have downsamplingFactors, then `pixelResolution` is not required for any of the other levels.
 
 ### resolution
-A JSON array containing the spatial sampling intervals for each dimension of the image. Can be any positive integer or float, or 0. Must contain at least one item and cannot contain more than 4. Neither allows nor assumes units. This property is required for the bigcat format. For the n5 format, use `pixelResolution`. 
+This property is only valid for the bigcat format. For the n5-viewer format, use `pixelResolution`. 
+
+`resolution` is a JSON array containing the spatial sampling intervals for each dimension of the image. Can be any positive integer or float, or 0. Must contain at least one item and cannot contain more than 4. Neither allows nor assumes units. 
+
+This property is required, except in the following case: if a multiscale image has resolution for s0, and the other levels have downsamplingFactors, then `resolution` is not required for any of the other levels.
 
 ### downsamplingFactors
 A JSON array indicating the integer factor by which spatial resolution for each dimension was uniformly decreased, relative to the original image. Presumably, this happened in one of two ways: 
 1. Naive downsampling, in which data are uniformly discarded. For example, downsamplingFactors of 4 means every fourth sample was discarded along a particular dimension. 
 2. Average downsampling, in which subsets of samples are averaged to produce a new, smaller array. For example, downsamplingFactors of 4 means every four samples were averaged to produce a new sample. If dimensions are downsampled evenly, the total number of samples is reduced by a factor of N^M, where N is the number of dimensions and M is the downsampling factor.   
 
-A few requirements are not currently (or not yet) enforced by the schema:
-1. s0/ should have `downsamplingFactor`s of 1 (e.g. [1,1] for a 2-dimensional image), since s0 should be the original image. 
-2. This array must be the same length as blockSize, dimensions, and resolution/pixelResolution. 
-3. If `downsamplingFactors` is present at some scale levels of the hierarchy, it should be present in all scale levels (in the s0/, s1/, etc. metadata files).
+Items in the JSON array can be any positive integer or float, including 0. Must contain at least one item and cannot contain more than 4. 
 
-Items in the JSON array can be any positive integer or float, including 0. Must contain at least one item and cannot contain more than 4. This property is optional. 
-
-### offset
-A JSON array indicating, loosely speaking, the extent of translation relative to the original image. More precisely, it indicates the new location of the origin. (Note that here 'origin' refers to the sample that was at (0,0) in the original image.) In general, this can be in arbitrary or physical units, but in bigcat they are always presumed to be physical. The three above requirements for `downsamplingFactors` that are not currently enforced by the schema also apply to `offset`, except that in the first point above, s0/ should have `offset`s of 0. This property appears in the bigcat format but not the n5 format. This property is optional. 
-
-# Formatting n5 hierarchies
-TODO!
+A few requirements are not (currently) enforced by the schema:
+1. s0/ of a multiscale image should not contain `downsamplingFactors`. (This is not enforced by the software, but is recommended practice.)
+2. This array must be the same length as blockSize, dimensions, and resolution/pixelResolution.
+3. If `downsamplingFactors` is present at *some* scale levels of a multiscale image except s0/, it should be present in *all* scale levels of that image except s0/.
