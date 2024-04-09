@@ -1,19 +1,26 @@
 # Welcome to Janelia Data Standards
 
-The Janelia Data Standards Hub is a pilot project to centralize Janelia's bioimaging schemas, standards, and data formats. This project is at a very preliminary stage.
+## Purpose
 
-## Goals
+The Janelia Data Standards group was formed by bioimaging developers who have encountered specific, practical bioimaging data dilemmas that international community standards don’t yet cover. When cutting-edge experiments produce new kinds of data or metadata, developers may be forced to modify existing file formats, or occasionally create new ones. For example, it is often unclear how to store and describe high dimensional images, image tiles that form parts of a whole, or images accompanied by large ancillary data sets. Even though developers may be making reasonable choices on their own, a chaotic landscape can result if they do not communicate their choices, and encourage others to store similar data in a similar way.
 
-Here are the long-term goals for the Data Standards Hub:
+**This website is Janelia’s bioimaging developers’ manifesto.** It is a collection of essays written by developers, for developers, on the advanced technical quandaries they’ve encountered. It records the choices Janelia’s developers have made when encountering exotic data dilemmas, so that those encountering similar dilemmas can make consistent choices. Janelia is excited about international standardization efforts, particularly OME-NGFF. Janelia is contributing to OME-NGFF and is rooting for its success. However, such efforts are not enough, since Janelia's experiments will always be one step ahead of community conventions. This manifesto is meant to fill that gap.
 
-* Achieve full interoperability between bioimaging data formats at Janelia.
-* Develop an elegant bioimaging data model that both microscopists and developers can understand, so that they can make choices together using a common language.
-* Develop an attractive website hosting versioned, living documentation for all image formats used at Janelia, educational resources explaining image data conventions, and tutorials for working with Janelia’s flagship tools and data sets.
-* Provide documentation and schematization services for Janelians developing new data formats.
-    * Also provide composable, swappable subschemas for common data and metadata structures.
-* Maintain (JSON schema-oriented) file format translation, conversion and validation tools. Examples include:
-    * Libraries in several programming languages for reading and writing chunked image data.
-    * Libraries for translating metadata into an abstract, format-independent namespace.
-    * A web-based GUI that validates and describes whatever data set it’s pointed to.
-* As much as possible, work with the global bioimaging community to develop image processing standards and conventions.
+## Style
 
+The articles in this collection will be vetted, and their conclusions authoritative, for Janelia’s purposes. Where swift, unambiguous decisions are needed, such decisions will be made. The rationale behind those decisions will be explained, and they will become standard practice at Janelia. It is not this group’s mission to write a comprehensive textbook on image data design. Contributors are encouraged to remain pragmatic, to describe their use cases, and to share their example data. That being said, where applicable, developers should speak to the abstract design principles that drove their choices.
+
+## Contributing
+
+This project aims to develop conventions that Janelians need to do their work, and to disseminate those conventions across Janelia. It is not this group’s goal to create an international standard. However, as this project matures, contributions from the community may be considered. Individuals outside of Janelia who are interested in writing an article should create a GitHub issue to explore this possibility before investing additional time in it. It is this group’s hope that the rapidly evolving conventions developed here may ultimately, gradually, be considered for incorporation into the OME-NGFF standard as well. 
+
+## Product
+
+This effort is in its infancy. Ultimately, the project is expected to consist of four components:
+
+- Written articles. 
+- A cool website that hosts the articles.
+- A glossary and/or thesaurus.
+- A directory of example data that the public can view and browse.
+
+We appreciate the community’s interest in this social experiment.
