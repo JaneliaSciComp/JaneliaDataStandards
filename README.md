@@ -1,3 +1,9 @@
+---
+layout: single
+title: About
+permalink: /about/
+---
+
 # [Janelia Data Standards](https://janeliascicomp.github.io/JaneliaDataStandards/)
 
 ## Purpose
