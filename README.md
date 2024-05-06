@@ -1,9 +1,3 @@
----
-layout: single
-title: About
-permalink: /about/
----
-
 # [Janelia Data Standards](https://janeliascicomp.github.io/JaneliaDataStandards/)
 
 ## Purpose
@@ -22,7 +16,7 @@ The articles in this collection will be vetted, and their conclusions authoritat
 
 This project aims to develop conventions that Janelians need to do their work, and to disseminate those conventions across Janelia. It is not this group’s goal to create an international standard. However, as this project matures, contributions to and from the community may be considered. Individuals outside of Janelia who are interested in writing an article should create a GitHub issue to explore this possibility before investing additional time in it. It is this group’s hope that the rapidly evolving conventions developed here may ultimately, gradually, be considered for incorporation into the OME-NGFF standard as well. 
 
-## Product
+## Structure
 
 This effort is in its infancy. Ultimately, the project is expected to consist of four components:
 
