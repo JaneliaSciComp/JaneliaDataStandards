@@ -32,7 +32,7 @@
     "href": "index.html",
     "title": "Welcome!",
     "section": "",
-    "text": "This is a nascent project to unify bioimaging data conventions at HHMI’s Janelia Research Campus."
+    "text": "This is a nascent project to unify bioimaging data conventions at HHMI’s Janelia Research Campus. Pardon our dust while we get up and running."
   },
   {
     "objectID": "posts/test_post.html",
@@ -47,20 +47,6 @@
     "title": "About Janelia Data Standards",
     "section": "",
     "text": "The Janelia Data Standards group was formed by bioimaging developers who have encountered specific, practical bioimaging data dilemmas for which there is little or no guidance from international community standards. When cutting-edge experiments produce new kinds of data or metadata, developers may be forced to modify existing file formats, or occasionally create new ones. For example, it is often unclear how to store and describe high dimensional images, image tiles that form parts of a whole, or images accompanied by large ancillary data sets. Even though developers may be making reasonable choices on their own, a chaotic landscape can result if they do not communicate their choices, and encourage others to store similar data in a similar way.\nThis website is Janelia’s bioimaging developers’ manifesto. It is a collection of essays written by developers, for developers, on the advanced technical challenges they’ve encountered. It records the choices Janelia’s developers have made when encountering exotic data, so that those encountering similar situations can make consistent choices.\nJanelia is excited about international standardization efforts, particularly OME-NGFF. Janelia is contributing to OME-NGFF and is rooting for its success. However, such efforts are not enough, since research experiments may often outpace or even diverge from contemporary community standards. The essays in this collection are meant to fill that gap."
-  },
-  {
-    "objectID": "CONTRIBUTING.html",
-    "href": "CONTRIBUTING.html",
-    "title": "How to contribute",
-    "section": "",
-    "text": "Thanks for considering contributing to Janelia’s data standards! If you use any data format at Janelia that you think could benefit from some standardization, feel free to add your format to this repository.\nIn order to keep things simple, please refrain from forking this repository. Instead, create a new branch with your changes in this repository and create a pull request against the main branch (or any other suitable branch). If you don’t have edit rights in this repository, please contact Virginia Scarlett. Everybody who wants to contribute will be given write access.\n\n\nPlease add a folder with the name of your data format to the root of the file tree. This folder should at least contain a short README.md detailing where and how this data format is used. You may wish to include additional files describing the metadata and data structures."
-  },
-  {
-    "objectID": "CONTRIBUTING.html#formalities",
-    "href": "CONTRIBUTING.html#formalities",
-    "title": "How to contribute",
-    "section": "",
-    "text": "Please add a folder with the name of your data format to the root of the file tree. This folder should at least contain a short README.md detailing where and how this data format is used. You may wish to include additional files describing the metadata and data structures."
   },
   {
     "objectID": "about.html#purpose",
@@ -84,17 +70,24 @@
     "text": "Contributing\nThis project aims to develop conventions that Janelians need to do their work, and to disseminate those conventions across Janelia. It is not this group’s goal to create an international standard. However, as this project matures, contributions to and from the community may be considered. Individuals outside of Janelia who are interested in writing an article should create a GitHub issue to explore this possibility before investing additional time in it. It is this group’s hope that the rapidly evolving conventions developed here may ultimately, gradually, be considered for incorporation into the OME-NGFF standard as well."
   },
   {
-    "objectID": "about.html#product",
-    "href": "about.html#product",
-    "title": "About",
-    "section": "",
-    "text": "This effort is in its infancy. Ultimately, the project is expected to consist of four components:\n\nWritten articles.\nAn accessible and easily readable website that hosts the articles.\nA glossary and/or thesaurus.\nA directory of example data that the public can view and browse.\n\nWe appreciate the community’s interest in this social experiment."
-  },
-  {
     "objectID": "about.html#structure",
     "href": "about.html#structure",
     "title": "About Janelia Data Standards",
     "section": "Structure",
     "text": "Structure\nThis effort is in its infancy. Ultimately, the project is expected to consist of four components:\n\nWritten articles.\nAn accessible and easily readable website that hosts the articles.\nA glossary and/or thesaurus.\nA directory of example data that the public can view and browse.\n\nWe appreciate the community’s interest in this social experiment."
+  },
+  {
+    "objectID": "CONTRIBUTING.html",
+    "href": "CONTRIBUTING.html",
+    "title": "How to contribute",
+    "section": "",
+    "text": "Thanks for considering contributing to Janelia’s data standards! If you use any data format at Janelia that you think could benefit from some standardization, feel free to add your format to this repository.\nIn order to keep things simple, please refrain from forking this repository. Instead, create a new branch with your changes in this repository and create a pull request against the main branch (or any other suitable branch). If you don’t have edit rights in this repository, please contact Virginia Scarlett. Everybody who wants to contribute will be given write access.\n\n\nPlease add a folder with the name of your data format to the root of the file tree. This folder should at least contain a short README.md detailing where and how this data format is used. You may wish to include additional files describing the metadata and data structures."
+  },
+  {
+    "objectID": "CONTRIBUTING.html#formalities",
+    "href": "CONTRIBUTING.html#formalities",
+    "title": "How to contribute",
+    "section": "",
+    "text": "Please add a folder with the name of your data format to the root of the file tree. This folder should at least contain a short README.md detailing where and how this data format is used. You may wish to include additional files describing the metadata and data structures."
   }
 ]
