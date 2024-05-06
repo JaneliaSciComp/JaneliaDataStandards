@@ -1,4 +1,5 @@
-# [Janelia Data Standards](https://janeliascicomp.github.io/JaneliaDataStandards/)
+# Janelia Data Standards
+[https://janeliascicomp.github.io/JaneliaDataStandards/](https://janeliascicomp.github.io/JaneliaDataStandards/)
 
 ## Purpose
 
