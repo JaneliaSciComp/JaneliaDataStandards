@@ -1,7 +1,6 @@
 ---
-title: "."
+title: "Welcome!"
 ---
-
-This is a Quarto website.
-
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+\
+\
+This is a nascent project to unify bioimaging data conventions at HHMI's Janelia Research Campus.
