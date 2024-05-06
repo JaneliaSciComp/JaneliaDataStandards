@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Virginia Scarlett">
+<meta name="dcterms.date" content="2024-05-06">
+<meta name="description" content="Post description">
 
-<title>Janelia Data Standards</title>
+<title>Janelia Data Standards - My Post</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +26,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,37 +70,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -107,7 +81,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Janelia Data Standards</span>
     </a>
   </div>
@@ -118,11 +92,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
 </ul>
@@ -138,195 +112,50 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#definitions" id="toc-definitions" class="nav-link active" data-scroll-target="#definitions">Definitions</a>
-  <ul class="collapse">
-  <li><a href="#basic-definitions" id="toc-basic-definitions" class="nav-link" data-scroll-target="#basic-definitions">Basic definitions</a>
-  <ul class="collapse">
-  <li><a href="#array" id="toc-array" class="nav-link" data-scroll-target="#array"><em>array</em></a></li>
-  <li><a href="#image" id="toc-image" class="nav-link" data-scroll-target="#image"><em>image</em></a></li>
-  <li><a href="#pixel" id="toc-pixel" class="nav-link" data-scroll-target="#pixel"><em>pixel</em></a></li>
-  <li><a href="#sample" id="toc-sample" class="nav-link" data-scroll-target="#sample"><em>sample</em></a></li>
-  <li><a href="#voxel" id="toc-voxel" class="nav-link" data-scroll-target="#voxel"><em>voxel</em></a></li>
-  </ul></li>
-  <li><a href="#other-definitions" id="toc-other-definitions" class="nav-link" data-scroll-target="#other-definitions">Other definitions</a>
-  <ul class="collapse">
-  <li><a href="#axis" id="toc-axis" class="nav-link" data-scroll-target="#axis"><em>axis</em></a></li>
-  <li><a href="#bit-depth" id="toc-bit-depth" class="nav-link" data-scroll-target="#bit-depth"><em>bit-depth</em></a></li>
-  <li><a href="#dimension" id="toc-dimension" class="nav-link" data-scroll-target="#dimension"><em>dimension</em></a></li>
-  <li><a href="#domain" id="toc-domain" class="nav-link" data-scroll-target="#domain"><em>domain</em></a></li>
-  <li><a href="#downsampling" id="toc-downsampling" class="nav-link" data-scroll-target="#downsampling"><em>downsampling</em></a></li>
-  <li><a href="#field-of-view" id="toc-field-of-view" class="nav-link" data-scroll-target="#field-of-view"><em>field of view</em></a></li>
-  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering"><em>filtering</em></a></li>
-  <li><a href="#group" id="toc-group" class="nav-link" data-scroll-target="#group"><em>group</em></a></li>
-  <li><a href="#hierarchy" id="toc-hierarchy" class="nav-link" data-scroll-target="#hierarchy"><em>hierarchy</em></a></li>
-  <li><a href="#interpolation" id="toc-interpolation" class="nav-link" data-scroll-target="#interpolation"><em>interpolation</em></a></li>
-  <li><a href="#origin" id="toc-origin" class="nav-link" data-scroll-target="#origin"><em>origin</em></a></li>
-  <li><a href="#physical" id="toc-physical" class="nav-link" data-scroll-target="#physical"><em>physical</em></a></li>
-  <li><a href="#quantization" id="toc-quantization" class="nav-link" data-scroll-target="#quantization"><em>quantization</em></a></li>
-  <li><a href="#resampling" id="toc-resampling" class="nav-link" data-scroll-target="#resampling"><em>resampling</em></a></li>
-  <li><a href="#resolution" id="toc-resolution" class="nav-link" data-scroll-target="#resolution"><em>resolution</em></a></li>
-  </ul></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">My Post</h1>
+</div>
+
+<div>
+  <div class="description">
+    Post description
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
-<section id="definitions" class="level1">
-<h1>Definitions</h1>
-<ul>
-<li>Basic definitions
-<ul>
-<li><a href="#array"><em>array</em></a></li>
-<li><a href="#image"><em>image</em></a></li>
-<li><a href="#pixel"><em>pixel</em></a></li>
-<li><a href="#sample"><em>sample</em></a></li>
-<li><a href="#voxel"><em>voxel</em></a></li>
-</ul></li>
-<li>Other definitions
-<ul>
-<li><a href="#axis"><em>axis</em></a></li>
-<li><a href="#bit-depth"><em>bit-depth</em></a></li>
-<li><a href="#domain"><em>domain</em></a></li>
-<li><a href="#downsampling"><em>downsampling</em></a></li>
-<li><a href="#field-of-view"><em>field of view</em></a></li>
-<li><a href="#filtering"><em>filtering</em></a></li>
-<li><a href="#group"><em>group</em></a></li>
-<li><a href="#hierarchy"><em>hierarchy</em></a></li>
-<li><a href="#interpolation"><em>interpolation</em></a></li>
-<li><a href="#origin"><em>origin</em></a></li>
-<li><a href="#physical"><em>physical</em></a></li>
-<li><a href="#quantization"><em>quantization</em></a></li>
-<li><a href="#resampling"><em>resampling</em></a></li>
-<li><a href="#resolution"><em>resolution</em></a></li>
-</ul></li>
-</ul>
-<section id="basic-definitions" class="level2">
-<h2 class="anchored" data-anchor-id="basic-definitions">Basic definitions</h2>
-<section id="array" class="level3">
-<h3 class="anchored" data-anchor-id="array"><em>array</em></h3>
-<p>An n-dimensional collection of discrete <em>samples</em> whose domain is a regular discrete (integer) grid.</p>
-<p>Related terms: <a href="#sample"><em>sample</em></a>, <a href="#image"><em>image</em></a>, <a href="#hierarchy"><em>hierarchy</em></a></p>
-</section>
-<section id="image" class="level3">
-<h3 class="anchored" data-anchor-id="image"><em>image</em></h3>
-<p>A set of numbers intended to be displayed on a screen. Ancillary data structures may be required to display or interpret an <em>image</em> (such as a lookup table), but these are not part of the <em>image</em> itself. An <em>image</em> is often, but not necessarily, acquired by a sensor situated within an optical system. <em>Images</em> can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain, but these are not canonical uses of the word “image”, and the word “image” by itself should refer only to <em>arrays</em> and array-like data structures.</p>
-<p>Related terms: <a href="#array"><em>array</em></a>, <a href="#sample"><em>sample</em></a>, <a href="#pixel"><em>pixel</em></a>, <a href="#voxel"><em>voxel</em></a>, <a href="#axis"><em>axis</em></a>, <a href="#dimension"><em>dimension</em></a></p>
-</section>
-<section id="pixel" class="level3">
-<h3 class="anchored" data-anchor-id="pixel"><em>pixel</em></h3>
-<p>A single <em>sample</em> of a two-dimensional <em>image</em>.</p>
-<p>Often used interchangeably with <em>sample</em>.</p>
-<p>Related terms: <a href="#sample"><em>sample</em></a>, <a href="#voxel"><em>voxel</em></a></p>
-</section>
-<section id="sample" class="level3">
-<h3 class="anchored" data-anchor-id="sample"><em>sample</em></h3>
-<p>A digital number representing a measurement of the energy sensed by a particular cell on a sensor at a discrete point in time. Because cells on a sensor correspond to elements of an <em>array</em> and <em>pixels</em> of an <em>image</em>, <em>sample</em> is often used interchangeably with <em>pixel</em>.</p>
-<p>Related terms: <a href="#pixel"><em>pixel</em></a>, <a href="#voxel"><em>voxel</em></a>, <a href="#image"><em>image</em></a>, <a href="#array"><em>array</em></a></p>
-</section>
-<section id="voxel" class="level3">
-<h3 class="anchored" data-anchor-id="voxel"><em>voxel</em></h3>
-<p>A single <em>sample</em> of a three-dimensional <em>image</em>.</p>
-<p>Related terms: <a href="#sample"><em>sample</em></a>, <a href="#pixel"><em>pixel</em></a></p>
-</section>
-</section>
-<section id="other-definitions" class="level2">
-<h2 class="anchored" data-anchor-id="other-definitions">Other definitions</h2>
-<section id="axis" class="level3">
-<h3 class="anchored" data-anchor-id="axis"><em>axis</em></h3>
-<p>The <em>physical</em> interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have <em>physical</em> units.</p>
-</section>
-<section id="bit-depth" class="level3">
-<h3 class="anchored" data-anchor-id="bit-depth"><em>bit-depth</em></h3>
-<p>The number of bits used in the <em>quantization</em> a digital image that defines the number of unique values that can be represented by samples. For example, samples of images with a bit depth of (“8-bit images”) can take up to 256 unique values.</p>
-<p>Related terms: <a href="#quantization"><em>quantization</em></a></p>
-</section>
-<section id="dimension" class="level3">
-<h3 class="anchored" data-anchor-id="dimension"><em>dimension</em></h3>
-<p>An independent extent of a domain. A domain has <span class="math inline">\(N\)</span> dimensions where <span class="math inline">\(N\)</span> is the minimum number of coordinates needed to identify any particular point within the domain. The length of a discrete, numeric, finite dimension establishes the number of indexable locations along that dimension.</p>
-</section>
-<section id="domain" class="level3">
-<h3 class="anchored" data-anchor-id="domain"><em>domain</em></h3>
-<p>A set of discrete locations in abstract space. A domain, or any location within a domain, may be described by multiple variables, but any given variable has only one domain. A domain has zero or more dimensions. The component dimensions of a domain need not be numeric, but when they are, the domain may be thought of as situated in a coordinate space. If a domain’s dimensions are all axes, then that domain is situated in a <em>physical</em> space.</p>
-</section>
-<section id="downsampling" class="level3">
-<h3 class="anchored" data-anchor-id="downsampling"><em>downsampling</em></h3>
-<p>The act of <em>resampling</em> an <em>image</em> to a lower <em>resolution</em>, often by an integer factor. Sometimes this can require <em>interpolation</em>.</p>
-<p>Related terms: <a href="#resampling"><em>resampling</em></a>, <a href="#resolution"><em>resolution</em></a>, <a href="#interpolation"><em>interpolation</em></a></p>
-</section>
-<section id="field-of-view" class="level3">
-<h3 class="anchored" data-anchor-id="field-of-view"><em>field of view</em></h3>
-<p>The <em>physical</em> extent of the observed space. In microscopy, FOV may be expressed as the diameter of the circular view seen through the eyepiece. In scientific bioimaging, FOV is typically expressed as linear measurements of the horizontal, vertical, and/or diagonal space captured by the digital sensor.</p>
-</section>
-<section id="filtering" class="level3">
-<h3 class="anchored" data-anchor-id="filtering"><em>filtering</em></h3>
-<ol type="1">
-<li>Usually referes to a convolution operation (a local, linear operation on the intensity values of an <em>image</em>).</li>
-<li>Any operation that modifies the intensity values of an <em>image</em>.</li>
-</ol>
-</section>
-<section id="group" class="level3">
-<h3 class="anchored" data-anchor-id="group"><em>group</em></h3>
-<p>See <a href="#hierarchy"><em>hierarchy</em></a>.</p>
-</section>
-<section id="hierarchy" class="level3">
-<h3 class="anchored" data-anchor-id="hierarchy"><em>hierarchy</em></h3>
-<p>A collection of nodes, connected in a tree-like structure. A node can be either: 1. A group, i.e., a node that can have child nodes, and can contain metadata, but cannot contain <em>array</em> data. 2. An <em>array</em>. <em>Array</em> nodes cannot have child nodes.</p>
-<p>Related terms: <a href="#group"><em>group</em></a>, <a href="#array"><em>array</em></a></p>
-</section>
-<section id="interpolation" class="level3">
-<h3 class="anchored" data-anchor-id="interpolation"><em>interpolation</em></h3>
-<p>A process that, given an <em>image</em>, produces new <em>samples</em> at points in the domain not on the discrete image grid.</p>
-<p>The most common methods for <em>interpolation</em> are “nearest-neighbor”, “bi-/tri-/n-linear”, “cubic”, “windowed sinc”.</p>
-<p>Related terms: <a href="#resampling"><em>resampling</em></a>, <a href="#downsampling"><em>downsampling</em></a></p>
-</section>
-<section id="origin" class="level3">
-<h3 class="anchored" data-anchor-id="origin"><em>origin</em></h3>
-<ol type="1">
-<li>Of an <em>array</em>: the point in the discrete domain with the minimum index (usually zero) for all dimensions.</li>
-<li>Of an <em>image</em>: the point in the <em>physical</em> domain corresponding to the <em>array</em> <em>origin</em>.</li>
-</ol>
-<p>The term “offset” is sometimes used to refer to the <em>origin</em>.</p>
-</section>
-<section id="physical" class="level3">
-<h3 class="anchored" data-anchor-id="physical"><em>physical</em></h3>
-<p>Relating to quantities or measurements of the real world.</p>
-<p>Examples: * <em>sample</em> intensities measured by a <em>physical</em> sensor * photon count * <a href="https://en.wikipedia.org/wiki/Hounsfield_scale">Hounsfield unit</a> * distances / areas / volumes / times measured in <em>images</em> in <em>physical</em> units (<span class="math inline">\(\mu m\)</span>, <span class="math inline">\(mm\)</span>, seconds) * “the area of segment <span class="math inline">\(A\)</span> is <span class="math inline">\(12 mm^2\)</span>” * “mitosis begins at time = <span class="math inline">\(3.2 s\)</span>”</p>
-<p>Non-examples: * <em>sample</em> intensities not derived from sensors * segmentation id * the output of a deep neural network model * distances / areas / volumes / times described by <em>sample</em> / <em>array</em> indexes * “the area of segment <span class="math inline">\(B\)</span> is <span class="math inline">\(85\)</span> pixels” * “mitosis begins at frame <span class="math inline">\(51\)</span>”</p>
-</section>
-<section id="quantization" class="level3">
-<h3 class="anchored" data-anchor-id="quantization"><em>quantization</em></h3>
-<p>A process that converts a physical or continuous value to a digital representation with a particular precision. Samples of a quantized image can take one of a finite set of values defined by its <a href="#bit%20depth"><em>bit depth</em></a>.</p>
-<p>Related terms: <a href="#bit-depth"><em>bit-depth</em></a></p>
-</section>
-<section id="resampling" class="level3">
-<h3 class="anchored" data-anchor-id="resampling"><em>resampling</em></h3>
-<p>A process that generates a new <em>array</em> representing an <em>image</em> at a new <em>resolution</em>.</p>
-<p>The new <em>resolution</em> is often an integer multiple or fraction of the original image <em>resolution</em>, but need not be. <em>Resampling</em> methods often consist of <em>filtering</em> and <em>interpolation</em> steps.</p>
-<p>Related terms: <a href="#downsampling"><em>downsampling</em></a>, <a href="#interpolation"><em>interpolation</em></a>, <a href="#resolution"><em>resolution</em></a></p>
-</section>
-<section id="resolution" class="level3">
-<h3 class="anchored" data-anchor-id="resolution"><em>resolution</em></h3>
-<ol type="1">
-<li>The level of detail in an <em>image</em>. A high <em>resolution</em> <em>image</em> will have more <em>samples</em> than a low <em>resolution</em> <em>image</em> for the same <em>field of view</em>.</li>
-<li>The total number of <em>samples</em> in each dimension of an <em>image</em>. For example, a 2-dimensional <em>image</em> with <span class="math inline">\(1500\)</span> <em>pixels</em> along the x dimension and <span class="math inline">\(1000\)</span> <em>pixels</em> along the y dimension could be said to have a <em>resolution</em> of <span class="math inline">\(1500 \times 1000\)</span> (the colloquial convention is to express the dimensions in x, y, z order).</li>
-<li>The set of <em>physical</em> (usually spatial) sampling intervals for an <em>image</em>. In other words, the distance between <em>samples</em>. Usually expressed separately for each dimension, e.g.&nbsp;millimeters per <em>pixel</em> in x. (Note: The sampling&nbsp;<em>interval</em>&nbsp;is the reciprocal of the sampling&nbsp;<em>rate</em>.)</li>
-</ol>
-<p><em>Resolution</em> should be considered synonymous with “spatial resolution” unless otherwise specified.</p>
-<p>The terms “spacing”, “pixel spacing”, and “pixel resolution” are commonly used to refer to <em>resolution</em>.</p>
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Virginia Scarlett </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 6, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
-</section>
-</section>
-</section>
+</header>
+
+
+<p>Here is some content</p>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
