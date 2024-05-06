@@ -3,8 +3,11 @@ project:
   output-dir: docs
 
 website:
-  title: "."
+  title: "Janelia Data Standards"
   navbar:
+    tools:
+      - icon: github
+        href: https://github.com/JaneliaSciComp/JaneliaDataStandards
     left:
       - href: index.qmd
         text: Home
