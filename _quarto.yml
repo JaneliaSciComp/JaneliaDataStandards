@@ -15,6 +15,8 @@ website:
         text: About
       - href: posts.qmd
         text: Posts
+      - href: file_formats.qmd
+        text: File Formats
 
 format:
   html:

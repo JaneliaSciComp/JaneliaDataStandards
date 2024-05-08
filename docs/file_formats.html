@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Posts</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./file_formats.html"> 
+    <a class="nav-link active" href="./file_formats.html" aria-current="page"> 
 <span class="menu-text">File Formats</span></a>
   </li>  
 </ul>
@@ -121,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-contribute" id="toc-how-to-contribute" class="nav-link active" data-scroll-target="#how-to-contribute">How to contribute</a></li>
+  <li><a href="#janelias-bioimaging-file-formats" id="toc-janelias-bioimaging-file-formats" class="nav-link active" data-scroll-target="#janelias-bioimaging-file-formats">Janelia’s Bioimaging File Formats</a></li>
   </ul>
 </nav>
     </div>
@@ -131,14 +131,62 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="how-to-contribute" class="level1">
-<h1>How to contribute</h1>
-<p>Thanks for considering contributing to Janelia’s data standards!</p>
-<p>In order to keep things simple, please refrain from forking this repository. Instead, create a new branch with your changes in this repository and create a pull request against the main branch (or any other suitable branch). If you don’t have edit rights in this repository but would like them, please contact Virginia Scarlett.</p>
-<p>Posts in a format suitable for <a href="https://quarto.org">quarto</a>, such as quarto markdown (.qmd) or a notebook (.ipynb) can be added to /posts/. Use the existing posts as a template, at least for the ‘front matter’ (configuration block). To see how the website will look as you’re working, do <code>quarto preview</code>. When you’re finished making changes, render the site with <code>quarto preview</code> or <code>quarto render</code>. (The latter will render the site pages without opening a browser tab.) Then commit and push as you normally would.</p>
-<p>The rendered site pages are automatically stored in, and deployed from, /docs/ on the main branch, so please do not manually modify that folder.</p>
+<section id="janelias-bioimaging-file-formats" class="level1">
+<h1>Janelia’s Bioimaging File Formats</h1>
+<section id="a-handy-list-with-links-to-their-documentation." class="level4">
+<h4 class="anchored" data-anchor-id="a-handy-list-with-links-to-their-documentation.">A handy list with links to their documentation.</h4>
+<hr>
+</section>
+<section id="bigcat" class="level4">
+<h4 class="anchored" data-anchor-id="bigcat">bigcat:</h4>
+<p><a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat</a></p>
+<hr>
+</section>
+<section id="big-data-viewer" class="level4">
+<h4 class="anchored" data-anchor-id="big-data-viewer">Big Data Viewer:</h4>
+<p><a href="https://www.nature.com/articles/nmeth.3392">The paper</a><br>
+The file format is described in the <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3392/MediaObjects/41592_2015_BFnmeth3392_MOESM239_ESM.pdf">supplementary information</a><br>
+<a href="https://imagej.net/plugins/bdv/">Online documentation</a></p>
+<hr>
+</section>
+<section id="cellmap" class="level4">
+<h4 class="anchored" data-anchor-id="cellmap">CellMap:</h4>
+<p><a href="https://janelia-cellmap.github.io/cellmap-schemas/">https://janelia-cellmap.github.io/cellmap-schemas/</a><br>
+<a href="https://janelia-cellmap.github.io/pydantic-zarr/">https://janelia-cellmap.github.io/pydantic-zarr/</a></p>
+<hr>
+</section>
+<section id="cosem-predecessor-to-cellmap" class="level4">
+<h4 class="anchored" data-anchor-id="cosem-predecessor-to-cellmap">COSEM (predecessor to CellMap):</h4>
+<p><a href="https://github.com/janelia-cellmap/schemas">https://github.com/janelia-cellmap/schemas</a><br>
+<a href="https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata">https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata</a><br>
+<a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem</a></p>
+<hr>
+</section>
+<section id="dat-fib-sem" class="level4">
+<h4 class="anchored" data-anchor-id="dat-fib-sem">DAT (FIB-SEM):</h4>
+<p>The FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:</p>
+<p><a href="https://github.com/janelia-cellmap/fibsem-tools/">https://github.com/janelia-cellmap/fibsem-tools/</a><br>
+<a href="https://github.com/clbarnes/jeiss-specs">https://github.com/clbarnes/jeiss-specs</a></p>
+<hr>
+</section>
+<section id="h5j" class="level4">
+<h4 class="anchored" data-anchor-id="h5j">H5J:</h4>
+<p><a href="https://data.janelia.org/h5j">https://data.janelia.org/h5j</a></p>
+<hr>
+</section>
+<section id="n5-viewer" class="level4">
+<h4 class="anchored" data-anchor-id="n5-viewer">n5-viewer:</h4>
+<p><a href="https://github.com/saalfeldlab/n5-viewer">https://github.com/saalfeldlab/n5-viewer</a><br>
+<a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer</a></p>
+<hr>
+</section>
+<section id="ome-zarr" class="level4">
+<h4 class="anchored" data-anchor-id="ome-zarr">OME-Zarr:</h4>
+<p>OME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.</p>
+<p><a href="https://ngff.openmicroscopy.org/0.4/">https://ngff.openmicroscopy.org/0.4/</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

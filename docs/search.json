@@ -81,7 +81,7 @@
     "href": "CONTRIBUTING.html",
     "title": "How to contribute",
     "section": "",
-    "text": "Thanks for considering contributing to Janelia’s data standards! If you use any data format at Janelia that you think could benefit from some standardization, feel free to add your format to this repository.\nIn order to keep things simple, please refrain from forking this repository. Instead, create a new branch with your changes in this repository and create a pull request against the main branch (or any other suitable branch). If you don’t have edit rights in this repository, please contact Virginia Scarlett. Everybody who wants to contribute will be given write access.\n\n\nPlease add a folder with the name of your data format to the root of the file tree. This folder should at least contain a short README.md detailing where and how this data format is used. You may wish to include additional files describing the metadata and data structures."
+    "text": "How to contribute\nThanks for considering contributing to Janelia’s data standards!\nIn order to keep things simple, please refrain from forking this repository. Instead, create a new branch with your changes in this repository and create a pull request against the main branch (or any other suitable branch). If you don’t have edit rights in this repository but would like them, please contact Virginia Scarlett.\nPosts in a format suitable for quarto, such as quarto markdown (.qmd) or a notebook (.ipynb) can be added to /posts/. Use the existing posts as a template, at least for the ‘front matter’ (configuration block). To see how the website will look as you’re working, do quarto preview. When you’re finished making changes, render the site with quarto preview or quarto render. (The latter will render the site pages without opening a browser tab.) Then commit and push as you normally would.\nThe rendered site pages are automatically stored in, and deployed from, /docs/ on the main branch, so please do not manually modify that folder."
   },
   {
     "objectID": "CONTRIBUTING.html#formalities",
@@ -89,5 +89,12 @@
     "title": "How to contribute",
     "section": "",
     "text": "Please add a folder with the name of your data format to the root of the file tree. This folder should at least contain a short README.md detailing where and how this data format is used. You may wish to include additional files describing the metadata and data structures."
+  },
+  {
+    "objectID": "file_formats.html",
+    "href": "file_formats.html",
+    "title": "Janelia’s Bioimaging File Formats",
+    "section": "",
+    "text": "Janelia’s Bioimaging File Formats\n\nA handy list with links to their documentation.\n\n\n\nbigcat:\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat\n\n\n\nBig Data Viewer:\nThe paper\nThe file format is described in the supplementary information\nOnline documentation\n\n\n\nCellMap:\nhttps://janelia-cellmap.github.io/cellmap-schemas/\nhttps://janelia-cellmap.github.io/pydantic-zarr/\n\n\n\nCOSEM (predecessor to CellMap):\nhttps://github.com/janelia-cellmap/schemas\nhttps://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem\n\n\n\nDAT (FIB-SEM):\nThe FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:\nhttps://github.com/janelia-cellmap/fibsem-tools/\nhttps://github.com/clbarnes/jeiss-specs\n\n\n\nH5J:\nhttps://data.janelia.org/h5j\n\n\n\nn5-viewer:\nhttps://github.com/saalfeldlab/n5-viewer\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer\n\n\n\nOME-Zarr:\nOME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.\nhttps://ngff.openmicroscopy.org/0.4/"
   }
 ]
