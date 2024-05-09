@@ -1,15 +1,11 @@
 # How to contribute
 
 Thanks for considering contributing to Janelia's data standards!
-If you use any data format at Janelia that you think could benefit from some standardization, feel free to add your format to this repository.
 
 In order to keep things simple, please refrain from forking this repository.
 Instead, create a new branch with your changes in this repository and create a pull request against the main branch (or any other suitable branch).
-If you don't have edit rights in this repository, please contact Virginia Scarlett.
-Everybody who wants to contribute will be given write access.
+If you don't have edit rights in this repository but would like them, please contact Virginia Scarlett.
 
-## Formalities
+Posts in a format suitable for [quarto](https://quarto.org), such as quarto markdown (.qmd) or a notebook (.ipynb) can be added to /posts/. Use the existing posts as a template, at least for the 'front matter' (configuration block). To see how the website will look as you're working, do `quarto preview`. When you're finished making changes, render the site with `quarto preview` or `quarto render`. (The latter will render the site pages without opening a browser tab.) Then commit and push as you normally would.
 
-Please add a folder with the name of your data format to the root of the file tree.
-This folder should at least contain a short `README.md` detailing where and how this data format is used.
-You may wish to include additional files describing the metadata and data structures.
+The rendered site pages are automatically stored in, and deployed from, /docs/ on the main branch, so please do not manually modify that folder.

@@ -1,8 +1,6 @@
-_site
-.sass-cache
-.jekyll-cache
-.jekyll-metadata
-vendor
-
 # For macOS:
 .DS_Store
+
+# quarto:
+/_site/
+/.quarto/

@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Janelia Data Standards"
+  navbar:
+    tools:
+      - icon: github
+        href: https://github.com/JaneliaSciComp/JaneliaDataStandards
+    left:
+      - href: index.qmd
+        text: Home
+      - href: about.qmd
+        text: About
+      - href: posts.qmd
+        text: Posts
+      - href: file_formats.qmd
+        text: File Formats
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+
