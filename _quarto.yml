@@ -9,8 +9,6 @@ website:
       - icon: github
         href: https://github.com/JaneliaSciComp/JaneliaDataStandards
     left:
-      - href: index.qmd
-        text: Home
       - href: about.qmd
         text: About
       - href: posts.qmd
