@@ -1,8 +1,0 @@
----
-layout: single
-title:  "Test post #2"
-date:   2024-04-29 10:08:14 -0400
-categories: jekyll update
----
-
-Here is more content
