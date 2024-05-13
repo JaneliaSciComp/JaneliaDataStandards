@@ -42,32 +42,39 @@
     "text": "Here is some content"
   },
   {
+    "objectID": "file_formats.html",
+    "href": "file_formats.html",
+    "title": "Janelia’s Bioimaging File Formats",
+    "section": "",
+    "text": "Janelia’s Bioimaging File Formats\n\nA handy list with links to their documentation.\n\n\n\nbigcat:\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat\n\n\n\nBig Data Viewer:\nThe paper\nThe file format is described in the supplementary information\nOnline documentation\n\n\n\nCellMap:\nhttps://janelia-cellmap.github.io/cellmap-schemas/\nhttps://janelia-cellmap.github.io/pydantic-zarr/\n\n\n\nCOSEM (predecessor to CellMap):\nhttps://github.com/janelia-cellmap/schemas\nhttps://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem\n\n\n\nDAT (FIB-SEM):\nThe FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:\nhttps://github.com/janelia-cellmap/fibsem-tools/\nhttps://github.com/clbarnes/jeiss-specs\n\n\n\nH5J:\nhttps://data.janelia.org/h5j\n\n\n\nn5-viewer:\nhttps://github.com/saalfeldlab/n5-viewer\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer\n\n\n\nOME-Zarr:\nOME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.\nhttps://ngff.openmicroscopy.org/0.4/"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About Janelia Data Standards",
     "section": "",
-    "text": "The Janelia Data Standards group was formed by bioimaging developers who have encountered specific, practical bioimaging data dilemmas for which there is little or no guidance from international community standards. When cutting-edge experiments produce new kinds of data or metadata, developers may be forced to modify existing file formats, or occasionally create new ones. For example, it is often unclear how to store and describe high dimensional images, image tiles that form parts of a whole, or images accompanied by large ancillary data sets. Even though developers may be making reasonable choices on their own, a chaotic landscape can result if they do not communicate their choices, and encourage others to store similar data in a similar way.\nThis website is Janelia’s bioimaging developers’ manifesto. It is a collection of essays written by developers, for developers, on the advanced technical challenges they’ve encountered. It records the choices Janelia’s developers have made when encountering exotic data, so that those encountering similar situations can make consistent choices.\nJanelia is excited about international standardization efforts, particularly OME-NGFF. Janelia is contributing to OME-NGFF and is rooting for its success. However, such efforts are not enough, since research experiments may often outpace or even diverge from contemporary community standards. The essays in this collection are meant to fill that gap."
+    "text": "The Janelia Data Standards group was formed by bioimaging developers who have encountered specific, practical bioimaging data dilemmas for which there is little or no guidance from international community standards. Janelia is excited about international standardization efforts, particularly OME-NGFF. Janelia is contributing to OME-NGFF and is rooting for its success. However, such efforts are not enough, since research experiments may often outpace or even diverge from contemporary community standards. The essays in this collection are meant to fill that gap.\nThis website is Janelia’s bioimaging developers’ manifesto. It is a collection of essays written by developers, for developers, on the advanced technical challenges they’ve encountered. It records the choices Janelia’s developers have made when encountering exotic data, so that those encountering similar situations can make consistent choices."
   },
   {
     "objectID": "about.html#purpose",
     "href": "about.html#purpose",
     "title": "About Janelia Data Standards",
     "section": "",
-    "text": "The Janelia Data Standards group was formed by bioimaging developers who have encountered specific, practical bioimaging data dilemmas for which there is little or no guidance from international community standards. When cutting-edge experiments produce new kinds of data or metadata, developers may be forced to modify existing file formats, or occasionally create new ones. For example, it is often unclear how to store and describe high dimensional images, image tiles that form parts of a whole, or images accompanied by large ancillary data sets. Even though developers may be making reasonable choices on their own, a chaotic landscape can result if they do not communicate their choices, and encourage others to store similar data in a similar way.\nThis website is Janelia’s bioimaging developers’ manifesto. It is a collection of essays written by developers, for developers, on the advanced technical challenges they’ve encountered. It records the choices Janelia’s developers have made when encountering exotic data, so that those encountering similar situations can make consistent choices.\nJanelia is excited about international standardization efforts, particularly OME-NGFF. Janelia is contributing to OME-NGFF and is rooting for its success. However, such efforts are not enough, since research experiments may often outpace or even diverge from contemporary community standards. The essays in this collection are meant to fill that gap."
+    "text": "The Janelia Data Standards group was formed by bioimaging developers who have encountered specific, practical bioimaging data dilemmas for which there is little or no guidance from international community standards. Janelia is excited about international standardization efforts, particularly OME-NGFF. Janelia is contributing to OME-NGFF and is rooting for its success. However, such efforts are not enough, since research experiments may often outpace or even diverge from contemporary community standards. The essays in this collection are meant to fill that gap.\nThis website is Janelia’s bioimaging developers’ manifesto. It is a collection of essays written by developers, for developers, on the advanced technical challenges they’ve encountered. It records the choices Janelia’s developers have made when encountering exotic data, so that those encountering similar situations can make consistent choices."
   },
   {
     "objectID": "about.html#style",
     "href": "about.html#style",
     "title": "About Janelia Data Standards",
     "section": "Style",
-    "text": "Style\nThe articles in this collection will be vetted, and their conclusions authoritative, for Janelia’s purposes. Where swift, unambiguous decisions are needed, such decisions will be made. The rationale behind those decisions will be explained, and they will become standard practice at Janelia. It is not this group’s mission to write a comprehensive textbook on image data design. Contributors are encouraged to remain pragmatic, to describe their use cases, and to share their example data. That being said, where applicable, developers should speak to the abstract design principles that drove their choices."
+    "text": "Style\nThe articles in this collection will be vetted, and their conclusions authoritative, for Janelia’s purposes. Where swift, unambiguous decisions are needed, such decisions will be made. The rationale behind those decisions will be explained, and they will become standard practice at Janelia. Contributors are encouraged to remain pragmatic, to describe their use cases, and to share their example data. That being said, where applicable, developers should speak to the abstract design principles that drove their choices."
   },
   {
     "objectID": "about.html#contributing",
     "href": "about.html#contributing",
     "title": "About Janelia Data Standards",
     "section": "Contributing",
-    "text": "Contributing\nThis project aims to develop conventions that Janelians need to do their work, and to disseminate those conventions across Janelia. It is not this group’s goal to create an international standard. However, as this project matures, contributions to and from the community may be considered. Individuals outside of Janelia who are interested in writing an article should create a GitHub issue to explore this possibility before investing additional time in it. It is this group’s hope that the rapidly evolving conventions developed here may ultimately, gradually, be considered for incorporation into the OME-NGFF standard as well."
+    "text": "Contributing\nThis project aims to develop conventions that Janelians need to do their work, and to disseminate those conventions across Janelia. It is not this group’s goal to create a comprehensive textbook, nor to create an international standard. However, as this project matures, contributions to and from the community may be considered. Individuals outside of Janelia who are interested in writing an article should create a GitHub issue to explore this possibility before investing time in it. It is this group’s hope that the rapidly evolving conventions developed here may ultimately, gradually, be considered for incorporation into the OME-NGFF standard as well."
   },
   {
     "objectID": "about.html#structure",
@@ -82,19 +89,5 @@
     "title": "How to contribute",
     "section": "",
     "text": "How to contribute\nThanks for considering contributing to Janelia’s data standards!\nIn order to keep things simple, please refrain from forking this repository. Instead, create a new branch with your changes in this repository and create a pull request against the main branch (or any other suitable branch). If you don’t have edit rights in this repository but would like them, please contact Virginia Scarlett.\nPosts in a format suitable for quarto, such as quarto markdown (.qmd) or a notebook (.ipynb) can be added to /posts/. Use the existing posts as a template, at least for the ‘front matter’ (configuration block). To see how the website will look as you’re working, do quarto preview. When you’re finished making changes, render the site with quarto preview or quarto render. (The latter will render the site pages without opening a browser tab.) Then commit and push as you normally would.\nThe rendered site pages are automatically stored in, and deployed from, /docs/ on the main branch, so please do not manually modify that folder."
-  },
-  {
-    "objectID": "CONTRIBUTING.html#formalities",
-    "href": "CONTRIBUTING.html#formalities",
-    "title": "How to contribute",
-    "section": "",
-    "text": "Please add a folder with the name of your data format to the root of the file tree. This folder should at least contain a short README.md detailing where and how this data format is used. You may wish to include additional files describing the metadata and data structures."
-  },
-  {
-    "objectID": "file_formats.html",
-    "href": "file_formats.html",
-    "title": "Janelia’s Bioimaging File Formats",
-    "section": "",
-    "text": "Janelia’s Bioimaging File Formats\n\nA handy list with links to their documentation.\n\n\n\nbigcat:\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat\n\n\n\nBig Data Viewer:\nThe paper\nThe file format is described in the supplementary information\nOnline documentation\n\n\n\nCellMap:\nhttps://janelia-cellmap.github.io/cellmap-schemas/\nhttps://janelia-cellmap.github.io/pydantic-zarr/\n\n\n\nCOSEM (predecessor to CellMap):\nhttps://github.com/janelia-cellmap/schemas\nhttps://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem\n\n\n\nDAT (FIB-SEM):\nThe FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:\nhttps://github.com/janelia-cellmap/fibsem-tools/\nhttps://github.com/clbarnes/jeiss-specs\n\n\n\nH5J:\nhttps://data.janelia.org/h5j\n\n\n\nn5-viewer:\nhttps://github.com/saalfeldlab/n5-viewer\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer\n\n\n\nOME-Zarr:\nOME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.\nhttps://ngff.openmicroscopy.org/0.4/"
   }
 ]
