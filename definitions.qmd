@@ -1,4 +1,5 @@
 # Definitions
+Please note that this is a living document. Definitions are preliminary and subject to change.
 
 - Basic definitions
     - [*array*](#array)
