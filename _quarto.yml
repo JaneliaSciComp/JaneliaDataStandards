@@ -15,7 +15,7 @@ website:
         text: Posts
       - href: file_formats.qmd
         text: File Formats
-      - href: Definitions.md
+      - href: definitions.qmd
         text: Definitions
 
 format:

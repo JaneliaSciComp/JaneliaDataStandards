@@ -109,20 +109,22 @@ The term "offset" is sometimes used to refer to the *origin*.
 Relating to quantities or measurements of the real world.
 
 Examples:
+
 * *sample* intensities measured by a *physical* sensor
-    * photon count
-    * [Hounsfield unit](https://en.wikipedia.org/wiki/Hounsfield_scale)
+    + photon count
+    + [Hounsfield unit](https://en.wikipedia.org/wiki/Hounsfield_scale)
 * distances / areas / volumes / times measured in *images* in *physical* units ($\mu m$, $mm$, seconds)
-    * "the area of segment $A$ is $12 mm^2$"
-    * "mitosis begins at time = $3.2 s$"
+    + "the area of segment $A$ is $12 mm^2$"
+    + "mitosis begins at time = $3.2 s$"
 
 Non-examples:
+
 * *sample* intensities not derived from sensors
-    * segmentation id
-    * the output of a deep neural network model
+    + segmentation id
+    + the output of a deep neural network model
 * distances / areas / volumes / times described by *sample* / *array* indexes
-    * "the area of segment $B$ is $85$ pixels"
-    * "mitosis begins at frame $51$"
+    + "the area of segment $B$ is $85$ pixels"
+    + "mitosis begins at frame $51$"
 
 ### quantization
 A process that converts a physical or continuous value to a digital representation with a particular precision. Samples of a quantized image can take one of a finite set of values defined by its [*bit depth*](#bit depth).
