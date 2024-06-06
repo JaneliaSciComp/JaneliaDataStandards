@@ -205,34 +205,6 @@ dimension varies the vertical position.
 
 Applications and workflows that make use of image geometry most commonly use cartesian coordinates.
 
-## Definitions
-
-#### **Size** (of a dimension)
-The number of unique indexes for a dimension.
-
-#### **Stride** (of a dimension)
-The (positive) step in the flat array that corresponds to the adjacent element along that dimension.
-
-#### **C-order indexing** 
-Tuples for indexing multi-dimensional arrays are ordered such that the **last** coordinate has stride 1.
-
-#### **F-order indexing** 
-Tuples for indexing multi-dimensional arrays are ordered such that the **first** coordinate has stride 1.
-
-#### **Fastest dimension** ("inner")
-The fastest (or inner) dimension of an array has stride 1
-
-#### **Slowest dimension** ("outer")
-The slowest (or outer) dimension of an array with the largest stride.
-
-#### **Row-major**
-Arrays storing matrices in “row-major” store adjacent elements in the same row in adjacent memory. This is equivalent to saying
-that the column dimension has stride 1.
-
-#### **Column-major**
-Arrays storing matrices in “column-major” store adjacent elements in the same column in adjacent memory. This is equivalent to
-saying that the row dimension has stride 1.
-
 
 ## References
 
