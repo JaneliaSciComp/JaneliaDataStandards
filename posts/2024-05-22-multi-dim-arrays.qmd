@@ -1,7 +1,14 @@
 ---
 title: "Multi-dimensional array indexing"
-description: "Post description"
-author: "John Bogovic"
+description: "Recommendations to ensure that array data and
+    index/coordinate data can be consistently interpreted
+    across software using different indexing conventions."
+author:
+    - name: "John Bogovic"
+    - name: "Davis Bennett"
+    - name: "Michael Innerberger"
+    - name: "Stephan Saalfeld"
+    - name: "Virginia Scarlett"
 date: "5/10/2024"
 ---
 
