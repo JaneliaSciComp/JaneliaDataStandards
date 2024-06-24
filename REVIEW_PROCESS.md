@@ -38,7 +38,7 @@ Is the post readable to bio-imaging developers who may come from a different sub
 
 Here is a diagram illustrating the review process.
 
-![A sketch of the review process.](review_process_sketch.jpg)
+![A sketch of the review process.](review_process_image.png)
 
 ---
 
