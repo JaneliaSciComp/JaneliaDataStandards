@@ -265,17 +265,8 @@ Applications and workflows that make use of image geometry most commonly use car
 4) [n5 ordering discussion](https://github.com/saalfeldlab/n5/issues/31)
 5) [multi-dimensional arrays in vigra](http://ukoethe.github.io/vigra/doc-release/vigranumpy/index.html#more-on-the-motivation-and-use-of-axistags)
 
-## Appendix
 
-### Programming languages
-
-| C-order | F-order |
-| ------- | ------- |
-| C       | Fortran |
-| C++     | Java    |
-| Python  | Matlab  |
-
-### Related terms
+## Related terms
 
 | C-order               | F-order                  |
 | --------------------- | ------------------------ |
