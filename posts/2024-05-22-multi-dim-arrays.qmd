@@ -16,10 +16,10 @@ date: "5/10/2024"
 ## Summary and recommendations
 
 Conventions for indexing and storing multi-dimensional data vary across programming languages and software libraries. 
-Data sharing across software with different systems is technically simple *so long as the convention used is clearly
+Data sharing across software with different conventions is technically simple *so long as the convention used is clearly
 documented.*  For example, one software library might store and save point coordinates as `(x,y,z)`, while another
 stores them as `(z,y,x)`. Interoperability is easy (just "reverse the numbers") only if it is possible to determine
-what convention was used to produce the data, and software can determine what convention is used only if it is
+what convention was used to produce the data. Users and software can determine what convention is used only if it is
 clearly and explicitly communicated.
 
 To enable seamless data and metadata sharing, software and storage formats should clearly and explicitly communicate:
@@ -30,8 +30,8 @@ To enable seamless data and metadata sharing, software and storage formats shoul
 
 Ambiguities should be clarified by (1) explicitly documenting the array indexing convention (most often C-order or F-order),
 and (2) referring to array dimensions and (3) coordinates with a consistent order and/or with labels that are
-independent of order (e.g. `['x', 'y', 'z', 't', ...]`, see
-[xarray](https://docs.xarray.dev/en/latest/getting-started-guide/why-xarray.html))
+independent of order (e.g. `['x', 'y', 'z', 't', ...]` (see
+[xarray](https://docs.xarray.dev/en/latest/getting-started-guide/why-xarray.html)).
 
 ::: {.callout-tip collapse="true" appearance="minimal"}
 # Examples
@@ -58,22 +58,18 @@ dimensions. We will also call elements of this tuple "indexes." For example, the
 array where `i` is the "first" index, and `k` is the "last" index. Here, we will consider only the non-negative integers as
 valid indexes for arrays, though different contexts may use a different index set.
 
-Multi-dimensional arrays are often stored as one-dimensional (1D), or "flat," arrays that are interpreted, or "reshaped," into
+Multi-dimensional arrays are often stored as one-dimensional (1D), or "flat," arrays that are interpreted or "reshaped" into
 a multi-dimensional array by mapping the n-tuple of coordinates to a single index into the 1D array. The two most common
 conventions for this mapping are C-order and F-order.
 
-In this article, we will refer to n-dimensional arrays as simply "arrays" and 1D arrays as "flat."
-
+In this article, we will refer to n-dimensional arrays as simply "arrays" and 1D arrays as "flat arrays."
 
 #### Reshaping arrays and stride
 
 One can think of reshaping a 1D array as a recursive process of grouping a number of adjacent elements. An n-dimensional array
 can be reshaped to an (n+1)-dimensional array by grouping a number adjacent elements belonging to the same dimension. 
-
-* **Define:** the *stride* of a dimension is the (positive) step in the flat array that corresponds to the adjacent element
-  along that dimension.
-
-The stride of a dimension is the product of sizes of all previous dimensions. 
+The [*stride*](https://en.wikipedia.org/wiki/Stride_of_an_array) of each dimension can be used to communicate how indexes
+relate to memory layout but more typical is to specify C-order or F-order (see below).
 
 ::: {.callout-note collapse="true" appearance="minimal"}
 # Note on "units" of stride 
@@ -86,10 +82,11 @@ the smallest stride possible would be 4 bytes: the next element is "4 bytes away
 
 :::
 
-* **Define:** the "fastest" or "inner" dimension is the dimension with a stride of 1.
-* **Define:** the "slowest" or "outer" dimension is the dimension with the largest stride.
+Other terms that are useful for communicating memory layout include:
 
-* **Define:** the *size* of a dimension is the number of grouped elements.
+* The **"fastest"** or **"inner"** dimension is the dimension with a stride of 1.
+* The **"slowest"** or **"outer"** dimension is the dimension with the largest stride.
+* The **size** of a dimension is the number of grouped elements.
 
 The size of an n-dimensional array is described by a list of sizes per dimension. For example: `[3, 5, 7].` In this example,
 the *first* dimension has size `3`, the *last* dimension has size `7`.
@@ -123,8 +120,8 @@ Notice:
 
 The terms C-order and F-order come from conventions for indexing arrays in the C and Fortran programming languages.
 
-* **C-order indexing:**: the fastest dimension corresponds to the last index, the slowest dimension corresponds to the first index
-* **F-order indexing:**: the slowest dimension corresponds to the last index, the fastest dimension corresponds to the first index
+* **C-order indexing:** the fastest dimension corresponds to the last index, the slowest dimension corresponds to the first index
+* **F-order indexing:** the slowest dimension corresponds to the last index, the fastest dimension corresponds to the first index
 
 
 ::: {.callout-tip collapse="true" appearance="minimal"}
@@ -147,6 +144,22 @@ and the *first* dimension will have stride `7*5 = 35`.
 Consider again an array of size `[3, 5, 7]`, but using F-order indexing. Again, the *first* dimension has size `3`, the *last*
 dimension has size `7`. Now, however, using F-order, the *first* dimension will have stride `1`, the *second* dimension will
 have stride `3`, and the *third* dimension will have stride `3*5 = 15`.
+
+**Recommendation:** Communicate the relationship of array indexes and sizes to memory layout. Consider using the language
+in the examples below or similar. 
+
+::: {.callout-tip collapse="true" appearance="minimal"}
+# Examples
+
+These are provided as effective examples, not as the only way to communicate information.
+
+### Example 1
+> Array sizes and coordinates are stored in C-order.
+
+### Example 2
+> Coordinates are ordered `X,Y,Z` where the `X` is contiguous in memory.
+
+:::
 
 ## Dimension semantics
 
@@ -209,11 +222,11 @@ the index position (first/second).
 
 ### Images
 
-Two-dimensional images are often stored as arrays where two dimensions vary the horizontal and vertical positions of the
-samples, and as a result these dimensions should be displayed horizontally and vertically, respectively.  Most formats for
+Two-dimensional images are often stored as arrays where two of the array dimensions vary the horizontal and vertical positions of the
+samples, and as a result these dimensions should be displayed horizontally and vertically, respectively. Most formats for
 storing "natural" images store data such that the "horizontal axis" / rows have a smaller stride than the "vertical axis" /
 columns. Note: while rows have smaller stride than columns, it is common for rows not to have stride 1, for example when using
-"interleaved" color components, the "color" dimension will have a stride of 1. Biomedical images do not typically have
+"interleaved" color components, the color dimension will have a stride of 1. Biomedical images do not typically have
 "horizontal" or "vertical" dimensions, but may have other semantics (e.g., anatomical, or related to the imaging system).
 
 **Recommendation:** Software and storage formats should be explicit about any semantics that are attached to dimensions and
@@ -242,19 +255,17 @@ and refer to specific samples, or continuous, referring to points "in-between" a
 :::
 
 
-
-
 ### cartesian coordinates
 
-In contrast to the matrix row/column index convention, cartesian
-coordinates label the horizontal and vertical dimensions `x` and `y`,
-respectively. Referencing positions in the 2D plane is done using
-ordered two-tuples `(x,y)`, where `x` is conventionally the left-index
-and `y` is the right-index. Using cartesian coordinates, varying
-the left dimensions varies horizontal position, and varying the right
-dimension varies the vertical position.
+In contrast to the matrix row/column index convention, cartesian coordinates label the horizontal and vertical dimensions `x`
+and `y`, respectively. Referencing positions in the 2D plane is done using ordered two-tuples `(x,y)`, where `x` is
+conventionally the first index and `y` is the second index. Using cartesian coordinates, varying the first dimensions varies
+horizontal position, and varying the second dimension varies the vertical position.
 
 Applications and workflows that make use of image geometry most commonly use cartesian coordinates.
+
+**Recommendation:** Name your dimensions `x`, `y`, or `z` only if they are spatial. Name the "horizontal" and "vertical"
+dimensions `x` and `y`, respectively if those semantics are relevant.
 
 
 ## References
