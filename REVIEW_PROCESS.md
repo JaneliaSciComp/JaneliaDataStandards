@@ -4,9 +4,7 @@ Articles posted to the Janelia Data Standards website should be vetted, authorit
 
 # Review process
 
-Each new article must be approved by at least two reviewers. At least one of those reviewers must be a **full reviewer**. The other reviewer may be either a **full** or **partial** reviewer. A **full reviewer** must complete all *three* sections of the template below. A **partial reviewer** must complete *at least one* section of the template below.
-
-Reviewers are selected by the author. The author may select more than two reviewers, if desired, but only the approval of two reviewers is needed. The review *may* consist of in-line comments, but it *must* include the template. 
+Each new article must be approved by at least two reviewers. Reviewers must complete all *three* sections of the template below. Reviewers are selected by the author. The author may select more than two reviewers, if desired, but only the approval of two reviewers is needed. The review *may* consist of in-line comments, but it *must* include the template. 
 
 Anybody who wishes to give feedback on the PR may do so, and the author is encouraged to consider all feedback thoughtfully, whether it comes from casual commenters or official reviewers. There is no deadline between initial submission of the PR and assignment of reviewers. If the author wishes, they may submit the PR, wait a while, see who comments on it, and then invite the commenters to become reviewers.
 
