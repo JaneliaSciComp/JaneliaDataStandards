@@ -14,29 +14,21 @@ If either reviewer requests changes, the author should not spend more than 3 wee
 
 If an article fails to achieve the approval of two reviewers in a reasonable time frame, the PR will be closed. (Who decides this, and how, will be played by ear.) The author may wish to re-submit a modified version of the article. Authors are discouraged from simply re-submitting the same article with more agreeable reviewers. In the event of disagreement on a data standard, the disagreeing parties are encouraged to meet—preferably over food and drink—and have one or more in-person discussions to try and achieve consensus. If consensus is simply impossible, the disagreeing parties should each write an article arguing for their position. The two articles should link to each other on the website, and should respond to each other’s ideas.
 
+
+Here is a diagram illustrating the review process.
+
+![A sketch of the review process.](review_process_image.png)
+
 ---
 
 # Review template
 
 The questions below do not need to be answered line-by-line. They are not a checklist; rather, they are meant to guide the reviewer in their subjective evaluation of the article's quality. It is up to the reviewer to decide how thoroughly they wish to address each section.
 
-## 1. The Big Picture
-
-Is this article appropriate for the Janelia Data Standards project? Is the general premise of the article sound? Is the proposed data standard generalizable beyond that author’s particular use case?
-
-## 2. Technical Choices
-
-Is the proposed standard elegant, straightforward, and focused? Does the author adequately explain the rationale behind the standard? Is the author making any flawed implicit assumptions, either about the problem or about their audience? Does the author provide an implementation and/or example data (preferable but not required)?
-
-## 3. Writing Style
-
-Is the post readable to bio-imaging developers who may come from a different sub-field, or code in a different language? Does it contain any typos or awkward sentences? Are the ideas organized in a logical flow?
+![An image of the review template.](template_image.png)
 
 ---
 
-Here is a diagram illustrating the review process.
-
-![A sketch of the review process.](review_process_image.png)
 
 ---
 
