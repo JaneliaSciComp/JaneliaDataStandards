@@ -63,9 +63,9 @@ Anyone may modify *any* article, even one they didn’t write, subject to the fo
 When the author is ready to submit their PR for review, they must use GitHub's [Request Review](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review) feature to assign TWO reviewers to the PR. Some instructions for reviewers are available [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request).
 
 On GitHub, a review has three possible statuses (or no status, e.g. pending reviewer response):
-    Comment: Submit general feedback without explicitly approving the changes or requesting additional changes.
-    Approve: Submit feedback and approve merging the changes proposed in the pull request.
-    Request changes: Submit feedback that must be addressed before the pull request can be merged.
+- Comment: Submit general feedback without explicitly approving the changes or requesting additional changes.
+- Approve: Submit feedback and approve merging the changes proposed in the pull request.
+- Request changes: Submit feedback that must be addressed before the pull request can be merged.
 
 Reviews-in-progress should have no status or "Comment" status. A status of "Approve" or "Request Changes" indicates that the reviewer has made their choice, and the status must not be changed after that. Reviewers have at most three weeks to select either "Approve" or "Request Changes".
 
