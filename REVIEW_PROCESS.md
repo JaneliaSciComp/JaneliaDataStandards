@@ -25,7 +25,19 @@ Here is a diagram illustrating the review process.
 
 The questions below do not need to be answered line-by-line. They are not a checklist; rather, they are meant to guide the reviewer in their subjective evaluation of the article's quality. It is up to the reviewer to decide how thoroughly they wish to address each section.
 
-![An image of the review template.](template_image.png)
+![Image of template.](template_image.png)
+
+## 1. The Big Picture
+
+Is this article appropriate for the Janelia Data Standards project? Is the general premise of the article sound? Is the proposed data standard generalizable beyond that author’s particular use case?
+
+## 2. Technical Choices
+
+Is the proposed standard elegant, straightforward, and focused? Does the author adequately explain the rationale behind the standard? Is the author making any flawed implicit assumptions, either about the problem or about their audience? Does the author provide an implementation and/or example data (preferable but not required)?
+
+## 3. Writing Style
+
+Is the post readable to bio-imaging developers who may come from a different sub-field, or code in a different language? Does it contain any typos or awkward sentences? Are the ideas organized in a logical flow?
 
 ---
 
