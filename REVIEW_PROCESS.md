@@ -29,9 +29,6 @@ The questions below do not need to be answered line-by-line. They are not a chec
 
 ---
 
-
----
-
 # Modifying existing articles
 
 Ideas and standards evolve over time, so some articles will need to be modified after publication. The modification history will be noted clearly on the post itself, so that no modification will be silent.
