@@ -18,7 +18,7 @@ If an article fails to achieve the approval of two reviewers in a reasonable tim
 
 # Review template
 
-The questions below do not need to be answered line-by-line. Rather, they are meant to convey a general sense of the purpose of that section. It is up to the reviewers to decide how thoroughly they wish to address each section.
+The questions below do not need to be answered line-by-line. They are not a checklist; rather, they are meant to guide the reviewer in their subjective evaluation of the article's quality. It is up to the reviewer to decide how thoroughly they wish to address each section.
 
 ## 1. The Big Picture
 
@@ -26,7 +26,7 @@ Is this article appropriate for the Janelia Data Standards project? Is the gener
 
 ## 2. Technical Choices
 
-Is the proposed standard elegant, straightforward, and focused? Does the author adequately explain the rationale behind the standard? Is the author making any flawed implicit assumptions, either about the problem or about their audience? Does the author provide an implementation and/or example data?
+Is the proposed standard elegant, straightforward, and focused? Does the author adequately explain the rationale behind the standard? Is the author making any flawed implicit assumptions, either about the problem or about their audience? Does the author provide an implementation and/or example data (preferable but not required)?
 
 ## 3. Writing Style
 
