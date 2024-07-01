@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/contributor_reviewer_test.html",
       "/posts/test_post.html"
     ]
   }
