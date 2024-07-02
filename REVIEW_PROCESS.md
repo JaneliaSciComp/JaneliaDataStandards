@@ -73,3 +73,17 @@ Reviews-in-progress should have no status or "Comment" status. A status of "Appr
 If either reviewer requests changes, the author should implement those changes as described above, and then [re-request review](https://i.sstatic.net/H2XaO.gif).
 
 Note: All authors and reviewers should have write access to the repository. Write access is required to assign reviewers, and while GitHub does not require write access to leave reviews, a merge can proceed without approval from a read-only reviewer. For this reason, DSG authors and reviewers should request write permissions from the repository owner(s).
+
+---
+
+#Attribution of Roles
+
+Contributions to the Data Standards project can be categorized in five roles:
+Author(s) - Wrote the article or made a major modification to the article
+Reviewer(s) - Reviewed the article or reviewed a major modification to the article
+Contributor(s) - Commented on a draft of the article or provided minor modifications
+Endorser(s) - Agree with the article's recommendations
+Maintainer - Party to whom correspondence should be addressed
+
+People who contributed in each of these roles should be added to the post metadata using the template provided. (See previous posts for examples.) Endorsers may be added at any time, and endorsers should feel free to add themselves with no review process. 
+
