@@ -29,7 +29,18 @@ The questions below do not need to be answered line-by-line. They are not a chec
 
 ## 1. The Big Picture
 
-Is this article appropriate for the Janelia Data Standards project? Is the general premise of the article sound? Is the proposed data standard generalizable beyond that author’s particular use case?
+Is this article appropriate for the Janelia Data Standards project? 
+1. Yes
+2. No
+3. Comments: ...
+Is the general premise of the article sound?
+1. Yes
+2. No
+3. Comments: ...
+Is the proposed data standard generalizable beyond that author’s particular use case?
+1. Yes
+2. No
+3. Comments: ...
 
 ## 2. Technical Choices
 
