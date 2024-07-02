@@ -33,10 +33,12 @@ Is this article appropriate for the Janelia Data Standards project?
 1. Yes
 2. No
 3. Comments: ...
+
 Is the general premise of the article sound?
 1. Yes
 2. No
 3. Comments: ...
+
 Is the proposed data standard generalizable beyond that author’s particular use case?
 1. Yes
 2. No
@@ -48,14 +50,17 @@ Is the proposed standard elegant, straightforward, and focused?
 1. Yes
 2. No
 3. Comments: ...
+
 Does the author adequately explain the rationale behind the standard?
 1. Yes
 2. No
 3. Comments: ...
+
 Is the author making any flawed implicit assumptions, either about the problem or about their audience?
 1. Yes
 2. No
 3. Comments: ...
+
 Does the author provide an implementation and/or example data (preferable but not required)?
 1. Yes
 2. No
@@ -68,10 +73,12 @@ Is the post readable to bio-imaging developers who may come from a different sub
 1. Yes
 2. No
 3. Comments: ...
+
 Does it contain any typos or awkward sentences?
 1. Yes
 2. No
 3. Comments: ...
+
 Are the ideas organized in a logical flow?
 1. Yes
 2. No
