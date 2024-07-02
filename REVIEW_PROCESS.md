@@ -64,7 +64,18 @@ Does the author provide an implementation and/or example data (preferable but no
 
 ## 3. Writing Style
 
-Is the post readable to bio-imaging developers who may come from a different sub-field, or code in a different language? Does it contain any typos or awkward sentences? Are the ideas organized in a logical flow?
+Is the post readable to bio-imaging developers who may come from a different sub-field, or code in a different language?
+1. Yes
+2. No
+3. Comments: ...
+Does it contain any typos or awkward sentences?
+1. Yes
+2. No
+3. Comments: ...
+Are the ideas organized in a logical flow?
+1. Yes
+2. No
+3. Comments: ...
 
 ---
 
