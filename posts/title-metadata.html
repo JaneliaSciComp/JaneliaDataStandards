@@ -59,6 +59,28 @@ $endif$
     </div>
   </div>
   $endif$
+  
+  $if(maintainer)$
+  <div>
+    <div class="maintainer">
+      <div class="quarto-title-meta-heading">Maintainer</div>
+        <div class="quarto-title-meta-contents">
+          <p>$for(maintainer)$$it.name$$sep$, $endfor$</p>
+        </div>
+    </div>
+  </div>
+  $endif$
+
+  $if(endorsers)$
+  <div>
+    <div class="endorsers">
+      <div class="quarto-title-meta-heading">Endorsers</div>
+        <div class="quarto-title-meta-contents">
+          <p>$for(endorsers)$$it$$sep$, $endfor$</p>
+        </div>
+    </div>
+  </div>
+  $endif$
 
   $if(date)$
   <div>
@@ -107,3 +129,4 @@ $if(keywords)$
   </div>
 </div>
 $endif$
+
