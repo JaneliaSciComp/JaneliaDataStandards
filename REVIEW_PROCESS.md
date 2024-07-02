@@ -44,7 +44,23 @@ Is the proposed data standard generalizable beyond that author’s particular us
 
 ## 2. Technical Choices
 
-Is the proposed standard elegant, straightforward, and focused? Does the author adequately explain the rationale behind the standard? Is the author making any flawed implicit assumptions, either about the problem or about their audience? Does the author provide an implementation and/or example data (preferable but not required)?
+Is the proposed standard elegant, straightforward, and focused?
+1. Yes
+2. No
+3. Comments: ...
+Does the author adequately explain the rationale behind the standard?
+1. Yes
+2. No
+3. Comments: ...
+Is the author making any flawed implicit assumptions, either about the problem or about their audience?
+1. Yes
+2. No
+3. Comments: ...
+Does the author provide an implementation and/or example data (preferable but not required)?
+1. Yes
+2. No
+3. N/A
+4. Comments: ...
 
 ## 3. Writing Style
 
