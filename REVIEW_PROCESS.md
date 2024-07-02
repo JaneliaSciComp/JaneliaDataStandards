@@ -76,14 +76,13 @@ Note: All authors and reviewers should have write access to the repository. Writ
 
 ---
 
-#Attribution of Roles
+# Attribution of Roles
 
 Contributions to the Data Standards project can be categorized in five roles:
-Author(s) - Wrote the article or made a major modification to the article
-Reviewer(s) - Reviewed the article or reviewed a major modification to the article
-Contributor(s) - Commented on a draft of the article or provided minor modifications
-Endorser(s) - Agree with the article's recommendations
-Maintainer - Party to whom correspondence should be addressed
+* Author(s) - Wrote the article or made a major modification to the article
+* Reviewer(s) - Reviewed the article or reviewed a major modification to the article
+* Contributor(s) - Commented on a draft of the article or provided minor modifications
+* Endorser(s) - Agree with the article's recommendations
+* Maintainer - Party to whom correspondence should be addressed
 
 People who contributed in each of these roles should be added to the post metadata using the template provided. (See previous posts for examples.) Endorsers may be added at any time, and endorsers should feel free to add themselves with no review process. 
-
