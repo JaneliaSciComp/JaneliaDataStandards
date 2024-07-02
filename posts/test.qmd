@@ -1,5 +1,6 @@
 ---
-title: "Author, reviewer, contributor"
+title: "Test Post"
+description: "Post description"
 author: 
     - name: "Jane Doe"
 contributors: [
