@@ -5,3 +5,5 @@ main:
     url: /posts/
   - title: "File Formats"
     url: /file_formats/
+  - title: "Definitions"
+    url: /definitions/

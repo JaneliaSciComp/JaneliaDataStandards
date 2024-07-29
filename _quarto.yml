@@ -15,12 +15,12 @@ website:
         text: Posts
       - href: file_formats.qmd
         text: File Formats
+      - href: definitions.qmd
+        text: Definitions
 
 format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
-
-
+    toc: false
 
