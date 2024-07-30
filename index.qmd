@@ -7,5 +7,5 @@ This is a nascent project to unify bioimaging data conventions at HHMI's Janelia
 \
 \
 \
-![The Janelia Research Campus, Ashburn VA](janelia.jpg)
+![The Janelia Research Campus, Ashburn VA](images/janelia.jpg)
 
