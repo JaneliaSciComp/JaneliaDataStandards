@@ -17,7 +17,7 @@ If an article fails to achieve the approval of two reviewers in a reasonable tim
 
 Here is a diagram illustrating the review process.
 
-![A sketch of the review process.](review_process_image.png)
+![A sketch of the review process.](images/review_process_image.png)
 
 ---
 
@@ -25,7 +25,7 @@ Here is a diagram illustrating the review process.
 
 The questions below do not need to be answered line-by-line. They are not a checklist; rather, they are meant to guide the reviewer in their subjective evaluation of the article's quality. It is up to the reviewer to decide how thoroughly they wish to address each section.
 
-![Image of template.](template_image.png)
+![Image of template.](images/template_image.png)
 
 ## 1. The Big Picture
 
