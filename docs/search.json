@@ -32,7 +32,7 @@
     "href": "index.html",
     "title": "Welcome!",
     "section": "",
-    "text": "This is a nascent project to unify bioimaging data conventions at HHMI’s Janelia Research Campus. Pardon our dust while we get up and running."
+    "text": "This is a nascent project to unify bioimaging data conventions at HHMI’s Janelia Research Campus. Pardon our dust while we get up and running.\n\n\n::: {.column-page}  :::"
   },
   {
     "objectID": "posts/test2.html",
@@ -74,7 +74,7 @@
     "href": "file_formats.html",
     "title": "Janelia’s Bioimaging File Formats",
     "section": "",
-    "text": "Janelia’s Bioimaging File Formats\n\nA handy list with links to their documentation.\n\n\n\nbigcat:\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat\n\n\n\nBig Data Viewer:\nThe paper\nThe file format is described in the supplementary information\nOnline documentation\n\n\n\nCellMap:\n\n\n\n\n\n\n\n\nhttps://janelia-cellmap.github.io/cellmap-schemas/\nhttps://janelia-cellmap.github.io/pydantic-zarr/\n\n\n\n\n\n\n\n\n\n\n\n\n\nCOSEM (predecessor to CellMap):\n\n\n\n\n\n\nhttps://github.com/janelia-cellmap/schemas\nhttps://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem\n\n\n\n\n\n\n\n\n\n\n\n\n\nDAT (FIB-SEM):\nThe FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:\nhttps://github.com/janelia-cellmap/fibsem-tools/\nhttps://github.com/clbarnes/jeiss-specs\n\n\n\nH5J:\nhttps://data.janelia.org/h5j\n\n\n\nn5-viewer:\nhttps://github.com/saalfeldlab/n5-viewer\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer\n\n\n\nOME-Zarr:\n\n\n\n\n\n\nOME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.\nhttps://ngff.openmicroscopy.org/0.4/"
+    "text": "Janelia’s Bioimaging File Formats\n\nA handy list with links to their documentation.\n\n\n\nbigcat:\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat\n\n\n\nBig Data Viewer:\nThe paper\nThe file format is described in the supplementary information\nOnline documentation\n\n\n\nCellMap:\n\n\n\n\n\n\nhttps://janelia-cellmap.github.io/cellmap-schemas/\nhttps://janelia-cellmap.github.io/pydantic-zarr/\n\n\n\n\n\n\n\n\n\n\n\n\n\nCOSEM (predecessor to CellMap):\n\n\n\n\n\n\nhttps://github.com/janelia-cellmap/schemas\nhttps://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem\n\n\n\n\n\n\n\n\n\n\n\n\n\nDAT (FIB-SEM):\nThe FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:\nhttps://github.com/janelia-cellmap/fibsem-tools/\nhttps://github.com/clbarnes/jeiss-specs\n\n\n\nH5J:\nhttps://data.janelia.org/h5j\n\n\n\nn5-viewer:\nhttps://github.com/saalfeldlab/n5-viewer\nhttps://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer\n\n\n\nOME-Zarr:\n\n\n\n\n\n\nOME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.\nhttps://ngff.openmicroscopy.org/0.4/"
   },
   {
     "objectID": "about.html",
