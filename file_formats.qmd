@@ -18,18 +18,24 @@ The file format is described in the [supplementary information](https://static-c
 ---
 
 #### CellMap: 
-
+::: {layout="[[65,35]]"}
+<div>
 [https://janelia-cellmap.github.io/cellmap-schemas/](https://janelia-cellmap.github.io/cellmap-schemas/) \
 [https://janelia-cellmap.github.io/pydantic-zarr/](https://janelia-cellmap.github.io/pydantic-zarr/)
-
+</div>
+![](images/cellmap.png){fig-align="center" width="140"}
+:::
 ---
 
 #### COSEM (predecessor to CellMap):
-
+::: {layout="[[65,35]]"}
+<div>
 [https://github.com/janelia-cellmap/schemas](https://github.com/janelia-cellmap/schemas) \
 [https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata](https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata) \
 [https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem](https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem)
-
+</div>
+![](images/cellmap.png){fig-align="center" width="140"}
+:::
 ---
 
 #### DAT (FIB-SEM):
@@ -55,7 +61,11 @@ The FIB-SEM .dat format is a completely custom file format for the Focused Ion B
 ---
 
 #### OME-Zarr:
-
+::: {layout="[[65,35]]"}
+<div>
 OME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.
 
 [https://ngff.openmicroscopy.org/0.4/](https://ngff.openmicroscopy.org/0.4/)
+</div>
+![](images/ome.png){fig-align="center" width="140"}
+:::
