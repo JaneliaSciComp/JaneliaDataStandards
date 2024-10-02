@@ -35,13 +35,6 @@
     "text": "This is a nascent project to unify bioimaging data conventions at HHMI’s Janelia Research Campus. Pardon our dust while we get up and running."
   },
   {
-    "objectID": "posts/test2.html",
-    "href": "posts/test2.html",
-    "title": "Test Post",
-    "section": "",
-    "text": "Section\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  },
-  {
     "objectID": "REVIEW_PROCESS.html",
     "href": "REVIEW_PROCESS.html",
     "title": "Introduction",
@@ -68,6 +61,13 @@
     "title": "Introduction",
     "section": "3. Writing Style",
     "text": "3. Writing Style\nIs the post readable to bio-imaging developers who may come from a different sub-field, or code in a different language? 1. Yes 2. No 3. Comments: …\nDoes it contain any typos or awkward sentences? 1. Yes 2. No 3. Comments: …\nAre the ideas organized in a logical flow? 1. Yes 2. No 3. Comments: …"
+  },
+  {
+    "objectID": "posts/test2.html",
+    "href": "posts/test2.html",
+    "title": "Test Post",
+    "section": "",
+    "text": "Section\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
   },
   {
     "objectID": "file_formats.html",

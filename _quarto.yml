@@ -9,17 +9,22 @@ website:
       - icon: github
         href: https://github.com/JaneliaSciComp/JaneliaDataStandards
     left:
-      - href: about.qmd
-        text: About
-      - href: posts.qmd
-        text: Posts
-      - href: file_formats.qmd
-        text: File Formats
-      - href: definitions.qmd
-        text: Definitions
+      - text: About
+        href: about.qmd
+      - text: Posts      
+        href: posts.qmd
+      - text: File Formats
+        menu:        
+          - text: Overview
+            href: file_formats.qmd
+          - text: Metadata features
+            href: file_formats2.qmd
+      - text: Definitions
+        href: definitions.qmd
 
 format:
   html:
+    page-layout: full
     theme: cosmo
     css: styles.css
     toc: false
