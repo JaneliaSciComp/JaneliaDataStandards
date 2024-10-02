@@ -1,7 +1,13 @@
 # Janelia's File Formats
 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRmc4elzevTZ-K4MQD0TPft8Yx5xuAXfjj0FeUX22ExStJkhsCV3mAhEPzLGkE2hFt99IvVW_SCLMnJ/pubhtml?widget=true&amp&headers=false&chrome=false" width="100%" height="4000px" chrome="false"></iframe>
+:::{.column-screen}
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRmc4elzevTZ-K4MQD0TPft8Yx5xuAXfjj0FeUX22ExStJkhsCV3mAhEPzLGkE2hFt99IvVW_SCLMnJ/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;headers=false&chrome=false" width="100%" height="3700px"></iframe>
+:::
 
 <!---
-I added &chrome=false to remove the title of the workbook
+Comments: 
+I added &chrome=false to remove the title of the workbook.
+range=: The rows and columns that are published to the web. For example, A1:B14.
+widget=: True or false. If true, the sheet tab is displayed at the bottom.
+headers=: True or false. If true, row numbers and column letters are displayed.
 -->
