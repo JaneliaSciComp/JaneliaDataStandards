@@ -1,8 +1,7 @@
 ---
-title: Table test
+title: File Formats Used at Janelia
 ---
+### (An incomplete list)
 
-```{=html}
-{{< include _data/mytable.csv >}}
-```
-
+{{< include _data/File_formats_survey.md >}}
+: {.striped }

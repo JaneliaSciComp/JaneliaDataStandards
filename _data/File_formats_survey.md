@@ -6,7 +6,7 @@
 | H5 BDV | XML/HDF5 file pair. XML holds custom metadata. | imaging |
 | H5J | Single file which holds lossy multichannel volumetric data | imaging |
 | MRC | Single file popular for cryoEM/ET data | imaging |
-| N5 | Multi-file chunked format with JSON metadata | imaging |
+| [N5](/file_format_profiles/n5.qmd) | Multi-file chunked format with JSON metadata | imaging |
 | N5 BDV | XML/N5 file pair. XML holds custom metadata | imaging |
 | N5-BigCat | N5 with particular metadata | imaging |
 | N5-COSEM | N5 with particular metadata | imaging |

@@ -1,0 +1,66 @@
+# n5-viewer
+
+**Description**: Multi-file chunked format with JSON metadata \
+**Parent metadata format**: JSON \
+**Parent data format**: N5 \
+**File extension(s)**: n5 \
+**What tools do you use to write it?** Fiji / N5, zarr-python, tensorstore \
+**What tools do you use to read it?**: Fiji / N5, neuroglancer, zarr-python, tensorstore \
+**Janelians to talk to about it**: John Bogovic, Caleb Hulbert, Stephan Saalfeld \
+**Example data**: [https://s3proxy.janelia.org/jgcamp8/example/fused.n5/](https://s3proxy.janelia.org/jgcamp8/example/fused.n5/)
+
+## Documentation links:
+
+[https://github.com/saalfeldlab/n5-viewer](https://github.com/saalfeldlab/n5-viewer) \
+[https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer](https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer)
+
+
+## Supported metadata:
+
+### multichannel
+
+Channels MUST be stored in separate groups, that MUST be named `c0`, `c1`, etc
+Single-channel images must be stored under a group named `c0`
+
+###  multiscale
+
+Multiscale images MUST be stored in separate groups and MUST be children of a channel group (`c[i]`, see above).
+The group for each scale level MUST be name `s0`, `s1`, ... `s[N]`.
+
+
+###  spatial resiolution
+
+Spatial resolution MUST be stored as metadata in the multiscale groups (`s[i]`, see above).
+
+As one of the
+
+```
+"pixelResolution": {
+   "unit": "um",
+   "dimensions": [ <rx>, <ry>, <rz> ]
+}
+```
+
+```
+"pixelResolution": [ <rx>, <ry>, <rz> ]
+```
+
+where `rx`, `ry`, and `rz` are the resolutions of x, y, and z, respectively
+
+TODO: document `"downsamplingFactors"`
+
+##  example
+
+TODO finish this
+```
+c0 
+    s0
+    s1
+    s2
+c1 
+    s0
+    s1
+    s2
+```
+
+
