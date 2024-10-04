@@ -1,0 +1,76 @@
+	BRIEF description	Parent metadata format	Parent data format	File Extension(s)	What tools do you use to write it?	What tools do you use to read it?	Janelian(s) to talk to about it	Domain (imaging, sequencing, ...)	Link(s) to documentation	Ideal person(s) to document the format	Actively maintained by	Janelia owned or maintained format?	Work on now	Examples
+BigStitcher-Interestpoints			ZARR, N5				Stephan Preibisch Tobias Pietzsch	point cloud		Stephan Preibisch Tobias Pietzsch		Yes	Yes	
+FIB-SEM-DAT	proprietary FIB-SEM format		bytes	dat	MATLAB script, \\nearline4\fibsem\LabVIEW codes\Matlab codes https://github.com/JaneliaSciComp/jeiss_fibsem_labview_control?tab=readme-ov-file	Fiji plugin  https://github.com/fiji/IO/blob/master/src/main/java/sc/fiji/io/FIBSEM_Reader.java https://github.com/janelia-cellmap/fibsem-tools	Hess lab	imaging	https://github.com/clbarnes/jeiss-specs	Mark Kittisopikul Eric Trautman		Yes	Yes	
+FIB-SEM-H5	Format to store FIB-SEM data		HDF5	h5			Mark Kittisopikul Eric Trautman	imaging	For metadata attributes see FIB-SEM-DAT	Mark Kittisopikul Eric Trautman		Yes	Yes	
+H5 BDV	XML/HDF5 file pair. XML holds custom metadata.	XML	HDF5	h5	Fiji / Bigdataviewer / BigStitcher	Fiji / Bigdataviewer / BigStitcher	Tobias Pietzsch Stephan Preibisch	imaging	http://arxiv.org/abs/1412.0488 (page 15)	Tobias Pietzsch Stephan Preibisch		Yes	Yes	
+H5J	Single file which holds lossy multichannel volumetric data		HDF5	h5j	Fiji Vaa3D	Fiji VVDViewer Vaa3D web-vol-viewer web-h5j-loader	Konrad Rokicki Philip Hubbard Takashi Kawase	imaging	https://data.janelia.org/h5j	Konrad Rokicki	N/A	Yes	Yes	
+MRC	Single file popular for cryoEM/ET data			mrc	Fiji / Bioformats	Fiji / Bioformats	John Bogovic	imaging	https://www.ccpem.ac.uk/mrc_format/mrc2014.php	John Bogovic		No	Yes	
+N5	Multi-file chunked format with JSON metadata	JSON	N5	n5	Fiji / N5, zarr-python, tensorstore	Fiji / N5 neuroglancer, zarr-python, tensorstore	John Bogovic Caleb Hulbert Stephan Saalfeld	imaging	https://github.com/saalfeldlab/n5	John Bogovic	Saalfeld lab	Yes	Yes	
+N5 BDV	XML/N5 file pair. XML holds custom metadata	XML	N5		Fiji / Bigdataviewer / BigStitcher	Fiji / Bigdataviewer / BigStitcher Neuroglancer / VVDViewer	Tobias Pietzsch Stephan Preibisch	imaging		Tobias Pietzsch Stephan Preibisch		Yes	Yes	
+N5-BigCat	N5 with particular metadata	JSON	N5	n5			John Bogovic Caleb Hulbert	imaging	https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat		N/A	Yes	Yes	
+N5-COSEM	N5 with particular metadata	JSON	N5	n5	Fiji / N5	Fiji / N5	John Bogovic Caleb Hulbert Yurii Zubov	imaging	https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata			Yes	Yes	
+N5-Paintera	N5 with particular metadata	JSON	N5	n5	Paintera	Paintera	Caleb Hulbert	imaging	https://github.com/saalfeldlab/paintera?tab=readme-ov-file#paintera-data-format	Caleb Hulbert	Caleb Hulbert	Yes	Yes	
+N5-Viewer	N5 with particular metadata	JSON	N5	n5	Fiji / N5	Fiji / N5	John Bogovic Caleb Hulbert	imaging	https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer			Yes	Yes	
+OME-TIFF	XML/TIFF file pair, where XML holds OME metadata	XML	TIFF		Fiji / Bioformats / tifffile (python)	Fiji / Bioformats / BigStitcher / tifffile (python)		imaging	https://docs.openmicroscopy.org/ome-model/5.6.3/ome-tiff/		N/A	No	Yes	
+OME-Zarr	Zarr with particular metadata	JSON	ZARR	zarr	zarr-python, tensorstore, xarray	zarr-python, neuroglancer*, tensorstore, xarray	John Bogovic Yurii Zubov	imaging	https://ngff.openmicroscopy.org/latest/ https://ome.github.io/ome-ngff-tools/		OME	No	Yes	
+OME-Zarr (CellMap)	OME-Zarr with more metadata	JSON	ZARR	zarr	zarr-python, tensorstore, xarray	zarr-python, neuroglancer*, tensorstore, xarray	Yurii Zubov	imaging			CellMap	Yes	Yes	
+3MF	3D CAD manufacturing				FreeCAD; OpenSCAD			CAD	https://3mf.io/spec/			No	No	
+AnnData	Metadata and structure to bundle spatial -omics data		HDF5/ZARR/(N5)		Python (anndata package) N5-anndata	Python (anndata package) N5-anndata	Michael Innerberger Stephan Preibisch	point cloud / imaging	https://anndata.readthedocs.io/en/latest/fileformat-prose.html	Michael Innerberger	https://scverse.org/	No	No	
+Apache Feather	dataframe storage				pyarrow	pyarrow			https://arrow.apache.org/docs/python/feather.html			No	No	
+bits	arbitrary binary data											No	No	
+CSV	Comma-separated tabular format		Text	csv	Pandas, Polars, CSV.jl, MIPAV, Excel	Excel						No	No	
+CZI	Zeiss microscope format 			czi	Fiji / Bioformats	Fiji / Bioformats / BigStitcher / VVDViewer		imaging	https://www.zeiss.com/microscopy/us/products/software/zeiss-zen/czi-image-file-format.html			No	No	
+DOCX	Word documents		XML	docx	Microsoft Word	Microsoft Word, Libreoffice, Apache POI			https://learn.microsoft.com/en-us/openspecs/office_standards/ms-docx/b839fe1f-e1ca-4fa6-8c26-5954d0abbccd		Microsoft	No	No	
+DXF	2D CAD; Electronics CAD				Autodesk Inventor; Inkscape; FreeCAD			CAD			Autodesk	No	No	
+FCStd	CAD source format		XML		FreeCAD	FreeCAD		CAD	https://wiki.freecad.org/File_Format_FCStd			No	No	
+fmf/sbfmf						Ctrax		behavior video	https://wikis.janelia.org/display/flyolympiad/Fly+movie+formats		Branson lab	Yes	No	
+HDF5	Single file chunked format (could be multi-file - MK)			h5 hdf5 hdf	Fiji / N5 h5py	Fiji / N5 h5py	Mark Kittisopikul	imaging + many others	https://docs.hdfgroup.org/hdf5/v1_14/_f_m_t3.html	Mark Kittisopikul	HDF Group	No	No	
+IAM	CAD assembly format				Autodesk Inventor	Autodesk Inventor		CAD (jET)				No	No	
+IMS	Imaris HDF5-based, chunked multiresolution format		HDF5	ims	Imaris	Fiji/ BigDataViewer	Tobias Pietzsch	imaging		Tobias Pietzsch		No	No	
+IPT	CAD source format				Autodesk Inventor	Autodesk Inventor		CAD (jET)			Autodesk	No	No	
+JSON	Structured text format		Text	json	VS Code	VS Code						No	No	
+kicad_pcb kicad_sch	CAD source files for electronic components		S-expression		KiCad	KiCad		CAD	https://dev-docs.kicad.org/en/file-formats/			No	No	
+KTX	OpenGL texture format					HortaCloud, for example		3d visualization	https://registry.khronos.org/KTX/specs/1.0/ktxspec.v1.html		Khronos Group	No	No	
+label	Interactive behavior labeling and learning							behavior ML	https://wikis.janelia.org/display/bransonlab/Automatic+Behavior+Detection+for+Flies%2C+Mice%2C+Larvae#AutomaticBehaviorDetectionforFlies,Mice,Larvae-FileFormats		Branson lab	Yes	No	
+LSM	Older Zeiss microscope format. TIFF with some extra metadata.		TIFF	lsm	ImageJ	ImageJ / Bioformats / BigStitcher / VVDViewer		imaging				No	No	
+MAT v5	Matlab			mat							Mathworks	No	No	
+MAT v7	Matlab		HDF5								Mathworks	No	No	
+MD	Markdown		Text	md	text editors	pandoc, quarto, GitHub, Jekyll…		Documentation	https://daringfireball.net/projects/markdown/; https://pandoc.org/MANUAL.html#pandocs-markdown			No	No	
+MJPEG	series of images, used for recording time series				MATLAB			behavior videos				No	No	
+MP4	container for time series data; many different codecs used for the actual data			mp4	MATLAB; handbrake			behavior videos; Computer Graphics				No	No	
+ND2	Nikon							imaging				No	No	
+ND2 (Nikon confocal format)						Fiji / VVDViewer						No	No	
+neo4j	Graph database											No	No	
+Neuroglancer Precomputed - meshes	Multi-resolution chunked 3D meshes				No open tools with complete multi-res support?	neuroglancer, cloud-volume			https://github.com/google/neuroglancer/tree/master/src/datasource/precomputed		Google	No	No	
+Neuroglancer Precomputed - point annotations	Multi-resolution chunked point cloud storage (and lines, boxes, etc.)				No open tools yet!	neuroglancer			https://github.com/google/neuroglancer/tree/master/src/datasource/precomputed		Google	No	No	
+Neuroglancer Precomputed - skeletons	Binary SWC alternative				Trivial to read/write.	Trivial to read/write.	Stuart	imaging	https://github.com/google/neuroglancer/tree/master/src/datasource/precomputed		Google	No	No	
+Neuroglancer Precomputed - voxels	Sharded voxel storage				tensorstore 	tensorstore, Neuroglancer 	Stuart, Bill	imaging	https://github.com/google/neuroglancer/tree/master/src/datasource/precomputed		Google	No	No	
+NIFTI	Single file or header/data file pair popular in medical imaging			nii	Fiji / Bioformats ITK	Fiji / Bioformats ITK	John Bogovic	imaging	https://brainder.org/2015/04/03/the-nifti-2-file-format/	John Bogovic		No	No	
+NPY (numpy format)	numpy's built-in array format				numpy	numpy			https://numpy.org/doc/stable/reference/generated/numpy.lib.format.html		Numpy Project	No	No	
+NRRD	Single file or header/data file pair popular in medical imaging	Text	bits	nrrd	Fiji / Bioformats ITK / VVDViewer	Fiji / Bioformats ITK / VVDViewer	John Bogovic	imaging	https://teem.sourceforge.net/nrrd/format.html	John Bogovic		No	No	
+OBJ	Textural format for 3D geometry (e.g. meshes)	Text	Text	obj	FreeCAD, Trimesh	neuPrint VVDViewer		Computer graphics; CAD	https://en.wikipedia.org/wiki/Wavefront_.obj_file			No	No	
+OIB (Olympus confocal format)						Fiji / VVDViewer						No	No	
+OIF (Olympus confocal format)						Fiji / VVDViewer						No	No	
+Parquet	dataframe storage				pyarrow	pyarrow	Ioannis Pisokas, Michael Innerberger	data, DataFrame	https://parquet.apache.org/docs/  https://arrow.apache.org/docs/python/parquet.html	Michael Innerberger		No	No	
+PDB	Protein data bank format for describing 3d structure of molecules		Text		various structural biology tools, including Google's AlphaFold	various structural biology tools, including viewers like PyMol		structural biology	http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html		Protein Data Bank	No	No	
+PDF	Portable Document Format; ISO32000		(subset of PostScript)	pdf	MATLAB, matplotlib, Adobe Illustrator, Adobe Acrobat, Inkscape	Adobe Acrobat, Inkscape		Vector graphics	https://opensource.adobe.com/dc-acrobat-sdk-docs/pdflsdk/index.html#pdf-reference		Adobe	No	No	
+pickle	Python serialization format				Python	Python		behavior; Python interprocess communication	https://docs.python.org/3/library/pickle.html			No	No	
+PLY	Textural format for 3D geometry (e.g. meshes)	Text	Text		Blender	Blender		Computer graphics	https://paulbourke.net/dataformats/ply/			No	No	
+PNG	lossless raster image format							Computer Graphics; Imaging	https://www.w3.org/TR/png/			No	No	
+postgresql												No	No	
+PPTX	Powerpoint documents		XML	pptx	Microsoft Powerpoint	Microsoft Powerpoint, Libreoffice, Apache POI			https://learn.microsoft.com/en-us/openspecs/office_standards/ms-pptx/efd8bb2d-d888-4e2e-af25-cad476730c9f		Microsoft	No	No	
+PS	Postscript Mostly converted to PDF				ghostscript, LaTeX	various pdf readers		Vector graphics, printing	https://www.adobe.com/jp/print/postscript/pdfs/PLRM.pdf			No	No	
+sqlite (*db, *sqlite, *…)	file based data storage; accessible via SQL (sqlite)				sqlite; python; MATLAB	sqlite; python; MATLAB		behavior	https://www.sqlite.org/fileformat2.html			No	No	
+STL	Mesh description of neurons (Connectome); CAD/CAM				Trimesh; Blender; FreeCAD; 	Slicers; Neuroglancer		CAD; Computer Graphics	https://en.wikipedia.org/wiki/STL_(file_format)			No	No	
+SVG	Vector graphics; 2D CAD (laser cutting); figures			svg	Inkscape; Illustrator; FreeCAD			CAD; Computer Graphics	https://www.w3.org/Graphics/SVG/			No	No	
+SWC	Textual format for neuron skeletons	Text	Text	swc				Neuroscience	no official spec, but see http://www.neuronland.org/NLMorphologyConverter/MorphologyFormats/SWC/Spec.html and https://www.neuron.yale.edu/phpBB/viewtopic.php?t=3477			No	No	
+Text	Text with a particular encoding (e.g. ASCII, UTF-8)		bits	txt	Notepad, vim, nano, VS Code	VS Code						No	No	
+TIFF	Tagged Image File Format			tif tiff	ImageJ LibTIFF	ImageJ / Bioformats / BigStitcher / VVDViewer		imaging	https://www.itu.int/itudoc/itu-t/com16/tiff-fx/docs/tiff6.pdf			No	No	
+trx	Interactive behavior labeling and learning							behavior ML	https://wikis.janelia.org/display/bransonlab/Automatic+Behavior+Detection+for+Flies%2C+Mice%2C+Larvae#AutomaticBehaviorDetectionforFlies,Mice,Larvae-FileFormats		Branson lab	Yes	No	
+UFMF	Micro Fly Movie Format					Ctrax		behavior video	https://wikis.janelia.org/display/bransonlab/UFMF+File+Description, https://ctrax.sourceforge.net/any2ufmf.html		Branson lab	Yes	No	
+VTK / VTU	1/2/3D polyhedral meshes + associated data fields				pyvista, Paraview	pyvista, Paraview	Michael Innerberger	CAD; Simulation	https://docs.vtk.org/en/latest/		kitware	No	No	
+WaveSurfer HDF5	WaveSurfer data file format		HDF5		WaveSurfer	WaveSurfer, PyWaveSurfer	Adam Taylor	Electrophysiology	https://wavesurfer.janelia.org/manual-0.945/index.html#reading-acquired-data	Adam Taylor	Adam Taylor	Yes	No	
+XLSX	Excel spreadhseets		XML	xlsx	Microsoft Excel	Microsoft Excel, Libreoffice, Apache POI, Pandas		data, DataFrame	https://learn.microsoft.com/en-us/openspecs/office_standards/ms-xlsx/2c5dee00-eff2-4b22-92b6-0738acd4475e		Microsoft	No	No	
+XML	Structured text format		Text	xml								No	No	
+Zarr v2	Multi-file chunked format with JSON metadata	JSON	ZARR	zarr	zarr-python, tensorstore n5-zarr	zarr-python, tensorstore, neuroglancer	John Bogovic Caleb Hulbert Yurii Zubov	imaging	https://zarr-specs.readthedocs.io/en/latest/v2/v2.0.html			No	No	
+Zarr v3	Multi-file chunked format with JSON metadata	JSON	ZARR	zarr zarr3	zarr-python, tensorstore	zarr-python, tensorstore, neuroglancer	John Bogovic Mark Kittisopikul Caleb Hulbert Yurii Zubov	imaging	https://zarr-specs.readthedocs.io/en/latest/v3/core/v3.0.html			No	No	

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>file_formats – Janelia Data Standards</title>
+<title>Table test – Janelia Data Standards</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -66,6 +100,8 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -120,68 +156,67 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Table test</h1>
+</div>
 
 
 
-<section id="janelias-bioimaging-file-formats" class="level1">
-<h1>Janelia’s Bioimaging File Formats</h1>
-<section id="a-handy-list-with-links-to-their-documentation." class="level4">
-<h4 class="anchored" data-anchor-id="a-handy-list-with-links-to-their-documentation.">A handy list with links to their documentation.</h4>
-<hr>
-</section>
-<section id="bigcat" class="level4">
-<h4 class="anchored" data-anchor-id="bigcat">bigcat:</h4>
-<p><a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat</a></p>
-<hr>
-</section>
-<section id="big-data-viewer" class="level4">
-<h4 class="anchored" data-anchor-id="big-data-viewer">Big Data Viewer:</h4>
-<p><a href="https://www.nature.com/articles/nmeth.3392">The paper</a><br>
-The file format is described in the <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3392/MediaObjects/41592_2015_BFnmeth3392_MOESM239_ESM.pdf">supplementary information</a><br>
-<a href="https://imagej.net/plugins/bdv/">Online documentation</a></p>
-<hr>
-</section>
-<section id="cellmap" class="level4">
-<h4 class="anchored" data-anchor-id="cellmap">CellMap:</h4>
-<p><a href="https://janelia-cellmap.github.io/cellmap-schemas/">https://janelia-cellmap.github.io/cellmap-schemas/</a><br>
-<a href="https://janelia-cellmap.github.io/pydantic-zarr/">https://janelia-cellmap.github.io/pydantic-zarr/</a></p>
-<hr>
-</section>
-<section id="cosem-predecessor-to-cellmap" class="level4">
-<h4 class="anchored" data-anchor-id="cosem-predecessor-to-cellmap">COSEM (predecessor to CellMap):</h4>
-<p><a href="https://github.com/janelia-cellmap/schemas">https://github.com/janelia-cellmap/schemas</a><br>
-<a href="https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata">https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata</a><br>
-<a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem</a></p>
-<hr>
-</section>
-<section id="dat-fib-sem" class="level4">
-<h4 class="anchored" data-anchor-id="dat-fib-sem">DAT (FIB-SEM):</h4>
-<p>The FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:</p>
-<p><a href="https://github.com/janelia-cellmap/fibsem-tools/">https://github.com/janelia-cellmap/fibsem-tools/</a><br>
-<a href="https://github.com/clbarnes/jeiss-specs">https://github.com/clbarnes/jeiss-specs</a></p>
-<hr>
-</section>
-<section id="h5j" class="level4">
-<h4 class="anchored" data-anchor-id="h5j">H5J:</h4>
-<p><a href="https://data.janelia.org/h5j">https://data.janelia.org/h5j</a></p>
-<hr>
-</section>
-<section id="n5-viewer" class="level4">
-<h4 class="anchored" data-anchor-id="n5-viewer">n5-viewer:</h4>
-<p><a href="https://github.com/saalfeldlab/n5-viewer">https://github.com/saalfeldlab/n5-viewer</a><br>
-<a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer</a></p>
-<hr>
-</section>
-<section id="ome-zarr" class="level4">
-<h4 class="anchored" data-anchor-id="ome-zarr">OME-Zarr:</h4>
-<p>OME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.</p>
-<p><a href="https://ngff.openmicroscopy.org/0.4/">https://ngff.openmicroscopy.org/0.4/</a></p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
 
 
-</section>
-</section>
+</header>
+
+
+Fruits,Vegetables,Spices
+Apple,Carrot,Cinnamon
+Mango,Kale,Turmeric
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" data-startfrom="10" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 9;"><span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>viewof file <span class="op">=</span> <span class="fu">FileAttachment</span>(<span class="st">"_data/mytable.csv"</span>)<span class="op">.</span><span class="fu">csv</span>()</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">html</span><span class="vs">`&lt;table border="1"&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span><span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(file[<span class="dv">0</span>])<span class="op">.</span><span class="fu">map</span>(key <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;th&gt;</span><span class="sc">${</span>key<span class="sc">}</span><span class="vs">&lt;/th&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="vs">  </span><span class="sc">${</span>file<span class="op">.</span><span class="fu">map</span>(row <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;tr&gt;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="vs">    </span><span class="sc">${</span><span class="bu">Object</span><span class="op">.</span><span class="fu">values</span>(row)<span class="op">.</span><span class="fu">map</span>(value <span class="kw">=&gt;</span> <span class="fu">html</span><span class="vs">`&lt;td&gt;</span><span class="sc">${</span>value<span class="sc">}</span><span class="vs">&lt;/td&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="vs">  &lt;/tr&gt;`</span>)<span class="sc">}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="vs">&lt;/table&gt;`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+</div>
+
+
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBmaWxlID0gRmlsZUF0dGFjaG1lbnQoXCJfZGF0YS9teXRhYmxlLmNzdlwiKS5jc3YoKVxuaHRtbGA8dGFibGUgYm9yZGVyPVwiMVwiPlxuICAke09iamVjdC5rZXlzKGZpbGVbMF0pLm1hcChrZXkgPT4gaHRtbGA8dGg+JHtrZXl9PC90aD5gKX1cbiAgJHtmaWxlLm1hcChyb3cgPT4gaHRtbGA8dHI+XG4gICAgJHtPYmplY3QudmFsdWVzKHJvdykubWFwKHZhbHVlID0+IGh0bWxgPHRkPiR7dmFsdWV9PC90ZD5gKX1cbiAgPC90cj5gKX1cbjwvdGFibGU+YFxuXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2ZpbGUnKSJ9XX0=
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
