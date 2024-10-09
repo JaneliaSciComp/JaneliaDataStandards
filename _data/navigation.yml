@@ -1,9 +1,0 @@
-main:
-  - title: "About"
-    url: /about/
-  - title: "Posts"
-    url: /posts/
-  - title: "File Formats"
-    url: /file_formats/
-  - title: "Definitions"
-    url: /definitions/
