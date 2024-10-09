@@ -1,6 +1,0 @@
-# For macOS:
-.DS_Store
-
-# quarto:
-/_site/
-/.quarto/
