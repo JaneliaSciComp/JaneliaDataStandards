@@ -24,14 +24,20 @@ def concatenate_subsets(infilename, delimiter, ranges):
     return(concatenated_rows)
 
 
-def rows_to_markdown(rows, md_filename):
-    with open(md_filename, mode='w') as md_file:
+def rows_to_markdown(rows, md_filename=None):
+    if md_filename:
+        with open(md_filename, mode='w') as md_file:
+            header = rows[0]
+            md_file.write(f"| {' | '.join(header)} |\n")
+            md_file.write(f"| {' | '.join(['---' for _ in header])} |\n")
+            for row in rows[1:]:
+                md_file.write(f"| {' | '.join(row)} |\n")
+    else:
         header = rows[0]
-        md_file.write(f"| {' | '.join(header)} |\n")
-        md_file.write(f"| {' | '.join(['---' for _ in header])} |\n")
+        print(f"| {' | '.join(header)} |")
+        print(f"| {' | '.join(['---' for _ in header])} |")
         for row in rows[1:]:
-            md_file.write(f"| {' | '.join(row)} |\n")
-
+            print(f"| {' | '.join(row)} |")
 
 
 # Function to convert Excel-style columns (letters) to indices (numbers)
@@ -63,29 +69,25 @@ def excel_col_to_index(col):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
     description = "Convert a csv or tsv file to markdown.")
-    parser.add_argument('--in', dest='infile', action='store', required=True,
+    parser.add_argument('infile', # a positional argument
                         help='Name of input file.')
-    parser.add_argument('--out', dest='outfile', action='store',
-                        help='Name of output file.')
-    parser.add_argument('--range', dest='range', action='store',
-                        default=False, help='Excel-style cell range to extract, e.g. B1:F16. For now, must be a single contiguous chunk. ')
+    parser.add_argument('--out', dest='outfile', action='store', required=False,
+                        default=False, help='Name of output file.')
+    parser.add_argument('--range', dest='range', action='store', required=False,
+                        default=False, help='Excel-style cell range to extract, e.g. B1:F16. If concatenating multiple subsets, subsets must be comma-separated and have same number of rows, e.g. B1:F16,J1:K16.')
     parser.add_argument('-tsv', action='store_true',
                         help='Flag: indicates input file is tab-separated.')
-    
+
     arg = parser.parse_args()
     delimiter = '\t' if arg.tsv else ','
-    outfilename = arg.outfile
-    if not arg.outfile:
-        try:
-            outfilename = arg.infile.rsplit('.', 1)[0] + '.md'
-        except:
-            outfilename = arg.infile + '.md'
-
     final_rows = []
-    if ',' in arg.range:
-        final_rows = concatenate_subsets(arg.infile, delimiter, arg.range)
+    if arg.range:
+        
+        if ',' in arg.range:
+            final_rows = concatenate_subsets(arg.infile, delimiter, arg.range)
+        else:
+            final_rows = get_rows(arg.infile, delimiter, arg.range)
     else:
-        final_rows = get_rows(arg.infile, delimiter, arg.range)
-
-    rows_to_markdown(final_rows, outfilename)
+        final_rows = get_rows(arg.infile, delimiter)
+    rows_to_markdown(final_rows, arg.outfile)
 
