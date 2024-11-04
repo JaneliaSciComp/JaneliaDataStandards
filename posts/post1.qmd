@@ -4,17 +4,17 @@ description: "Post description"
 author: 
     - name: "Jane Doe"
 contributors: [
-    "Aaron A Aaronson",
-    "Zora Z Zgaljic"]
+    "Conributor 1",
+    "Contributor 2"]
 reviewers: [
-    "Ricky Rouse",
-    "Monald Muck" ]
+    "Reviewer 1",
+    "Reviewer 2" ]
 maintainer:
     - name: "Virginia Scarlett"
 endorsers: [
-    "Bubbles",
-    "Blossom",
-    "Buttercup" ]
+    "Endorser 1",
+    "Endorser 2",
+    "Endorser 3" ]
 date: "5/10/2024"
 format:
   html:
