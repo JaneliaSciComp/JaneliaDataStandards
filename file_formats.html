@@ -96,10 +96,21 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./posts.html"> 
 <span class="menu-text">Posts</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="./file_formats.html" aria-current="page"> 
-<span class="menu-text">File Formats</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-file-formats" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">File Formats</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-file-formats">    
+        <li>
+    <a class="dropdown-item" href="./file_formats.html">
+ <span class="dropdown-text">Overview</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./metadata.html">
+ <span class="dropdown-text">Metadata features</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="./definitions.html"> 
 <span class="menu-text">Definitions</span></a>
@@ -118,67 +129,19 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 
 
 
-<section id="janelias-bioimaging-file-formats" class="level1">
+<section id="janelias-bioimaging-file-formats" class="level1 page-columns page-full">
 <h1>Janelia’s Bioimaging File Formats</h1>
-<section id="a-handy-list-with-links-to-their-documentation." class="level4">
-<h4 class="anchored" data-anchor-id="a-handy-list-with-links-to-their-documentation.">A handy list with links to their documentation.</h4>
-<hr>
-</section>
-<section id="bigcat" class="level4">
-<h4 class="anchored" data-anchor-id="bigcat">bigcat:</h4>
-<p><a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#bigcat</a></p>
-<hr>
-</section>
-<section id="big-data-viewer" class="level4">
-<h4 class="anchored" data-anchor-id="big-data-viewer">Big Data Viewer:</h4>
-<p><a href="https://www.nature.com/articles/nmeth.3392">The paper</a><br>
-The file format is described in the <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3392/MediaObjects/41592_2015_BFnmeth3392_MOESM239_ESM.pdf">supplementary information</a><br>
-<a href="https://imagej.net/plugins/bdv/">Online documentation</a></p>
-<hr>
-</section>
-<section id="cellmap" class="level4">
-<h4 class="anchored" data-anchor-id="cellmap">CellMap:</h4>
-<p><a href="https://janelia-cellmap.github.io/cellmap-schemas/">https://janelia-cellmap.github.io/cellmap-schemas/</a><br>
-<a href="https://janelia-cellmap.github.io/pydantic-zarr/">https://janelia-cellmap.github.io/pydantic-zarr/</a></p>
-<hr>
-</section>
-<section id="cosem-predecessor-to-cellmap" class="level4">
-<h4 class="anchored" data-anchor-id="cosem-predecessor-to-cellmap">COSEM (predecessor to CellMap):</h4>
-<p><a href="https://github.com/janelia-cellmap/schemas">https://github.com/janelia-cellmap/schemas</a><br>
-<a href="https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata">https://github.com/janelia-cellmap/schemas/blob/master/metadata.md#dataset-spatial-metadata</a><br>
-<a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#cosem</a></p>
-<hr>
-</section>
-<section id="dat-fib-sem" class="level4">
-<h4 class="anchored" data-anchor-id="dat-fib-sem">DAT (FIB-SEM):</h4>
-<p>The FIB-SEM .dat format is a completely custom file format for the Focused Ion Beam Scanning Electron Microscope system developed at Janelia. Documentation can be found in two repositories:</p>
-<p><a href="https://github.com/janelia-cellmap/fibsem-tools/">https://github.com/janelia-cellmap/fibsem-tools/</a><br>
-<a href="https://github.com/clbarnes/jeiss-specs">https://github.com/clbarnes/jeiss-specs</a></p>
-<hr>
-</section>
-<section id="h5j" class="level4">
-<h4 class="anchored" data-anchor-id="h5j">H5J:</h4>
-<p><a href="https://data.janelia.org/h5j">https://data.janelia.org/h5j</a></p>
-<hr>
-</section>
-<section id="n5-viewer" class="level4">
-<h4 class="anchored" data-anchor-id="n5-viewer">n5-viewer:</h4>
-<p><a href="https://github.com/saalfeldlab/n5-viewer">https://github.com/saalfeldlab/n5-viewer</a><br>
-<a href="https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer">https://github.com/saalfeldlab/n5-ij/wiki/N5-Metadata-Dialects#n5-viewer</a></p>
-<hr>
-</section>
-<section id="ome-zarr" class="level4">
-<h4 class="anchored" data-anchor-id="ome-zarr">OME-Zarr:</h4>
-<p>OME-NGFF, a.k.a. OME-Zarr, is not a Janelia file format, but is widely used at Janelia.</p>
-<p><a href="https://ngff.openmicroscopy.org/0.4/">https://ngff.openmicroscopy.org/0.4/</a></p>
+<div class="column-screen">
+<iframe class="airtable-embed" src="https://airtable.com/embed/appWb5kb4fqDOv3eO/shrlCd3siXhQ846yd?viewControls=on" frameborder="0" onmousewheel="" width="100%" height="650" style="background: transparent; border: 1px solid #ccc;">
+</iframe>
+</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
