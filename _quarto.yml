@@ -28,7 +28,7 @@ format:
   html:
     theme:
       light: cosmo
-      dark: darkly
+      dark: [cosmo,theme-dark.scss]
     css: styles.css
     toc: false
 
