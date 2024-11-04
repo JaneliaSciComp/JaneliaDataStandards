@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/file_formats.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
-  </url>
-  <url>
-    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/posts/test2.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
-  </url>
-  <url>
-    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/posts.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
+    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/definitions.html</loc>
+    <lastmod>2024-10-09T13:53:05.630Z</lastmod>
   </url>
   <url>
     <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/CONTRIBUTING.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
-  </url>
-  <url>
-    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/REVIEW_PROCESS.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
-  </url>
-  <url>
-    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/about.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
-  </url>
-  <url>
-    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/metadata.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
+    <lastmod>2024-11-04T17:58:04.275Z</lastmod>
   </url>
   <url>
     <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/index.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
+    <lastmod>2024-11-04T17:58:04.276Z</lastmod>
   </url>
   <url>
-    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/definitions.html</loc>
-    <lastmod>2024-11-04T17:55:57.936Z</lastmod>
+    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/metadata.html</loc>
+    <lastmod>2024-11-04T17:49:08.983Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/REVIEW_PROCESS.html</loc>
+    <lastmod>2024-10-09T13:53:05.629Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/posts/test2.html</loc>
+    <lastmod>2024-10-09T13:53:05.653Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/file_formats.html</loc>
+    <lastmod>2024-11-04T17:49:08.983Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/about.html</loc>
+    <lastmod>2024-10-09T13:53:05.630Z</lastmod>
+  </url>
+  <url>
+    <loc>https://JaneliaSciComp.github.io/JaneliaDataStandards/posts.html</loc>
+    <lastmod>2024-10-09T13:53:05.652Z</lastmod>
   </url>
 </urlset>
