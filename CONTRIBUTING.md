@@ -13,6 +13,6 @@ Use the existing posts as a template, at least for the header block. Quarto will
 The workflow for submitting a PR (should you wish to do so) is as follows: \
 Clone the repo > create your feature branch > do some work > Optionally do `quarto preview` to host the site locally and see it in your browser > `git commit` and `git push` as usual.
 
-To preview the site or build it locally, you will need quarto installed on your computer. Neither of these is strictly necessary, since a GitHub action should render the site files remotely for you. However, I've found that one `quarto publish gh-pages` might be necessary after merging a branch into main.
+To preview the site or build it locally, you will need quarto installed on your computer. Neither of these is strictly necessary, since a GitHub action should render the site files remotely for you. Changes may take up to 20 minutes to be reflected on the website.
 
 The rendered site pages are automatically stored in, and deployed from, the gh-pages branch, so please do not modify that branch.
