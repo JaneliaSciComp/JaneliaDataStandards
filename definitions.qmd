@@ -143,8 +143,8 @@ Related terms: [downsampling](#downsampling), [interpolation](#interpolation), [
 
 ### resolution
 
-The smallest difference in signal quantity that can be discriminated by a device or system. In the case of analog to digital signal conversion, resolution is determined by the number of bits used to represent the signal. Thus, resolution is often expressed in bits.
+The smallest difference in signal quantity that can be discriminated by a device or system. In the case of analog to digital signal conversion, resolution is determined by the number of bits used to represent the signal.
 
-Colloquial uses of the term ‘resolution’ include the total number of samples in each dimension of an image (e.g., 640 by 420), and the set of spatial sampling intervals for an image (e.g. ‘spacing’, ‘pixel spacing’, or ‘pixel resolution’). These are not rigorous technical definitions. To reduce confusion, it is best to avoid using the term ‘resolution’ to describe either the number of samples in an image, or the spacing between samples. 
+Colloquial uses of the term ‘resolution’ include the total number of samples in each dimension of an image (e.g., 640 by 420), and the set of spatial sampling intervals for an image (e.g. ‘spacing’, ‘pixel spacing’, or ‘pixel resolution’). For clarity, it may be prudent to avoid using the term ‘resolution’ to describe either the number of samples in an image or the spacing between samples.
 
 Related terms: [bit-depth](#bit-depth), [resampling](#resampling)
