@@ -172,69 +172,70 @@ window.Quarto = {
 <ul>
 <li>Basic definitions
 <ul>
-<li><a href="#array"><em>array</em></a></li>
-<li><a href="#image"><em>image</em></a></li>
-<li><a href="#pixel"><em>pixel</em></a></li>
-<li><a href="#sample"><em>sample</em></a></li>
-<li><a href="#voxel"><em>voxel</em></a></li>
+<li><a href="#array">array</a></li>
+<li><a href="#image">image</a></li>
+<li><a href="#pixel">pixel</a></li>
+<li><a href="#sample">sample</a></li>
+<li><a href="#voxel">voxel</a></li>
 </ul></li>
 <li>Other definitions
 <ul>
-<li><a href="#axis"><em>axis</em></a></li>
-<li><a href="#bit-depth"><em>bit-depth</em></a></li>
-<li><a href="#domain"><em>domain</em></a></li>
-<li><a href="#downsampling"><em>downsampling</em></a></li>
-<li><a href="#field-of-view"><em>field of view</em></a></li>
-<li><a href="#filtering"><em>filtering</em></a></li>
-<li><a href="#group"><em>group</em></a></li>
-<li><a href="#hierarchy"><em>hierarchy</em></a></li>
-<li><a href="#interpolation"><em>interpolation</em></a></li>
-<li><a href="#origin"><em>origin</em></a></li>
-<li><a href="#physical"><em>physical</em></a></li>
-<li><a href="#quantization"><em>quantization</em></a></li>
-<li><a href="#resampling"><em>resampling</em></a></li>
-<li><a href="#resolution"><em>resolution</em></a></li>
+<li><a href="#axis">axis</a></li>
+<li><a href="#bit-depth">bit-depth</a></li>
+<li><a href="#domain">domain</a></li>
+<li><a href="#downsampling">downsampling</a></li>
+<li><a href="#field-of-view">field of view</a></li>
+<li><a href="#filtering">filtering</a></li>
+<li><a href="#group">group</a></li>
+<li><a href="#hierarchy">hierarchy</a></li>
+<li><a href="#interpolation">interpolation</a></li>
+<li><a href="#origin">origin</a></li>
+<li><a href="#physical">physical</a></li>
+<li><a href="#quantization">quantization</a></li>
+<li><a href="#resampling">resampling</a></li>
+<li><a href="#resolution">resolution</a></li>
 </ul></li>
 </ul>
 <section id="basic-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="basic-definitions">Basic definitions</h2>
 <section id="array" class="level3">
 <h3 class="anchored" data-anchor-id="array">array</h3>
-<p>An n-dimensional collection of discrete <em>samples</em> whose domain is a regular discrete (integer) grid.</p>
-<p>Related terms: <a href="#sample"><em>sample</em></a>, <a href="#image"><em>image</em></a>, <a href="#hierarchy"><em>hierarchy</em></a></p>
+<p>An n-dimensional collection of discrete samples whose domain is a regular discrete (integer) grid.</p>
+<p>Related terms: <a href="#sample">sample</a>, <a href="#image">image</a>, <a href="#hierarchy">hierarchy</a></p>
 </section>
 <section id="image" class="level3">
 <h3 class="anchored" data-anchor-id="image">image</h3>
-<p>A set of numbers intended to be displayed on a screen. Ancillary data structures may be required to display or interpret an <em>image</em> (such as a lookup table), but these are not part of the <em>image</em> itself. An <em>image</em> is often, but not necessarily, acquired by a sensor situated within an optical system. <em>Images</em> can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain, but these are not canonical uses of the word “image”, and the word “image” by itself should refer only to <em>arrays</em> and array-like data structures.</p>
-<p>Related terms: <a href="#array"><em>array</em></a>, <a href="#sample"><em>sample</em></a>, <a href="#pixel"><em>pixel</em></a>, <a href="#voxel"><em>voxel</em></a>, <a href="#axis"><em>axis</em></a>, <a href="#dimension"><em>dimension</em></a></p>
+<p>A static set of coherent visual information. For our purposes, ‘image’ and ‘digital image’ may be used interchangeably.</p>
+<p>Images can be represented in compact forms, for example as a compressed sequence of bytes or as a discrete function over a finite domain. For our purposes, the word ‘image’ by itself refers to raster images produced by displaying arrays and array-like data structures on a screen. Unless otherwise specified, this rastering occurs at regular equispaced intervals, the pixel pitch.</p>
+<p>An image is an abstract notion distinct from its representation, e.g.&nbsp;a discrete digital array. Colloquially, ‘array’ and ‘image’ are often used interchangeably. However, a rigorous technical definition separates the two, so that an image (a static set of coherent visual information) may be constituted by several arrays, for example.</p>
+<p>Related terms: <a href="#array">array</a>, <a href="#sample">sample</a>, <a href="#pixel">pixel</a>, <a href="#voxel">voxel</a>, <a href="#axis">axis</a>, <a href="#dimension">dimension</a></p>
 </section>
 <section id="pixel" class="level3">
 <h3 class="anchored" data-anchor-id="pixel">pixel</h3>
-<p>A single <em>sample</em> of a two-dimensional <em>image</em>.</p>
-<p>Often used interchangeably with <em>sample</em>.</p>
-<p>Related terms: <a href="#sample"><em>sample</em></a>, <a href="#voxel"><em>voxel</em></a></p>
+<p>A single sample of a two-dimensional image.</p>
+<p>Related terms: <a href="#sample">sample</a>, <a href="#voxel">voxel</a></p>
 </section>
 <section id="sample" class="level3">
 <h3 class="anchored" data-anchor-id="sample">sample</h3>
-<p>A digital number representing a measurement of the energy sensed by a particular cell on a sensor at a discrete point in time. Because cells on a sensor correspond to elements of an <em>array</em> and <em>pixels</em> of an <em>image</em>, <em>sample</em> is often used interchangeably with <em>pixel</em>.</p>
-<p>Related terms: <a href="#pixel"><em>pixel</em></a>, <a href="#voxel"><em>voxel</em></a>, <a href="#image"><em>image</em></a>, <a href="#array"><em>array</em></a></p>
+<p>A digital number representing a measurement of the energy sensed by a particular cell on a sensor at a discrete point in time. Because cells on a sensor correspond to elements of an array and pixels of an image, sample is often used interchangeably with pixel.</p>
+<p>Related terms: <a href="#pixel">pixel</a>, <a href="#voxel">voxel</a>, <a href="#image">image</a>, <a href="#array">array</a></p>
 </section>
 <section id="voxel" class="level3">
 <h3 class="anchored" data-anchor-id="voxel">voxel</h3>
-<p>A single <em>sample</em> of a three-dimensional <em>image</em>.</p>
-<p>Related terms: <a href="#sample"><em>sample</em></a>, <a href="#pixel"><em>pixel</em></a></p>
+<p>A single sample of a three-dimensional image.</p>
+<p>Related terms: <a href="#sample">sample</a>, <a href="#pixel">pixel</a></p>
 </section>
 </section>
 <section id="other-definitions" class="level2">
 <h2 class="anchored" data-anchor-id="other-definitions">Other definitions</h2>
 <section id="axis" class="level3">
 <h3 class="anchored" data-anchor-id="axis">axis</h3>
-<p>The <em>physical</em> interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have <em>physical</em> units.</p>
+<p>The physical interpretation of a discrete, numeric, finite dimension. Generally represented with a 1D variable that is strictly monotonic and has the same name as the axis it represents. An axis must have physical units.</p>
 </section>
 <section id="bit-depth" class="level3">
 <h3 class="anchored" data-anchor-id="bit-depth">bit-depth</h3>
-<p>The number of bits used in the <em>quantization</em> a digital image that defines the number of unique values that can be represented by samples. For example, samples of images with a bit depth of (“8-bit images”) can take up to 256 unique values.</p>
-<p>Related terms: <a href="#quantization"><em>quantization</em></a></p>
+<p>The number of bits used in the quantization of a digital image that defines the number of unique values that can be represented by samples. For example, samples of images with a bit depth of (“8-bit images”) can take up to 256 unique values.</p>
+<p>Related terms: <a href="#quantization">quantization</a></p>
 </section>
 <section id="dimension" class="level3">
 <h3 class="anchored" data-anchor-id="dimension">dimension</h3>
@@ -242,58 +243,55 @@ window.Quarto = {
 </section>
 <section id="domain" class="level3">
 <h3 class="anchored" data-anchor-id="domain">domain</h3>
-<p>A set of discrete locations in abstract space. A domain, or any location within a domain, may be described by multiple variables, but any given variable has only one domain. A domain has zero or more dimensions. The component dimensions of a domain need not be numeric, but when they are, the domain may be thought of as situated in a coordinate space. If a domain’s dimensions are all axes, then that domain is situated in a <em>physical</em> space.</p>
+<p>A set of discrete locations in abstract space. A domain, or any location within a domain, may be described by multiple variables, but any given variable has only one domain. A domain has zero or more dimensions. The component dimensions of a domain need not be numeric, but when they are, the domain may be thought of as situated in a coordinate space. If a domain’s dimensions are all axes, then that domain is situated in a physical space.</p>
 </section>
 <section id="downsampling" class="level3">
 <h3 class="anchored" data-anchor-id="downsampling">downsampling</h3>
-<p>The act of <em>resampling</em> an <em>image</em> to a lower <em>resolution</em>, often by an integer factor. Sometimes this can require <em>interpolation</em>.</p>
-<p>Related terms: <a href="#resampling"><em>resampling</em></a>, <a href="#resolution"><em>resolution</em></a>, <a href="#interpolation"><em>interpolation</em></a></p>
+<p>The act of resampling an image to a lower sample density (higher pixel spacing), often by an integer factor. Sometimes this can require interpolation.</p>
+<p>Related terms: <a href="#resampling">resampling</a>, <a href="#resolution">resolution</a>, <a href="#interpolation">interpolation</a></p>
 </section>
 <section id="field-of-view" class="level3">
 <h3 class="anchored" data-anchor-id="field-of-view">field of view</h3>
-<p>The <em>physical</em> extent of the observed space. In microscopy, FOV may be expressed as the diameter of the circular view seen through the eyepiece. In scientific bioimaging, FOV is typically expressed as linear measurements of the horizontal, vertical, and/or diagonal space captured by the digital sensor.</p>
+<p>The physical extent of the observed space. In microscopy, FOV may be expressed as the diameter of the circular view seen through the eyepiece. In scientific bioimaging, FOV is typically expressed as the horizontal, vertical, and/or diagonal extent of the space captured by the digital sensor. For example, the FOV for a 2D image may be <span class="math inline">\(44mm\)</span> by <span class="math inline">\(22mm\)</span>, where <span class="math inline">\(44mm\)</span> is the width and <span class="math inline">\(22mm\)</span> is the height of the observed space.</p>
 </section>
 <section id="filtering" class="level3">
 <h3 class="anchored" data-anchor-id="filtering">filtering</h3>
 <ol type="1">
-<li>Usually referes to a convolution operation (a local, linear operation on the intensity values of an <em>image</em>).</li>
-<li>Any operation that modifies the intensity values of an <em>image</em>.</li>
+<li>Usually referes to a convolution operation (a local, linear operation on the intensity values of an image).</li>
+<li>Any operation that modifies the intensity values of an image.</li>
 </ol>
 </section>
 <section id="group" class="level3">
 <h3 class="anchored" data-anchor-id="group">group</h3>
-<p>See <a href="#hierarchy"><em>hierarchy</em></a>.</p>
+<p>See <a href="#hierarchy">hierarchy</a>.</p>
 </section>
 <section id="hierarchy" class="level3">
 <h3 class="anchored" data-anchor-id="hierarchy">hierarchy</h3>
-<p>A collection of nodes, connected in a tree-like structure. A node can be either: 1. A group, i.e., a node that can have child nodes, and can contain metadata, but cannot contain <em>array</em> data. 2. An <em>array</em>. <em>Array</em> nodes cannot have child nodes.</p>
-<p>Related terms: <a href="#group"><em>group</em></a>, <a href="#array"><em>array</em></a></p>
+<p>A collection of nodes, connected in a tree-like structure. A node can be either: 1. A group, i.e., a node that can have child nodes, and can contain metadata, but cannot contain array data. 2. An array. Array nodes cannot have child nodes.</p>
+<p>Related terms: <a href="#group">group</a>, <a href="#array">array</a></p>
 </section>
 <section id="interpolation" class="level3">
 <h3 class="anchored" data-anchor-id="interpolation">interpolation</h3>
-<p>A process that, given an <em>image</em>, produces new <em>samples</em> at points in the domain not on the discrete image grid.</p>
-<p>The most common methods for <em>interpolation</em> are “nearest-neighbor”, “bi-/tri-/n-linear”, “cubic”, “windowed sinc”.</p>
-<p>Related terms: <a href="#resampling"><em>resampling</em></a>, <a href="#downsampling"><em>downsampling</em></a></p>
+<p>A process that, given an image, produces new samples at points in the domain not on the discrete image grid.</p>
+<p>The most common methods for interpolation are ‘nearest-neighbor’, ‘bi-/tri-/n-linear’, ‘cubic’, and ‘windowed sinc’.</p>
+<p>Related terms: <a href="#resampling">resampling</a>, <a href="#downsampling">downsampling</a></p>
 </section>
 <section id="origin" class="level3">
 <h3 class="anchored" data-anchor-id="origin">origin</h3>
-<ol type="1">
-<li>Of an <em>array</em>: the point in the discrete domain with the minimum index (usually zero) for all dimensions.</li>
-<li>Of an <em>image</em>: the point in the <em>physical</em> domain corresponding to the <em>array</em> <em>origin</em>.</li>
-</ol>
-<p>The term “offset” is sometimes used to refer to the <em>origin</em>.</p>
+<p>A special location that acts as a reference point, relative to which relative to which other locations are defined. Unless otherwise specified, the image’s origin is the same as the array’s origin (assuming the image is produced from an array). An array’s origin is typically the point in the discrete domain with the minimum index (usually zero) for all dimensions. Physical or anatomical spaces can also have origins; for example, in MR imaging, the anterior/posterior commissure is commonly regarded as an origin for the brain.</p>
+<p>The term ‘offset’ is sometimes used to refer to the origin.</p>
 </section>
 <section id="physical" class="level3">
 <h3 class="anchored" data-anchor-id="physical">physical</h3>
 <p>Relating to quantities or measurements of the real world.</p>
 <p>Examples:</p>
 <ul>
-<li><em>sample</em> intensities measured by a <em>physical</em> sensor
+<li>sample intensities measured by a physical sensor
 <ul>
 <li>photon count</li>
 <li><a href="https://en.wikipedia.org/wiki/Hounsfield_scale">Hounsfield unit</a></li>
 </ul></li>
-<li>distances / areas / volumes / times measured in <em>images</em> in <em>physical</em> units (<span class="math inline">\(\mu m\)</span>, <span class="math inline">\(mm\)</span>, seconds)
+<li>distances / areas / volumes / times measured in images in physical units (<span class="math inline">\(\mu m\)</span>, <span class="math inline">\(mm\)</span>, seconds)
 <ul>
 <li>“the area of segment <span class="math inline">\(A\)</span> is <span class="math inline">\(12 mm^2\)</span>”</li>
 <li>“mitosis begins at time = <span class="math inline">\(3.2 s\)</span>”</li>
@@ -301,12 +299,12 @@ window.Quarto = {
 </ul>
 <p>Non-examples:</p>
 <ul>
-<li><em>sample</em> intensities not derived from sensors
+<li>sample intensities not derived from sensors
 <ul>
 <li>segmentation id</li>
 <li>the output of a deep neural network model</li>
 </ul></li>
-<li>distances / areas / volumes / times described by <em>sample</em> / <em>array</em> indexes
+<li>distances / areas / volumes / times described by sample / array indexes
 <ul>
 <li>“the area of segment <span class="math inline">\(B\)</span> is <span class="math inline">\(85\)</span> pixels”</li>
 <li>“mitosis begins at frame <span class="math inline">\(51\)</span>”</li>
@@ -315,24 +313,20 @@ window.Quarto = {
 </section>
 <section id="quantization" class="level3">
 <h3 class="anchored" data-anchor-id="quantization">quantization</h3>
-<p>A process that converts a physical or continuous value to a digital representation with a particular precision. Samples of a quantized image can take one of a finite set of values defined by its <a href="#bit%20depth"><em>bit depth</em></a>.</p>
-<p>Related terms: <a href="#bit-depth"><em>bit-depth</em></a></p>
+<p>A process that converts a physical or continuous value to a digital representation with a particular precision. Samples of a quantized image can take one of a finite set of values defined by its bit depth.</p>
+<p>Related terms: <a href="#bit-depth">bit-depth</a></p>
 </section>
 <section id="resampling" class="level3">
 <h3 class="anchored" data-anchor-id="resampling">resampling</h3>
-<p>A process that generates a new <em>array</em> representing an <em>image</em> at a new <em>resolution</em>.</p>
-<p>The new <em>resolution</em> is often an integer multiple or fraction of the original image <em>resolution</em>, but need not be. <em>Resampling</em> methods often consist of <em>filtering</em> and <em>interpolation</em> steps.</p>
-<p>Related terms: <a href="#downsampling"><em>downsampling</em></a>, <a href="#interpolation"><em>interpolation</em></a>, <a href="#resolution"><em>resolution</em></a></p>
+<p>A process that generates a new array representing an image at a new resolution.</p>
+<p>The new resolution is often an integer multiple or fraction of the original image resolution, but need not be. Resampling methods often consist of filtering and interpolation steps.</p>
+<p>Related terms: <a href="#downsampling">downsampling</a>, <a href="#interpolation">interpolation</a>, <a href="#resolution">resolution</a></p>
 </section>
 <section id="resolution" class="level3">
 <h3 class="anchored" data-anchor-id="resolution">resolution</h3>
-<ol type="1">
-<li>The level of detail in an <em>image</em>. A high <em>resolution</em> <em>image</em> will have more <em>samples</em> than a low <em>resolution</em> <em>image</em> for the same <em>field of view</em>.</li>
-<li>The total number of <em>samples</em> in each dimension of an <em>image</em>. For example, a 2-dimensional <em>image</em> with <span class="math inline">\(1500\)</span> <em>pixels</em> along the x dimension and <span class="math inline">\(1000\)</span> <em>pixels</em> along the y dimension could be said to have a <em>resolution</em> of <span class="math inline">\(1500 \times 1000\)</span> (the colloquial convention is to express the dimensions in x, y, z order).</li>
-<li>The set of <em>physical</em> (usually spatial) sampling intervals for an <em>image</em>. In other words, the distance between <em>samples</em>. Usually expressed separately for each dimension, e.g.&nbsp;millimeters per <em>pixel</em> in x. (Note: The sampling&nbsp;<em>interval</em>&nbsp;is the reciprocal of the sampling&nbsp;<em>rate</em>.)</li>
-</ol>
-<p><em>Resolution</em> should be considered synonymous with “spatial resolution” unless otherwise specified.</p>
-<p>The terms “spacing”, “pixel spacing”, and “pixel resolution” are commonly used to refer to <em>resolution</em>.</p>
+<p>The smallest difference in signal quantity that can be discriminated by a device or system. In the case of analog to digital signal conversion, resolution is determined by the number of bits used to represent the signal.</p>
+<p>Colloquial uses of the term ‘resolution’ include the total number of samples in each dimension of an image (e.g., 640 by 420), and the set of spatial sampling intervals for an image (e.g.&nbsp;‘spacing’, ‘pixel spacing’, or ‘pixel resolution’). For clarity, it may be prudent to avoid using the term ‘resolution’ to describe either the number of samples in an image or the spacing between samples.</p>
+<p>Related terms: <a href="#bit-depth">bit-depth</a>, <a href="#resampling">resampling</a></p>
 
 
 </section>
