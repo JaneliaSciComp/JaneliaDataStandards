@@ -1,5 +1,5 @@
 # Janelia Data Standards
-[https://janeliascicomp.github.io/JaneliaDataStandards/](https://janeliascicomp.github.io/JaneliaDataStandards/)
+[https://datastandards.janelia.org/](https://datastandards.janelia.org)
 
 ## Purpose
 
