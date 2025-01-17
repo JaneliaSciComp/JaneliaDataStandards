@@ -24,7 +24,7 @@ format:
     - [Scalability](#Scalability)
     - [FAIRness](#FAIRness)
 - Ultra base formats
-    - [Binary](#Binary)
+    - [Binary/Hard to classify](#Binary/Hard%20to%20classify)
     - [Text](#Text)
 - Base formats
     - [XML and JSON](#XML%20and%20JSON)
@@ -64,7 +64,7 @@ Historically, images were limited to non-chunked or 'monolithic' file formats. I
 
 The scalability of monolithic formats may be improved by storing multiple copies of the same 2D image at different resolutions in the same file. This type of file is often referred to as a 'multiscale pyramid'. The different resolutions are generated through a technique called downsampling, in which data are typically either uniformly discarded, or in which subsets of pixels are averaged to produce a new, smaller image. Storing an image as a multiscale pyramid means that the software needs to only load into memory the lowest-resolution plane that is needed. However, even though it is a smaller plane, the entire plane must still be loaded into memory.
 
-Another technique for improved scalability is chunking. Chunking involves breaking up an image into chunks. The images can be any number of dimensions, so it's easier to think of these data as n-dimensional arrays rather than 2D grids of pixels. The arrays can be broken up into uniform but otherwise arbitrary chunk sizes. The groups of chunks may be organized as a hierarchy of nested directories on a file system. The metadata, which are usually in a dedicated file, contain information describing the layout of the chunks. Chunked formats can store more complex images than non-chunked formats, and can be viewed more efficiently, because software can retrieve small chunks of data as needed. Chunking and multiscale pyramids are not mutually exclusive; many file formats recommend both. 
+Another technique for improved scalability is chunking. Chunking involves breaking up an image into local regions called chunks. The images can be any number of dimensions, so it's easier to think of these data as n-dimensional arrays rather than 2D grids of pixels. The arrays can be broken up into uniform, but otherwise arbitrary chunk sizes that reflect the dimensionality of the array. A large 3D volume can be divided into small subvolumes, for example. The groups of chunks may be organized as a hierarchy of nested directories on a file system or web service, making it easy to locate the desired chunk. The metadata, which are usually in a dedicated file, contain information describing the layout of the chunks. Chunked formats can store more complex images than non-chunked formats, and can be viewed more efficiently, because software can retrieve small chunks of data as needed. Chunking and multiscale pyramids are not mutually exclusive; many file formats recommend both. 
 
 ### FAIRness
 
@@ -80,7 +80,7 @@ Below, we present an opinionated overview of some of the most common microscopy 
  
 ## Ultra base file formats
 
-### Binary
+### Binary/Hard to classify
 
 We use the term 'binary format' as a generic term to refer to file formats that can be easily read by computers. If files defy classification into more standardized categories, they may be only referred to as "binary". Most of the file formats described in other sections are, at least in part, binary in the sense that they have text-encoded and non-text components (e.g. metadata files and chunk files, respectively). By 'binary formats', we mean prescribed arrangements of bytes in a single file designed for specific applications.
 
