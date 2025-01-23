@@ -141,9 +141,11 @@ Because Zarr is such a new project, there are some limits to its ease of use. If
 ### N5
 
 [N5](https://github.com/saalfeldlab/n5) is a format created by Stephan Saalfeld in 2017. The main motivation behind it was to
-simplify the parallel writing of chunks relative to HDF5. Like Zarr (v2), it stores chunks in separate files on a file system
-(or keys in a cloud store) and metadata as JSON files. As well, it comes with an API that can read and write from the HDF5 and
-Zarr formats in addition to the N5 format, thereby unifying access chunked data formats.  
+simplify the parallel writing of chunks relative to HDF5. As noted earlier, this was also a motivating factor in the creation
+of Zarr. Since N5 was created independently of Zarr at around the same time and with similar motivations, the two formats are
+functionally quite similar. Like Zarr, it stores chunks in separate files on a file system (or keys in a cloud store) and
+metadata as JSON files. Furthermore, it comes with an API that can read and write from the HDF5 and Zarr formats in addition to
+the N5 format, thereby unifying access to chunked data formats.
 
 Because of their close similarity, N5 and Zarr generally interoperate well: many libraries that can read and write Zarr can read
 and write N5 (and vice versa). As Zarr has become more prevalent, with a wider community, we generally recommend using it to N5,
