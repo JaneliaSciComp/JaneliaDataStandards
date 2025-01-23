@@ -20,27 +20,28 @@ format:
 ## Outline
 
 - Introduction
-    - [Ease of use](#Ease%20of%20use)
-    - [Scalability](#Scalability)
-    - [FAIRness](#FAIRness)
+    - [Ease of use](#ease-of-use)
+    - [Scalability](#scalability)
+    - [FAIRness](#fairness)
 - Ultra base formats
-    - [Binary/Hard to classify](#Binary/Hard%20to%20classify)
-    - [Text](#Text)
+    - [Binary/Hard to classify](#binaryhard-to-classify)
+    - [Text](#text)
 - Base formats
-    - [XML and JSON](#XML%20and%20JSON)
-    - [TIFF](#TIFF)
-    - [HDF5](#HDF5)
-    - [Zarr](#Zarr)
-    - [N5](#N5)
+    - [XML and JSON](#xml-and-json)
+    - [TIFF](#tiff)
+    - [HDF5](#hdf5)
+    - [Zarr](#zarr)
+    - [N5](#n5)
+    - [TileDB](#tiledb)
 - General-purpose formats
-    - [OME-TIFF](#OME-TIFF)
-    - [OME-NGFF](#OME-NGFF)
-    - [Proprietary](#Proprietary)
-    - [BIDS](#BIDS)
+    - [OME-TIFF](#ome-tiff)
+    - [OME-NGFF](#ome-ngff)
+    - [Proprietary](#proprietary)
+    - [BIDS](#bids)
 - Specialty file formats
-    - [BigDataViewer](#BigDataViewer)
-    - [H5J](#H5J)
-    - [OME-CellMap-Zarr](#OME-CellMap-Zarr)
+    - [BigDataViewer](#bigdataviewer)
+    - [H5J](#h5j)
+    - [OME-CellMap-Zarr](#ome-cellmap-zarr)
 
 
 # Introduction
