@@ -46,7 +46,7 @@ format:
 - Specialty file formats
     - [BigDataViewer](#bigdataviewer)
     - [H5J](#h5j)
-    - [OME-CellMap-Zarr](#ome-cellmap-zarr)
+
 
 
 # Introduction
@@ -69,7 +69,7 @@ Scalability is closely related to ease of use. A scalable format is easy to use.
 
 Historically, images were limited to non-chunked or 'monolithic' file formats. In these formats, an image is stored as a linear string of bytes in one file by rows or planes. If you want to view a local region of your image that is stored in this format, you must traverse over many bytes that you do not need. Compression further complicates finding the needed information since variable compression sizes make the location of bytes needed hard to predict. 
 
-The scalability of monolithic formats may be improved by storing multiple copies of the same 2D image at different resolutions in the same file. This type of file is often referred to as a 'multiscale pyramid'. The different resolutions are generated through a technique called downsampling, in which data are typically either uniformly discarded, or in which subsets of pixels are averaged to produce a new, smaller image. Storing an image as a multiscale pyramid means that the software needs to only load into memory the lowest-resolution plane that is needed. However, even though it is a smaller plane, the entire plane must still be loaded into memory.
+The scalability of monolithic formats may be improved by storing multiple copies of the same 2D image at different resolutions in the same file. This type of file is often referred to as a "multiscale pyramid". The different resolutions are generated through a technique called downsampling, in which data are typically either uniformly discarded, or in which subsets of pixels are averaged to produce a new, smaller image. Storing an image as a multiscale pyramid means that the software needs to only load into memory the lowest-resolution plane that is needed. However, even though it is a smaller plane, the entire plane must still be loaded into memory.
 
 Another technique for improved scalability is chunking. Chunking involves breaking up an image into local regions called chunks. The images can be any number of dimensions, so it's easier to think of these data as n-dimensional arrays rather than 2D grids of pixels. The arrays can be broken up into uniform, but otherwise arbitrary chunk sizes that reflect the dimensionality of the array. A large 3D volume can be divided into small subvolumes, for example. The groups of chunks may be organized as a hierarchy of nested directories on a file system or web service, making it easy to locate the desired chunk. The metadata, which are usually in a dedicated file, contain information describing the layout of the chunks. Chunked formats can store more complex images than non-chunked formats, and can be viewed more efficiently, because software can retrieve small chunks of data as needed. Chunking and multiscale pyramids are not mutually exclusive; many file formats recommend both. 
 
@@ -91,7 +91,7 @@ Below, we present an opinionated overview of some of the most common microscopy 
 
 ### Binary/Hard to classify
 
-We use the term 'binary format' as a generic term to refer to file formats that can be easily read by computers. If files defy classification into more standardized categories, they may be only referred to as "binary". Most of the file formats described in other sections are, at least in part, binary in the sense that they have text-encoded and non-text components (e.g. metadata files and chunk files, respectively). By 'binary formats', we mean prescribed arrangements of bytes in a single file designed for specific applications.
+We use the term "binary format" as a generic term to refer to file formats that can be easily read by computers. If files defy classification into more standardized categories, they may be only referred to as "binary". Most of the file formats described in other sections are, at least in part, binary in the sense that they have text-encoded and non-text components (e.g. metadata files and chunk files, respectively). By 'binary formats', we mean prescribed arrangements of bytes in a single file designed for specific applications.
 
 Two examples of binary formats we use at Janelia are Enhanced FIBSEM DAT ([Chris Barnes' DAT toolkit](https://github.com/clbarnes/jeiss-convert), [Janelia's DAT toolkit](https://github.com/janelia-cellmap/fibsem-tools)) and [Keller Lab Block (KLB)](https://doi.org/10.1038/nprot.2015.111) ([bitbucket repository](https://bitbucket.org/fernandoamat/keller-lab-block-filetype/src/master/)). These formats are not derived from any broader standard and can only be interpreted by dedicated software specifically written for them.
 
@@ -111,7 +111,7 @@ For small amounts of data, storing the data as structured text is convenient. Ho
 
 ## Base file formats
 
-Next, we summarize some 'base' formats that are commonly used in bioimaging and that we find noteworthy. These formats serve as generic storage technologies that have often been further refined to suit a particular application. This list covers a wide variety of use cases, but it is not exhaustive - some applications might benefit from a format not listed here.
+Next, we summarize some "base" formats that are commonly used in bioimaging and that we find noteworthy. These formats serve as generic storage technologies that have often been further refined to suit a particular application. This list covers a wide variety of use cases, but it is not exhaustive - some applications might benefit from a format not listed here.
 
 ### XML and JSON
 
@@ -176,7 +176,7 @@ entry-point to chunked formats for many researchers.
 
 [TileDB](https://tiledb.com/) is a modern file format and database management system optimized for highly parallel reads and writes of n-dimensional arrays. It offers excellent performance on sparse arrays, although this use case is not common in bioimaging. Like Zarr, it's very cloud-friendly. Similar to Zarr and HDF5, it separates the storage, compression, and compute layers, providing flexibility in storage options (e.g., file systems or object storage) and access methods (e.g., Spark, Dask, or MariaDB). TileDB also supports basic versioning: its chunks are immutable, enabling users to preserve and inspect previous versions of data.
 
-One standout feature of TileDB is that it will be familiar to data engineers accustomed to tabular data. When data are stored following recommended conventions, users can query 'tiles' (chunks) of n-dimensional arrays using SQL. It also has a very robust development community and strong multi-language support.
+One standout feature of TileDB is that it will be familiar to data engineers accustomed to tabular data. When data are stored following recommended conventions, users can query "tiles" (chunks) of n-dimensional arrays using SQL. It also has a very robust development community and strong multi-language support.
 
 TileDB is gaining traction in scientific fields like geospatial analysis and genomics, but adoption in microscopy has been slower. While the paid tier TileDB Cloud offers an image viewer, among other features, and there is a [Napari](https://www.napari.org/) [plugin](https://github.com/TileDB-Inc/napari-tiledb-bioimg) for TileDB, the format can feel overly complex for many microscopy developers' needs. If you're just sharing some data on S3 or in a repository, we recommend Zarr as a more FAIR choice. The OME-Zarr format in particular is designed with microscopy in mind. However, TileDB may excel in enterprise-scale scenarios, such as building repositories or handling large, diverse datasets with complex access requirements. In such cases, its scalability and versatility could make it a stronger choice than Zarr.
 
@@ -194,7 +194,7 @@ If you choose to save your data as a TIFF, it's best practice to use the OME-TIF
 
 ### OME-NGFF
 
-Like OME-TIFF, OME-NGFF is a specification of a more generic file format that is tailored for microscopy. OME-NGFF is, for the time being, synonymous with OME-Zarr; 'NGFF' stands for 'Next Generation File Format'. An OME-NGFF data set consists of a Zarr hierarchy, which includes certain metadata files in standard locations in JSON format. OME-NGFF is much newer than OME-TIFF; its first release was in 2021 ([Moore et al. 2023](https://doi.org/10.1007/s00418-023-02209-1)). It supports some types of ancillary data, namely high-content screening (HCS) data and label images (e.g. from image segmentation). 
+Like OME-TIFF, OME-NGFF is a specification of a more generic file format that is tailored for microscopy. OME-NGFF is, for the time being, synonymous with OME-Zarr; "NGFF" stands for "Next Generation File Format". An OME-NGFF data set consists of a Zarr hierarchy, which includes certain metadata files in standard locations in JSON format. OME-NGFF is much newer than OME-TIFF; its first release was in 2021 ([Moore et al. 2023](https://doi.org/10.1007/s00418-023-02209-1)). It supports some types of ancillary data, namely high-content screening (HCS) data and label images (e.g. from image segmentation). 
 
 OME-NGFF is much more scalable than OME-TIFF, being a chunked format. It is also designed to handle multi-dimensional data, though it specifies a limit of 5D. Being Zarr-based, OME-NGFF is optimized for the cloud, so it's a great format for data publication. It will soon have strong support for complex coordinate transformations, a feature that is lacking in all the other microscopy formats, to our knowledge.
 
