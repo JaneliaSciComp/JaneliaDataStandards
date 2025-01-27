@@ -36,6 +36,7 @@ format:
     - [TIFF](#tiff)
     - [HDF5](#hdf5)
     - [Zarr](#zarr)
+    - [N5](#n5)
     - [TileDB](#tiledb)
 - General-purpose formats
     - [OME-TIFF](#ome-tiff)
@@ -140,15 +141,36 @@ We consider HDF5 reasonably FAIR. It is maintained by a non-profit organization,
 
 ### Zarr
 
-Zarr is a relatively new project created by Alistair Miles in 2015, and shares many similarities with HDF5. Both projects offer APIs in a variety of languages for reading, writing, and compressing chunks of huge n-dimensional arrays. Both use a hierarchical data model consisting of groups of chunked arrays. Both are based on a layered computation model: the storage, storage access/transformers, filters/codecs, and application layers are conceptually separated, allowing the developer to mix and match them. Both come in many variants tailored to specific scientific domains.
+[Zarr](https://zarr.dev/) is a relatively new project created by Alistair Miles in 2015, and shares many similarities with HDF5. Both projects offer APIs in a variety of languages for reading, writing, and compressing chunks of huge n-dimensional arrays. Both use a hierarchical data model consisting of groups of chunked arrays. Both are based on a layered computation model: the storage, storage access/transformers, filters/codecs, and application layers are conceptually separated, allowing the developer to mix and match them. Both come in many variants tailored to specific scientific domains.
 
 A key difference is that while an HDF5 dataset is a single file that must be read with an HDF5 library, an analogous Zarr dataset would be a folder containing many small files that can theoretically be read by anything that can read files. This creates a different kind of overhead than HDF5. Zarr is more cloud-friendly than HDF5, but it can be less friendly on a local computer or HPC cluster. For example, it can be very slow to move a Zarr dataset from one location to another on your computer. Zarr attempts to mitigate this issue using a technique called sharding, which was recently introduced with the latest version of Zarr ([v.3](https://zarr-specs.readthedocs.io/en/latest/v3/core/v3.0.html)). Sharding is another layer of data organization in addition to chunking, where chunks reside within shards. The shards will be folders, if the storage backend is a file system. Nesting chunks within shards can substantially reduce the number of files, improving local performance, but it does make implementation more complex.
 
 Because Zarr is such a new project, there are some limits to its ease of use. If you are using it for a highly novel, specialized scientific application, you may encounter issues with missing features or incomplete standardization. For example, the existing compression schemes may be inadequate, or it may not support complex transformations. Still, there are perhaps a dozen scientific image viewers that support [OME-Zarr](https://doi.org/10.1007/s00418-023-02209-1), which bodes well for its future.
 
-### n5
+### N5
 
-TODO (John B.)
+[N5](https://github.com/saalfeldlab/n5) is a format created by Stephan Saalfeld in 2017. The main motivation behind it was to
+simplify the parallel writing of chunks relative to HDF5. As noted earlier, this was also a motivating factor in the creation
+of Zarr. Since N5 was created independently of Zarr at around the same time and with similar motivations, the two formats are
+functionally quite similar. Like Zarr, it stores chunks in separate files on a file system (or keys in a cloud store) and
+metadata as JSON files. Furthermore, it comes with an API that can read and write from the HDF5 and Zarr formats in addition to
+the N5 format, thereby unifying access to chunked data formats.
+
+Because of their close similarity, N5 and Zarr generally interoperate well: many libraries that can read and write Zarr can read
+and write N5 (and vice versa). As Zarr has become more prevalent, with a wider community, we generally recommend using it to N5,
+unless your application would benefit from an N5-specific feature:
+
+1) N5 allows "partial" chunks where all Zarr chunks must be the same size. The difference appears near the upper boundary of the
+array if the array size is not evenly divisible by the chunk size. N5 chunks will end where the array does, but Zarr chunks need
+to be filled with "empty" data.
+
+2) N5 can read and write the special-case [label multi-set](https://github.com/saalfeldlab/paintera?tab=readme-ov-file#label-multisets)
+data type used by [Paintera](https://github.com/saalfeldlab/paintera). Zarr does not currently support label multi-sets.
+
+Also like Zarr, the ease-of-use of N5 largely will vary across software ecosystems. At this time, Fiji and neuroglancer have
+good support for N5. In particular, the [N5 plugins for Fiji](https://github.com/saalfeldlab/n5-ij) enable users to read and
+write to a variety of formats, including OME-Zarr, without needing to write code. For that reason, the N5-API may be a friendly
+entry-point to chunked formats for many researchers.
 
 ### TileDB
 
