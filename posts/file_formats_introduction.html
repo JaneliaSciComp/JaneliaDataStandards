@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Virginia Scarlett">
+<meta name="dcterms.date" content="2024-01-24">
+<meta name="description" content="An opinionated overview of file formats used in microscopy.">
+
+<title>Introduction to Microscopy File Formats – Janelia Data Standards</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ea72dc5fed832574809a9c94082fbbb.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-5027bf1c1f92ac6615724d89c8213d6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-47056aa1db5053e024837b2c807d9752.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Janelia Data Standards</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">Posts</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-file-formats" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">File Formats</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-file-formats">    
+        <li>
+    <a class="dropdown-item" href="../file_formats.html">
+ <span class="dropdown-text">Overview</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../metadata.html">
+ <span class="dropdown-text">Metadata features</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../definitions.html"> 
+<span class="menu-text">Definitions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+    <a href="https://github.com/JaneliaSciComp/JaneliaDataStandards" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Introduction to Microscopy File Formats</h1>
+</div>
+
+<div>
+  <div class="description">
+    An opinionated overview of file formats used in microscopy.
+  </div>
+</div>
+
+<!-- This template is based on the template provided here: https://github.com/quarto-dev/quarto-cli/discussions/6475 -->
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Virginia Scarlett </p>
+          </div>
+  </div>
+  
+    <div>
+    <div class="contributors">
+      <div class="quarto-title-meta-heading">Contributors</div>
+        <div class="quarto-title-meta-contents">
+          <p>Mark Kittisopikul, John Bogovic</p>
+        </div>
+    </div>
+  </div>
+  
+    <div>
+    <div class="reviewers">
+      <div class="quarto-title-meta-heading">Reviewers</div>
+        <div class="quarto-title-meta-contents">
+          <p>Mark Kittisopikul, John Bogovic, Stephan Preibisch</p>
+        </div>
+    </div>
+  </div>
+    
+    <div>
+    <div class="maintainer">
+      <div class="quarto-title-meta-heading">Maintainer</div>
+        <div class="quarto-title-meta-contents">
+          <p></p>
+        </div>
+    </div>
+  </div>
+  
+  
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 24, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="outline" class="level2">
+<h2 class="anchored" data-anchor-id="outline">Outline</h2>
+<ul>
+<li>Introduction
+<ul>
+<li><a href="#ease-of-use">Ease of use</a></li>
+<li><a href="#scalability">Scalability</a></li>
+<li><a href="#fairness">FAIRness</a></li>
+</ul></li>
+<li>Ultra base formats
+<ul>
+<li><a href="#binaryhard-to-classify">Binary/Hard to classify</a></li>
+<li><a href="#text">Text</a></li>
+</ul></li>
+<li>Base formats
+<ul>
+<li><a href="#xml-and-json">XML and JSON</a></li>
+<li><a href="#tiff">TIFF</a></li>
+<li><a href="#hdf5">HDF5</a></li>
+<li><a href="#zarr">Zarr</a></li>
+<li><a href="#n5">N5</a></li>
+<li><a href="#tiledb">TileDB</a></li>
+</ul></li>
+<li>General-purpose formats
+<ul>
+<li><a href="#ome-tiff">OME-TIFF</a></li>
+<li><a href="#ome-ngff">OME-NGFF</a></li>
+<li><a href="#proprietary">Proprietary</a></li>
+<li><a href="#bids">BIDS</a></li>
+</ul></li>
+<li>Specialty file formats
+<ul>
+<li><a href="#bigdataviewer">BigDataViewer</a></li>
+<li><a href="#h5j">H5J</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>A biology professor of mine used to say, “All biologists are visual learners. We need to see the cells or the molecules with our own eyes.” It’s no surprise, then, that biologists excel at imagining new ways to harness microscopy, which brings the biological world into view. However, the excited bench biologist may be in for a shock when they find their microscope acquiring gigantic images that take up half their hard drive and crash their software. When this happens, the visual biologist is suddenly thrust into an abstract world: the bits-and-bytes world of microscopy data management.</p>
+<p>Choosing the right file format for your microscopy project can be overwhelming. There are hundreds of microscopy file formats out there. The <a href="http://www.openmicroscopy.org/bio-formats/">Bio-Formats</a> interoperability project supports 160 of them. Why are there so many formats? Trade-offs between size and speed are a big reason, as is the broad landscape of proprietary vendors and open-source developers. Luckily, you don’t need to weigh all the options yourself. You can use this guide to identify the few file formats that are likely to be useful for you.</p>
+<p>When choosing a file format to work with, we recommend considering three factors: ease of use, scalability, and FAIRness. It’s unlikely that any one format will excel perfectly in all these areas. Rather, you should pick a format that meets your specific needs.</p>
+<section id="ease-of-use" class="level3">
+<h3 class="anchored" data-anchor-id="ease-of-use">Ease of use</h3>
+<p>The ease of use of a microscopy file format largely depends on the quality and availability of the tools designed to read and write it. An ideal tool should be simple to install (if installation is required at all), intuitive to learn, and capable of functioning with minimal or no programming – though having the option to customize through code is a valuable bonus. If ease of use is your top priority, you only need one reliable tool that works seamlessly with your chosen format. Most people are biased toward tools they already know, and for good reason, but it’s always worth considering learning new skills. <a href="https://doi.org/10.1007/s00418-023-02209-1">Moore et al.&nbsp;(2023)</a> provides an excellent overview of popular tools for viewing and annotating scientific images.</p>
+<p>Your specific needs may require tools with specialized features not universally available. For instance, you might want to store points or regions of interest (ROIs) overlaid on the image, time points for time-series data, or details about transformations applied to the data. An in-depth comparison of these kinds of features is beyond the scope of this introduction, but please see the <a href="https://datastandards.janelia.org/metadata.html">metadata features chart</a> we have created, which provides a quick comparison of features we know about for the file formats we’ve used.</p>
+</section>
+<section id="scalability" class="level3">
+<h3 class="anchored" data-anchor-id="scalability">Scalability</h3>
+<p>Scalability is closely related to ease of use. A scalable format is easy to use… at scale. Scalability encompasses storing, viewing, and sharing gigantic images.</p>
+<p>Historically, images were limited to non-chunked or ‘monolithic’ file formats. In these formats, an image is stored as a linear string of bytes in one file by rows or planes. If you want to view a local region of your image that is stored in this format, you must traverse over many bytes that you do not need. Compression further complicates finding the needed information since variable compression sizes make the location of bytes needed hard to predict.</p>
+<p>The scalability of monolithic formats may be improved by storing multiple copies of the same 2D image at different resolutions in the same file. This type of file is often referred to as a “multiscale pyramid”. The different resolutions are generated through a technique called downsampling, in which data are typically either uniformly discarded, or in which subsets of pixels are averaged to produce a new, smaller image. Storing an image as a multiscale pyramid means that the software needs to only load into memory the lowest-resolution plane that is needed. However, even though it is a smaller plane, the entire plane must still be loaded into memory.</p>
+<p>Another technique for improved scalability is chunking. Chunking involves breaking up an image into local regions called chunks. The images can be any number of dimensions, so it’s easier to think of these data as n-dimensional arrays rather than 2D grids of pixels. The arrays can be broken up into uniform, but otherwise arbitrary chunk sizes that reflect the dimensionality of the array. A large 3D volume can be divided into small subvolumes, for example. The groups of chunks may be organized as a hierarchy of nested directories on a file system or web service, making it easy to locate the desired chunk. The metadata, which are usually in a dedicated file, contain information describing the layout of the chunks. Chunked formats can store more complex images than non-chunked formats, and can be viewed more efficiently, because software can retrieve small chunks of data as needed. Chunking and multiscale pyramids are not mutually exclusive; many file formats recommend both.</p>
+<p>A final scalability mechanism is compression. While a detailed discussion of compression is beyond the scope of this article, it’s worth noting that there are two broad categories of compression algorithms: lossy and lossless. Lossy compression algorithms discard small amounts of data, while lossless algorithms do not discard any data. A good rule of thumb is to use lossless compression for analysis, while lossy compression is usually fine for visualization.</p>
+</section>
+<section id="fairness" class="level3">
+<h3 class="anchored" data-anchor-id="fairness">FAIRness</h3>
+<p>Though not a wholly new idea, <a href="https://doi.org/10.1038/sdata.2016.18">Wilkinson et al.&nbsp;(2016)</a> gave us a memorable, one-syllable word for best practice in research data management. FAIR stands for Findable, Accessible, Interoperable, and Reusable. All researchers should strive to make their data as FAIR as possible, though optimal FAIRness can be hard to achieve.</p>
+<p>FAIR data means the data can be viewed by anyone in the world relatively easily, and far into the future. FAIRness in microscopy mostly comes down to the I – interoperability. Interoperability in microscopy is a huge challenge (<a href="https://doi.org/10.1038/s41592-021-01347-5">Nature Methods, 2021</a>), but it’s also a prerequisite for optimal FAIRness. We believe FAIR practice means relying on open-source tools and formats that are either led by the microscopy community, or are very receptive to feedback from the community. The Open Microscopy Environment is a long-time leader in this space, so we highlight OME’s file formats below.</p>
+<p>Many scientists find themselves with image data that are too large to share easily, so they make the data available upon request, often via shipping a hard drive. For the busy scientist who doesn’t have time to learn about chunked formats, databases, or object stores, or whose data aren’t a great fit for existing repositories such as the <a href="https://idr.openmicroscopy.org/">Image Data Resource</a>, <a href="https://www.ebi.ac.uk/empiar/">EMPIAR</a>, the <a href="https://dandiarchive.org/">DANDI Archive</a>, or the <a href="https://registry.opendata.aws/">AWS Open Data</a> registry, shipping hard drives is a reasonable option. However, it is not as FAIR as making the data accessible on the web. In the future, we are likely to see more big-data repositories based on chunked formats stored in the cloud.</p>
+</section>
+</section>
+<section id="microscopy-file-formats" class="level1">
+<h1>Microscopy File Formats</h1>
+<p>Below, we present an opinionated overview of some of the most common microscopy file formats.</p>
+<section id="ultra-base-file-formats" class="level2">
+<h2 class="anchored" data-anchor-id="ultra-base-file-formats">Ultra base file formats</h2>
+<section id="binaryhard-to-classify" class="level3">
+<h3 class="anchored" data-anchor-id="binaryhard-to-classify">Binary/Hard to classify</h3>
+<p>We use the term “binary format” as a generic term to refer to file formats that can be easily read by computers. If files defy classification into more standardized categories, they may be only referred to as “binary”. Most of the file formats described in other sections are, at least in part, binary in the sense that they have text-encoded and non-text components (e.g.&nbsp;metadata files and chunk files, respectively). By ‘binary formats’, we mean prescribed arrangements of bytes in a single file designed for specific applications.</p>
+<p>Two examples of binary formats we use at Janelia are Enhanced FIBSEM DAT (<a href="https://github.com/clbarnes/jeiss-convert">Chris Barnes’ DAT toolkit</a>, <a href="https://github.com/janelia-cellmap/fibsem-tools">Janelia’s DAT toolkit</a>) and <a href="https://doi.org/10.1038/nprot.2015.111">Keller Lab Block (KLB)</a> (<a href="https://bitbucket.org/fernandoamat/keller-lab-block-filetype/src/master/">bitbucket repository</a>). These formats are not derived from any broader standard and can only be interpreted by dedicated software specifically written for them.</p>
+<p>Binary formats can be useful at acquisition, especially in live cell imaging or in fluorescence imaging, where speed is paramount. They may also provide storage solutions, for example, by allowing for the use of completely novel compression schemes.</p>
+<p>In our experience, these formats are usually not very FAIR. Often, they are only maintained by a handful of people who designed the format for a special use case. The Keller Lab has made significant efforts to enhance the interoperability of KLB by providing converters for platforms like ImageJ, MATLAB, and some proprietary libraries. While these efforts improve accessibility, we still recommend against publishing data in these specialized formats.</p>
+<p>A more widely adopted binary format is MRC (<a href="https://www.ccpem.ac.uk/mrc_format/mrc2014.php">CCP-EM</a>, <a href="https://doi.org/10.1016/j.jsb.2015.04.002">Cheng et al.&nbsp;2015</a>), designed for electron cryo-microscopy and tomography. The accompanying <a href="https://pypi.org/project/mrcfile/">python library</a> is being actively maintained. However, the format and tooling are still maintained by a relatively small community. Multi-language support is lacking, and MRC does not offer the flexibility of formats that separate the storage backend from the user API (like Zarr or HDF5). This limited flexibility is a barrier to widespread adoption. We encourage users of the MRC format to consider using Zarr or HDF5-based formats instead, to promote convergence on a small number of technologies with robust development communities.</p>
+</section>
+<section id="text" class="level3">
+<h3 class="anchored" data-anchor-id="text">Text</h3>
+<p>While all files on a computer are ultimately binary, text-based files are binary files that can be decoded into human-readable text using character encodings. ASCII and Unicode are widely used standards for mapping bytes to letters and symbols. Unicode, which includes ASCII as a subset, supports a large range of characters across many languages. These encodings enable human-readable text to be represented as a binary sequence (0s and 1s) that computers can store and transmit. Text formats generally use encodings such as UTF-8, UTF-16, or ASCII to store textual data.</p>
+<p>In microscopy, the two main text formats are XML and JSON, discussed below. Another example worth mentioning is RDF (Resource Description Framework), which, although not strictly a text format, is often represented as text. RDF enables more descriptive relationships beyond simple key-value pairs, making it a powerful tool for modeling semantic data.</p>
+<p>For small amounts of data, storing the data as structured text is convenient. However, for large amounts of data, say, megabytes, text formats become unwieldy. This is why, in microscopy, text formats are usually reserved for metadata, while the image data themselves are stored in more space-efficient formats.</p>
+</section>
+</section>
+<section id="base-file-formats" class="level2">
+<h2 class="anchored" data-anchor-id="base-file-formats">Base file formats</h2>
+<p>Next, we summarize some “base” formats that are commonly used in bioimaging and that we find noteworthy. These formats serve as generic storage technologies that have often been further refined to suit a particular application. This list covers a wide variety of use cases, but it is not exhaustive - some applications might benefit from a format not listed here.</p>
+<section id="xml-and-json" class="level3">
+<h3 class="anchored" data-anchor-id="xml-and-json">XML and JSON</h3>
+<p>XML (eXtensible Markup Language) and JSON (JavaScript Object Notation) are standardized text formats designed for exchanging data between programs. Both are human-readable and readable by software programs with the appropriate libraries. XML is older, more verbose, and the tools for structuring and parsing it are more mature. JSON is newer, more readable, and the schema language JSONSchema is only moderately mature. XML is a bit more expressive, allowing for more complex hierarchies and dedicated namespaces. JSON is more lightweight and straightforward to parse.</p>
+<p>The simplest way to store metadata (attributes of the data such as resolution, axis order, units, etc.) is in the form of plain text, as in the methods section of a paper. However, plain text has two drawbacks: (1) it separates the data and the metadata into separate files, and (2) it is not directly interpretable by image-viewing tools. XML and JSON solve these problems by embedding machine-readable metadata directly within the data files or folders. XML or JSON metadata usually follow a schema, which defines the structure and organization of the metadata. With a schema, such as the OME schemas, software tools can reliably locate specific metadata fields. For example, if the viewer tool knows where to extract the pixel spacing information, it can then display the position of your cursor in real-world units, e.g.&nbsp;nanometers.</p>
+<p>XML and JSON are both useful formats for storing microscopy metadata. While the original OME-XML standard recommended storing the actual image data in XML, this practice was abandoned decades ago because it’s very unwieldy. Nowadays, most image formats have the data in a binary component and the metadata in an XML or JSON component.</p>
+<p>As JSON is newer, more lightweight, and human-readable, newer formats tend to store their metadata in JSON. However, microscopy formats that store their metadata in XML are still widespread.</p>
+</section>
+<section id="tiff" class="level3">
+<h3 class="anchored" data-anchor-id="tiff">TIFF</h3>
+<p>TIFF is a well-established, non-chunked image format that has been widely trusted since its first release in 1986. It is supported by most image analysis tools and remains a staple in scientific and industrial imaging. TIFFs can be compressed with or without loss of data (lossy or lossless), though compression is lossless by default. JPEG compression is often more straightforward for TIFF than for chunked formats.</p>
+<p>A single TIFF file can store multiple 2D images. In these multi-page TIFFs, metadata embedded in the file indicate to the viewer software where each image starts and ends. Multi-page TIFFs are particularly useful for storing sets of related images, such as multiscale pyramids, z-stacks, or image-thumbnails pairs. If your top priorities are ease and FAIRness, TIFF may be a good choice, because it’s so widespread and well-supported.</p>
+<p>The scalability of TIFF is limited, however. Once a TIFF file is more than a few GB, image viewers are likely to struggle with it, because they are limited by the size of the computer’s memory. For large datasets or multi-dimensional images, chunked formats may be more suitable.</p>
+</section>
+<section id="hdf5" class="level3">
+<h3 class="anchored" data-anchor-id="hdf5">HDF5</h3>
+<p><a href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a> is a chunked file format for storing n-dimensional arrays, dating back to 1998. Like TIFF, it can be read by many tools, and many varieties exist. It is possible to store extremely complex datasets in a single HDF5 file, including heterogeneous arrays where each element is itself a complex object. You can think of HDF5 as an entire file system contained within a single file. The main differences between HDF5 and a folder on your file system are that (1) the individual HDF5 chunks can be accessed with a lot less overhead than individual files, and (2) data are not accessed through your operating system but rather through the GUI HDFView or the HDF5 API, which has been implemented in all the major programming languages. Smart use of data buffers and caches make HDF5 quite good at loading giant data into memory efficiently.</p>
+<p>The crucial drawback of HDF5 is that it is slow to access in the cloud, specifically object storage (such as Amazon S3, Google GCS, or Microsoft ADL). In an unoptimized HDF5 file, it can be time consuming to locate the chunks inside an HDF5 container, particularly over the internet. One way to cloud-optimize an HDF5 file is to put the chunk location information into a single header so that it all can be read in one operation. (For more tips on cloud-optimized HDF5, see <a href="https://forum.hdfgroup.org/t/retroactive-cloud-optimization-using-h5repack/11320">this forum discussion</a> and <a href="https://www.youtube.com/watch?v=R5ok4fdYqBs&amp;list=PL8X9E6I5_i8g7IcCHyC-_XdLyGRKXTSc-&amp;index=43">this talk</a>.) Additionally, there are intermediate services you can use (notably <a href="https://www.hdfgroup.org/solutions/hsds/">HSDS</a>, also see <a href="https://www.hdfgroup.org/2022/08/08/cloud-storage-options-for-hdf5/">this article</a>). However, any of these options is an extra layer of effort for you and/or your users if you want to share HDF5 files over the cloud.</p>
+<p>We consider HDF5 reasonably FAIR. It is maintained by a non-profit organization, the HDF Group. Despite this top-down governance structure, the HDF Group is receptive to feedback from the microscopy community. Many scientific image viewers are equipped to read and write HDF5, making it a sensible choice for data that are meant to be downloaded locally or interacted with on an HPC cluster.</p>
+</section>
+<section id="zarr" class="level3">
+<h3 class="anchored" data-anchor-id="zarr">Zarr</h3>
+<p><a href="https://zarr.dev/">Zarr</a> is a relatively new project created by Alistair Miles in 2015, and shares many similarities with HDF5. Both projects offer APIs in a variety of languages for reading, writing, and compressing chunks of huge n-dimensional arrays. Both use a hierarchical data model consisting of groups of chunked arrays. Both are based on a layered computation model: the storage, storage access/transformers, filters/codecs, and application layers are conceptually separated, allowing the developer to mix and match them. Both come in many variants tailored to specific scientific domains.</p>
+<p>A key difference is that while an HDF5 dataset is a single file that must be read with an HDF5 library, an analogous Zarr dataset would be a folder containing many small files that can theoretically be read by anything that can read files. This creates a different kind of overhead than HDF5. Zarr is more cloud-friendly than HDF5, but it can be less friendly on a local computer or HPC cluster. For example, it can be very slow to move a Zarr dataset from one location to another on your computer. Zarr attempts to mitigate this issue using a technique called sharding, which was recently introduced with the latest version of Zarr (<a href="https://zarr-specs.readthedocs.io/en/latest/v3/core/v3.0.html">v.3</a>). Sharding is another layer of data organization in addition to chunking, where chunks reside within shards. The shards will be folders, if the storage backend is a file system. Nesting chunks within shards can substantially reduce the number of files, improving local performance, but it does make implementation more complex.</p>
+<p>Because Zarr is such a new project, there are some limits to its ease of use. If you are using it for a highly novel, specialized scientific application, you may encounter issues with missing features or incomplete standardization. For example, the existing compression schemes may be inadequate, or it may not support complex transformations. Still, there are perhaps a dozen scientific image viewers that support <a href="https://doi.org/10.1007/s00418-023-02209-1">OME-Zarr</a>, which bodes well for its future.</p>
+</section>
+<section id="n5" class="level3">
+<h3 class="anchored" data-anchor-id="n5">N5</h3>
+<p><a href="https://github.com/saalfeldlab/n5">N5</a> is a format created by Stephan Saalfeld in 2017. The main motivation behind it was to simplify the parallel writing of chunks relative to HDF5. As noted earlier, this was also a motivating factor in the creation of Zarr. Since N5 was created independently of Zarr at around the same time and with similar motivations, the two formats are functionally quite similar. Like Zarr, it stores chunks in separate files on a file system (or keys in a cloud store) and metadata as JSON files. Furthermore, it comes with an API that can read and write from the HDF5 and Zarr formats in addition to the N5 format, thereby unifying access to chunked data formats.</p>
+<p>Because of their close similarity, N5 and Zarr generally interoperate well: many libraries that can read and write Zarr can read and write N5 (and vice versa). As Zarr has become more prevalent, with a wider community, we generally recommend using it to N5, unless your application would benefit from an N5-specific feature:</p>
+<ol type="1">
+<li><p>N5 allows “partial” chunks where all Zarr chunks must be the same size. The difference appears near the upper boundary of the array if the array size is not evenly divisible by the chunk size. N5 chunks will end where the array does, but Zarr chunks need to be filled with “empty” data.</p></li>
+<li><p>N5 can read and write the special-case <a href="https://github.com/saalfeldlab/paintera?tab=readme-ov-file#label-multisets">label multi-set</a> data type used by <a href="https://github.com/saalfeldlab/paintera">Paintera</a>. Zarr does not currently support label multi-sets.</p></li>
+</ol>
+<p>Also like Zarr, the ease-of-use of N5 largely will vary across software ecosystems. At this time, Fiji and neuroglancer have good support for N5. In particular, the <a href="https://github.com/saalfeldlab/n5-ij">N5 plugins for Fiji</a> enable users to read and write to a variety of formats, including OME-Zarr, without needing to write code. For that reason, the N5-API may be a friendly entry-point to chunked formats for many researchers.</p>
+</section>
+<section id="tiledb" class="level3">
+<h3 class="anchored" data-anchor-id="tiledb">TileDB</h3>
+<p><a href="https://tiledb.com/">TileDB</a> is a modern file format and database management system optimized for highly parallel reads and writes of n-dimensional arrays. It offers excellent performance on sparse arrays, although this use case is not common in bioimaging. Like Zarr, it’s very cloud-friendly. Similar to Zarr and HDF5, it separates the storage, compression, and compute layers, providing flexibility in storage options (e.g., file systems or object storage) and access methods (e.g., Spark, Dask, or MariaDB). TileDB also supports basic versioning: its chunks are immutable, enabling users to preserve and inspect previous versions of data.</p>
+<p>One standout feature of TileDB is that it will be familiar to data engineers accustomed to tabular data. When data are stored following recommended conventions, users can query “tiles” (chunks) of n-dimensional arrays using SQL. It also has a very robust development community and strong multi-language support.</p>
+<p>TileDB is gaining traction in scientific fields like geospatial analysis and genomics, but adoption in microscopy has been slower. While the paid tier TileDB Cloud offers an image viewer, among other features, and there is a <a href="https://www.napari.org/">Napari</a> <a href="https://github.com/TileDB-Inc/napari-tiledb-bioimg">plugin</a> for TileDB, the format can feel overly complex for many microscopy developers’ needs. If you’re just sharing some data on S3 or in a repository, we recommend Zarr as a more FAIR choice. The OME-Zarr format in particular is designed with microscopy in mind. However, TileDB may excel in enterprise-scale scenarios, such as building repositories or handling large, diverse datasets with complex access requirements. In such cases, its scalability and versatility could make it a stronger choice than Zarr.</p>
+</section>
+</section>
+<section id="general-purpose-file-formats" class="level2">
+<h2 class="anchored" data-anchor-id="general-purpose-file-formats">General-purpose file formats</h2>
+<p>Below we describe a selection of versatile file formats that are appropriate for publication or everyday use. Building on the base formats described above, they are specifically designed to accommodate microscopy data. With the exception of BIDS, all are widely used at Janelia.</p>
+<section id="ome-tiff" class="level3">
+<h3 class="anchored" data-anchor-id="ome-tiff">OME-TIFF</h3>
+<p>OME-TIFF is a specification of the widely used TIFF format that is tailored for microscopy images. It integrates metadata based on the OME-XML specification, embedding an OME-XML header block directly into the TIFF file. Developed in the early 2000s, OME-TIFF provides a robust framework for storing both image data and richly detailed metadata (<a href="https://doi.org/10.1186/gb-2005-6-5-r47">Goldberg et al.&nbsp;2005</a>). OME-TIFF was originally designed for fluorescence imaging, and was adapted in 2019 to accommodate whole slide imaging (<a href="https://doi.org/10.1007/978-3-030-23937-4_1">Besson et al.&nbsp;2019</a>). However, new development of the OME-TIFF specification is limited, as the community shifts to OME-NGFF and considers newer metadata frameworks (<a href="https://doi.org/10.1038/s41592-021-01327-9%20">Hammer et al.&nbsp;2021</a>) that may be based on RDF and JSON-LD.</p>
+<p>The OME data model supports a wide range of metadata, including image characteristics (e.g., resolution, number of focal planes, time points, and channels), as well as details about the acquisition instrument, experimenters, experimental design, and more. Any software that can read TIFF files can also open OME-TIFFs. Additionally, most scientific image viewers are equipped to interpret at least the core metadata of OME-TIFF, making this format broadly interoperable. Since OME-TIFFs are TIFFs, they can store multiple image planes, but they also lack chunking capabilities.</p>
+<p>If you choose to save your data as a TIFF, it’s best practice to use the OME-TIFF specification. OME-TIFF can accommodate more of your metadata than a standard TIFF, which lacks microscopy-specific fields. Even if you don’t currently need all the metadata contained in the OME-XML, users analyzing or processing your data in the future may benefit from having access to this additional information. In contrast, custom metadata schemas or plain text notes won’t be supported by existing tools.</p>
+</section>
+<section id="ome-ngff" class="level3">
+<h3 class="anchored" data-anchor-id="ome-ngff">OME-NGFF</h3>
+<p>Like OME-TIFF, OME-NGFF is a specification of a more generic file format that is tailored for microscopy. OME-NGFF is, for the time being, synonymous with OME-Zarr; “NGFF” stands for “Next Generation File Format”. An OME-NGFF data set consists of a Zarr hierarchy, which includes certain metadata files in standard locations in JSON format. OME-NGFF is much newer than OME-TIFF; its first release was in 2021 (<a href="https://doi.org/10.1007/s00418-023-02209-1">Moore et al.&nbsp;2023</a>). It supports some types of ancillary data, namely high-content screening (HCS) data and label images (e.g.&nbsp;from image segmentation).</p>
+<p>OME-NGFF is much more scalable than OME-TIFF, being a chunked format. It is also designed to handle multi-dimensional data, though it specifies a limit of 5D. Being Zarr-based, OME-NGFF is optimized for the cloud, so it’s a great format for data publication. It will soon have strong support for complex coordinate transformations, a feature that is lacking in all the other microscopy formats, to our knowledge.</p>
+<p>A weakness of OME-NGFF is that the schema is changing rapidly (though perhaps this is also a strength). Tools for working with it are immature, making it that much more complicated to learn. The metadata schema is also missing much material that is present in OME-XML, for example, instrument settings and experiment details.</p>
+<p>Even though OME-NGFF is still an emerging standard, we encourage the community to use and contribute to this format. OME is a long-standing leader in microscopy analysis standards and tools, and we are optimistic that the community will come together around this new format.</p>
+</section>
+<section id="proprietary" class="level3">
+<h3 class="anchored" data-anchor-id="proprietary">Proprietary</h3>
+<p>Proprietary file formats are developed by a microscopy manufacturer, and are designed to be viewed with the manufacturer’s software. Examples include .nd2 for Nikon, .lif for Leica, .oib or .oif for Olympus, .lsm or .czi for Zeiss, or .ims for Imaris. Some of these formats are variants of the base formats described above; for example, Imaris files are HDF5-based. They usually perform well in their corresponding proprietary viewers, but cannot readily be opened by open-source viewers. Luckily, the <a href="https://www.openmicroscopy.org/bio-formats/">Bio-formats</a> project has made it possible to open these formats in several open-source viewers, though sometimes metadata can be lost in translation. Viewers that use the Bio-formats library often provide functionality to either translate on the fly or convert the file to a new format. There are also free versions of some proprietary viewers, such as Zeiss Zen Lite and Leica LAS AF Lite.</p>
+<p>The FAIRness of these formats is a tricky question. On the one hand, converting to an open-source format such as OME-TIFF or OME-NGFF is appealing because it makes the data accessible to users who are used to, or limited to, free, open-source viewers. On the other hand, some metadata may be lost during conversion. Additionally, conversion duplicates your data size and storage costs. When considering publishing data in a proprietary format, there is no one-size fits all solution. You should consider your audience and your budget. You may try conversion, and then assess whether any metadata have been lost by comparing what you see in the vendor interface against what you see in, say, ImageJ after conversion. The vendor may also offer tools to export the metadata in a text format, say plain text or XML. In that case, you could convert the image to an open-source format, which should retain at least the pixel/voxel data in full, and then you could archive and/or publish the much smaller text export of the metadata.</p>
+</section>
+<section id="bids" class="level3">
+<h3 class="anchored" data-anchor-id="bids">BIDS</h3>
+<p>The Brain Imaging Data Structure (BIDS) is a widely used specification for organizing medical image data. It is not itself a storage backend; rather, it defines a consistent and structured way to arrange files and folders and to format JSON metadata. Originally developed by the MRI community, BIDS quickly gained traction in that field and has since been extended to support other imaging modalities, including EEG, iEEG, PET, and qMRI. Efforts to add microscopy to that list are relatively recent, having started in earnest in 2021 (see <a href="https://forum.image.sc/t/call-for-comments-on-brain-imaging-data-structure/50701">this forum discussion</a>), and led to the publication of the microscopy extension in 2022 (<a href="https://doi.org/10.3389/fnins.2022.871228">Bourget et al.&nbsp;2022</a>).</p>
+<p>The <a href="https://bids-specification.readthedocs.io/en/stable/modality-specific-files/microscopy.html">BIDS microscopy specification</a> adds additional standards on top of OME-NGFF and OME-TIFF. The BIDS metadata complement, rather than replace, the metadata embedded in OME-TIFF headers or OME-NGFF JSON files. As a result, researchers are required to maintain metadata in two locations, which can introduce redundancy and potential inconsistencies. The authors worked to mitigate these drawbacks by specifying only the minimal metadata needed for image analysis.</p>
+<p>Adopting BIDS can help your data to integrate seamlessly with BIDS-compatible tools or repositories, such as the <a href="https://www.dandiarchive.org/">DANDI Archive</a>, which encourages the use of BIDS for many data types. Even if you do not require BIDS-specific tooling, modeling your Zarr or HDF5 data hierarchies according to BIDS principles can be a sensible approach to organization. However, it is worth noting that the BIDS microscopy standard is still maturing. Learning it takes time, and managing redundant metadata carries risks. For these reasons, we do not currently use BIDS for our microscopy data, though it is a robust and valuable standard, particularly for medical imaging applications.</p>
+</section>
+</section>
+<section id="specialty-file-formats" class="level2">
+<h2 class="anchored" data-anchor-id="specialty-file-formats">Specialty file formats</h2>
+<p>These are formats you’re more likely to inherit than select, unless you have a particular reason to. They were created to solve particular problems the other formats couldn’t solve.</p>
+<section id="bigdataviewer" class="level3">
+<h3 class="anchored" data-anchor-id="bigdataviewer">BigDataViewer</h3>
+<p>The <a href="https://imagej.net/plugins/bdv/">BigDataViewer</a> format is based on HDF5 or N5 for data and XML for metadata, and is designed for 3D multi-view light sheet microscopy data. As the name suggests, it allows for seamless viewing of terabyte-scale images. It uses both the pyramid and chunking techniques – each dataset is stored as a series of downsampled volumes, and each volume is stored as a chunked array. This allows the lower resolution slices to be rendered almost instantly, and the higher resolution slices to be loaded soon after, if the user continues browsing in the same region.</p>
+<p>The BigDataViewer software, which comes with Fiji, can view any file format that is in the <a href="http://www.openmicroscopy.org/bio-formats/">Bio-formats</a> library using the LOCI Bioformats plugin, and also natively supports the Imaris (.ims) file format. However, most of those formats don’t readily support large, multiview image datasets such as those from Selective Plane Illumination Microscopy (SPIM) systems. For SPIM or light sheet fluorescence microscopy (LSFM) data, the BigDataViewer format may be a good choice. It integrates well with Fiji’s Multiview Reconstruction plugins, as well as Fiji’s BigStitcher plugin, and is more standardized than inventing your own custom HDF5 structure and metadata schema.</p>
+</section>
+<section id="h5j" class="level3">
+<h3 class="anchored" data-anchor-id="h5j">H5J</h3>
+<p><a href="https://github.com/JaneliaSciComp/workstation/blob/master/docs/H5JFileFormat.md">H5J</a> is a “visually lossless” file format developed at Janelia Research Campus for storing multichannel 3D image stacks. An H5J file is simply a standard HDF5 file with a specific hierarchy structure. It uses the H.265 codec (a.k.a. HEVC or High Efficiency Video Coding) and different compression ratios per channel to obtain better compression than is readily achievable with OME-Zarr. H5J files can be read by <a href="https://github.com/takashi310/VVD_Viewer">VVD Viewer</a>, the <a href="https://github.com/JaneliaSciComp/workstation">Janelia Workstation</a>, <a href="https://github.com/JaneliaSciComp/web-vol-viewer">web-vol-viewer</a>, and <a href="https://github.com/JaneliaSciComp/web-h5j-loader">web-h5j-loader</a>. They can be read and written using <a href="https://fiji.sc/">Fiji</a> or <a href="https://github.com/Vaa3D/release">Vaa3D</a>. You can print the metadata using any HDF5-compliant library, and/or export them to JSON.</p>
+<p>H5J is arguably more space efficient than OME-Zarr, but its lower adoption is a significant drawback. H5J is not nearly as widespread as OME-Zarr, and its development community is limited. If you’re tied to HDF5, H5J is a reasonably accessible resource for achieving high compression without reinventing the wheel. However, even at Janelia, significant effort is being made to improve the performance of OME-Zarr, to support the community effort to shift to a small number of well-supported formats.</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/JaneliaSciComp\.github\.io\/JaneliaDataStandards\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
