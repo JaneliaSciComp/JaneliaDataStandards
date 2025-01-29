@@ -1,0 +1,254 @@
+---
+title: "Introduction to Microscopy File Formats"
+description: "An opinionated overview of file formats used in microscopy."
+author:
+    - name: "Virginia Scarlett"
+contributors: [
+    "Mark Kittisopikul",
+    "John Bogovic"
+    ]
+reviewers: [
+    "Mark Kittisopikul",
+    "John Bogovic",
+    "Stephan Preibisch"
+]
+maintainer:
+    - name: ""
+endorsers: []
+date: "01/24/2024"
+format:
+  html:
+    template-partials:
+      - title-metadata.html
+---
+
+## Outline
+
+- Introduction
+    - [Ease of use](#ease-of-use)
+    - [Scalability](#scalability)
+    - [FAIRness](#fairness)
+- Ultra base formats
+    - [Binary/Hard to classify](#binaryhard-to-classify)
+    - [Text](#text)
+- Base formats
+    - [XML and JSON](#xml-and-json)
+    - [TIFF](#tiff)
+    - [HDF5](#hdf5)
+    - [Zarr](#zarr)
+    - [N5](#n5)
+    - [TileDB](#tiledb)
+- General-purpose formats
+    - [OME-TIFF](#ome-tiff)
+    - [OME-NGFF](#ome-ngff)
+    - [Proprietary](#proprietary)
+    - [BIDS](#bids)
+- Specialty file formats
+    - [BigDataViewer](#bigdataviewer)
+    - [H5J](#h5j)
+
+
+
+# Introduction
+
+A biology professor of mine used to say, "All biologists are visual learners. We need to see the cells or the molecules with our own eyes." It's no surprise, then, that biologists excel at imagining new ways to harness microscopy, which brings the biological world into view. However, the excited bench biologist may be in for a shock when they find their microscope acquiring gigantic images that take up half their hard drive and crash their software. When this happens, the visual biologist is suddenly thrust into an abstract world: the bits-and-bytes world of microscopy data management.
+
+Choosing the right file format for your microscopy project can be overwhelming. There are hundreds of microscopy file formats out there. The [Bio-Formats](http://www.openmicroscopy.org/bio-formats/) interoperability project supports 160 of them. Why are there so many formats? Trade-offs between size and speed are a big reason, as is the broad landscape of proprietary vendors and open-source developers. Luckily, you don’t need to weigh all the options yourself. You can use this guide to identify the few file formats that are likely to be useful for you.
+
+When choosing a file format to work with, we recommend considering three factors: ease of use, scalability, and FAIRness. It's unlikely that any one format will excel perfectly in all these areas. Rather, you should pick a format that meets your specific needs.
+
+### Ease of use
+
+The ease of use of a microscopy file format largely depends on the quality and availability of the tools designed to read and write it. An ideal tool should be simple to install (if installation is required at all), intuitive to learn, and capable of functioning with minimal or no programming -- though having the option to customize through code is a valuable bonus. If ease of use is your top priority, you only need one reliable tool that works seamlessly with your chosen format. Most people are biased toward tools they already know, and for good reason, but it's always worth considering learning new skills. [Moore et al. (2023)](https://doi.org/10.1007/s00418-023-02209-1) provides an excellent overview of popular tools for viewing and annotating scientific images.
+
+Your specific needs may require tools with specialized features not universally available. For instance, you might want to store points or regions of interest (ROIs) overlaid on the image, time points for time-series data, or details about transformations applied to the data. An in-depth comparison of these kinds of features is beyond the scope of this introduction, but please see the [metadata features chart](https://datastandards.janelia.org/metadata.html) we have created, which provides a quick comparison of features we know about for the file formats we've used.
+
+### Scalability
+
+Scalability is closely related to ease of use. A scalable format is easy to use... at scale. Scalability encompasses storing, viewing, and sharing gigantic images.
+
+Historically, images were limited to non-chunked or 'monolithic' file formats. In these formats, an image is stored as a linear string of bytes in one file by rows or planes. If you want to view a local region of your image that is stored in this format, you must traverse over many bytes that you do not need. Compression further complicates finding the needed information since variable compression sizes make the location of bytes needed hard to predict. 
+
+The scalability of monolithic formats may be improved by storing multiple copies of the same 2D image at different resolutions in the same file. This type of file is often referred to as a "multiscale pyramid". The different resolutions are generated through a technique called downsampling, in which data are typically either uniformly discarded, or in which subsets of pixels are averaged to produce a new, smaller image. Storing an image as a multiscale pyramid means that the software needs to only load into memory the lowest-resolution plane that is needed. However, even though it is a smaller plane, the entire plane must still be loaded into memory.
+
+Another technique for improved scalability is chunking. Chunking involves breaking up an image into local regions called chunks. The images can be any number of dimensions, so it's easier to think of these data as n-dimensional arrays rather than 2D grids of pixels. The arrays can be broken up into uniform, but otherwise arbitrary chunk sizes that reflect the dimensionality of the array. A large 3D volume can be divided into small subvolumes, for example. The groups of chunks may be organized as a hierarchy of nested directories on a file system or web service, making it easy to locate the desired chunk. The metadata, which are usually in a dedicated file, contain information describing the layout of the chunks. Chunked formats can store more complex images than non-chunked formats, and can be viewed more efficiently, because software can retrieve small chunks of data as needed. Chunking and multiscale pyramids are not mutually exclusive; many file formats recommend both. 
+
+A final scalability mechanism is compression. While a detailed discussion of compression is beyond the scope of this article, it's worth noting that there are two broad categories of compression algorithms: lossy and lossless. Lossy compression algorithms discard small amounts of data, while lossless algorithms do not discard any data. A good rule of thumb is to use lossless compression for analysis, while lossy compression is usually fine for visualization.
+
+### FAIRness
+
+Though not a wholly new idea, [Wilkinson et al. (2016)](https://doi.org/10.1038/sdata.2016.18) gave us a memorable, one-syllable word for best practice in research data management. FAIR stands for Findable, Accessible, Interoperable, and Reusable. All researchers should strive to make their data as FAIR as possible, though optimal FAIRness can be hard to achieve.
+
+FAIR data means the data can be viewed by anyone in the world relatively easily, and far into the future. FAIRness in microscopy mostly comes down to the I -- interoperability. Interoperability in microscopy is a huge challenge ([Nature Methods, 2021](https://doi.org/10.1038/s41592-021-01347-5)), but it's also a prerequisite for optimal FAIRness. We believe FAIR practice means relying on open-source tools and formats that are either led by the microscopy community, or are very receptive to feedback from the community. The Open Microscopy Environment is a long-time leader in this space, so we highlight OME's file formats below.
+
+Many scientists find themselves with image data that are too large to share easily, so they make the data available upon request, often via shipping a hard drive. For the busy scientist who doesn't have time to learn about chunked formats, databases, or object stores, or whose data aren't a great fit for existing repositories such as the [Image Data Resource](https://idr.openmicroscopy.org/), [EMPIAR](https://www.ebi.ac.uk/empiar/), the [DANDI Archive](https://dandiarchive.org/), or the [AWS Open Data](https://registry.opendata.aws/) registry, shipping hard drives is a reasonable option. However, it is not as FAIR as making the data accessible on the web. In the future, we are likely to see more big-data repositories based on chunked formats stored in the cloud.
+
+# Microscopy File Formats
+
+Below, we present an opinionated overview of some of the most common microscopy file formats.
+ 
+## Ultra base file formats
+
+### Binary/Hard to classify
+
+We use the term "binary format" as a generic term to refer to file formats that can be easily read by computers. If files defy classification into more standardized categories, they may be only referred to as "binary". Most of the file formats described in other sections are, at least in part, binary in the sense that they have text-encoded and non-text components (e.g. metadata files and chunk files, respectively). By 'binary formats', we mean prescribed arrangements of bytes in a single file designed for specific applications.
+
+Two examples of binary formats we use at Janelia are Enhanced FIBSEM DAT ([Chris Barnes' DAT toolkit](https://github.com/clbarnes/jeiss-convert), [Janelia's DAT toolkit](https://github.com/janelia-cellmap/fibsem-tools)) and [Keller Lab Block (KLB)](https://doi.org/10.1038/nprot.2015.111) ([bitbucket repository](https://bitbucket.org/fernandoamat/keller-lab-block-filetype/src/master/)). These formats are not derived from any broader standard and can only be interpreted by dedicated software specifically written for them.
+
+Binary formats can be useful at acquisition, especially in live cell imaging or in fluorescence imaging, where speed is paramount. They may also provide storage solutions, for example, by allowing for the use of completely novel compression schemes. 
+
+In our experience, these formats are usually not very FAIR. Often, they are only maintained by a handful of people who designed the format for a special use case. The Keller Lab has made significant efforts to enhance the interoperability of KLB by providing converters for platforms like ImageJ, MATLAB, and some proprietary libraries. While these efforts improve accessibility, we still recommend against publishing data in these specialized formats.
+
+A more widely adopted binary format is MRC ([CCP-EM](https://www.ccpem.ac.uk/mrc_format/mrc2014.php), [Cheng et al. 2015](https://doi.org/10.1016/j.jsb.2015.04.002)), designed for electron cryo-microscopy and tomography. The accompanying [python library](https://pypi.org/project/mrcfile/) is being actively maintained. However, the format and tooling are still maintained by a relatively small community. Multi-language support is lacking, and MRC does not offer the flexibility of formats that separate the storage backend from the user API (like Zarr or HDF5). This limited flexibility is a barrier to widespread adoption. We encourage users of the MRC format to consider using Zarr or HDF5-based formats instead, to promote convergence on a small number of technologies with robust development communities.
+
+### Text
+
+While all files on a computer are ultimately binary, text-based files are binary files that can be decoded into human-readable text using character encodings. ASCII and Unicode are widely used standards for mapping bytes to letters and symbols. Unicode, which includes ASCII as a subset, supports a large range of characters across many languages. These encodings enable human-readable text to be represented as a binary sequence (0s and 1s) that computers can store and transmit. Text formats generally use encodings such as UTF-8, UTF-16, or ASCII to store textual data.
+
+In microscopy, the two main text formats are XML and JSON, discussed below. Another example worth mentioning is RDF (Resource Description Framework), which, although not strictly a text format, is often represented as text. RDF enables more descriptive relationships beyond simple key-value pairs, making it a powerful tool for modeling semantic data.
+
+For small amounts of data, storing the data as structured text is convenient. However, for large amounts of data, say, megabytes, text formats become unwieldy. This is why, in microscopy, text formats are usually reserved for metadata, while the image data themselves are stored in more space-efficient formats.
+
+## Base file formats
+
+Next, we summarize some "base" formats that are commonly used in bioimaging and that we find noteworthy. These formats serve as generic storage technologies that have often been further refined to suit a particular application. This list covers a wide variety of use cases, but it is not exhaustive - some applications might benefit from a format not listed here.
+
+### XML and JSON
+
+XML (eXtensible Markup Language) and JSON (JavaScript Object Notation) are standardized text formats designed for exchanging data between programs. Both are human-readable and readable by software programs with the appropriate libraries. XML is older, more verbose, and the tools for structuring and parsing it are more mature. JSON is newer, more readable, and the schema language JSONSchema is only moderately mature. XML is a bit more expressive, allowing for more complex hierarchies and dedicated namespaces. JSON is more lightweight and straightforward to parse.
+
+The simplest way to store metadata (attributes of the data such as resolution, axis order, units, etc.) is in the form of plain text, as in the methods section of a paper. However, plain text has two drawbacks: (1) it separates the data and the metadata into separate files, and (2) it is not directly interpretable by image-viewing tools. XML and JSON solve these problems by embedding machine-readable metadata directly within the data files or folders. XML or JSON metadata usually follow a schema, which defines the structure and organization of the metadata. With a schema, such as the OME schemas, software tools can reliably locate specific metadata fields. For example, if the viewer tool knows where to extract the pixel spacing information, it can then display the position of your cursor in real-world units, e.g. nanometers.
+
+XML and JSON are both useful formats for storing microscopy metadata. While the original OME-XML standard recommended storing the actual image data in XML, this practice was abandoned decades ago because it's very unwieldy. Nowadays, most image formats have the data in a binary component and the metadata in an XML or JSON component. 
+
+As JSON is newer, more lightweight, and human-readable, newer formats tend to store their metadata in JSON. However, microscopy formats that store their metadata in XML are still widespread.
+
+### TIFF
+
+TIFF is a well-established, non-chunked image format that has been widely trusted since its first release in 1986. It is supported by most image analysis tools and remains a staple in scientific and industrial imaging. TIFFs can be compressed with or without loss of data (lossy or lossless), though compression is lossless by default. JPEG compression is often more straightforward for TIFF than for chunked formats.
+
+A single TIFF file can store multiple 2D images. In these multi-page TIFFs, metadata embedded in the file indicate to the viewer software where each image starts and ends. Multi-page TIFFs are particularly useful for storing sets of related images, such as multiscale pyramids, z-stacks, or image-thumbnails pairs. If your top priorities are ease and FAIRness, TIFF may be a good choice, because it's so widespread and well-supported.
+
+The scalability of TIFF is limited, however. Once a TIFF file is more than a few GB, image viewers are likely to struggle with it, because they are limited by the size of the computer's memory. For large datasets or multi-dimensional images, chunked formats may be more suitable.
+
+### HDF5
+
+[HDF5](https://www.hdfgroup.org/solutions/hdf5/) is a chunked file format for storing n-dimensional arrays, dating back to 1998. Like TIFF, it can be read by many tools, and many varieties exist. It is possible to store extremely complex datasets in a single HDF5 file, including heterogeneous arrays where each element is itself a complex object. You can think of HDF5 as an entire file system contained within a single file. The main differences between HDF5 and a folder on your file system are that (1) the individual HDF5 chunks can be accessed with a lot less overhead than individual files, and (2) data are not accessed through your operating system but rather through the GUI HDFView or the HDF5 API, which has been implemented in all the major programming languages. Smart use of data buffers and caches make HDF5 quite good at loading giant data into memory efficiently.
+
+The crucial drawback of HDF5 is that it is slow to access in the cloud, specifically object storage (such as Amazon S3, Google GCS, or Microsoft ADL). In an unoptimized HDF5 file, it can be time consuming to locate the chunks inside an HDF5 container, particularly over the internet. One way to cloud-optimize an HDF5 file is to put the chunk location information into a single header so that it all can be read in one operation. (For more tips on cloud-optimized HDF5, see [this forum discussion](https://forum.hdfgroup.org/t/retroactive-cloud-optimization-using-h5repack/11320) and [this talk](https://www.youtube.com/watch?v=R5ok4fdYqBs&list=PL8X9E6I5_i8g7IcCHyC-_XdLyGRKXTSc-&index=43).) Additionally, there are intermediate services you can use (notably [HSDS](https://www.hdfgroup.org/solutions/hsds/), also see [this article](https://www.hdfgroup.org/2022/08/08/cloud-storage-options-for-hdf5/)). However, any of these options is an extra layer of effort for you and/or your users if you want to share HDF5 files over the cloud.
+
+We consider HDF5 reasonably FAIR. It is maintained by a non-profit organization, the HDF Group. Despite this top-down governance structure, the HDF Group is receptive to feedback from the microscopy community. Many scientific image viewers are equipped to read and write HDF5, making it a sensible choice for data that are meant to be downloaded locally or interacted with on an HPC cluster.
+
+### Zarr
+
+[Zarr](https://zarr.dev/) is a relatively new project created by Alistair Miles in 2015, and shares many similarities with HDF5. Both projects offer APIs in a variety of languages for reading, writing, and compressing chunks of huge n-dimensional arrays. Both use a hierarchical data model consisting of groups of chunked arrays. Both are based on a layered computation model: the storage, storage access/transformers, filters/codecs, and application layers are conceptually separated, allowing the developer to mix and match them. Both come in many variants tailored to specific scientific domains.
+
+A key difference is that while an HDF5 dataset is a single file that must be read with an HDF5 library, an analogous Zarr dataset would be a folder containing many small files that can theoretically be read by anything that can read files. This creates a different kind of overhead than HDF5. Zarr is more cloud-friendly than HDF5, but it can be less friendly on a local computer or HPC cluster. For example, it can be very slow to move a Zarr dataset from one location to another on your computer. Zarr attempts to mitigate this issue using a technique called sharding, which was recently introduced with the latest version of Zarr ([v.3](https://zarr-specs.readthedocs.io/en/latest/v3/core/v3.0.html)). Sharding is another layer of data organization in addition to chunking, where chunks reside within shards. The shards will be folders, if the storage backend is a file system. Nesting chunks within shards can substantially reduce the number of files, improving local performance, but it does make implementation more complex.
+
+Because Zarr is such a new project, there are some limits to its ease of use. If you are using it for a highly novel, specialized scientific application, you may encounter issues with missing features or incomplete standardization. For example, the existing compression schemes may be inadequate, or it may not support complex transformations. Still, there are perhaps a dozen scientific image viewers that support [OME-Zarr](https://doi.org/10.1007/s00418-023-02209-1), which bodes well for its future.
+
+### N5
+
+[N5](https://github.com/saalfeldlab/n5) is a format created by Stephan Saalfeld in 2017. The main motivation behind it was to
+simplify the parallel writing of chunks relative to HDF5. As noted earlier, this was also a motivating factor in the creation
+of Zarr. Since N5 was created independently of Zarr at around the same time and with similar motivations, the two formats are
+functionally quite similar. Like Zarr, it stores chunks in separate files on a file system (or keys in a cloud store) and
+metadata as JSON files. Furthermore, it comes with an API that can read and write from the HDF5 and Zarr formats in addition to
+the N5 format, thereby unifying access to chunked data formats.
+
+Because of their close similarity, N5 and Zarr generally interoperate well: many libraries that can read and write Zarr can read
+and write N5 (and vice versa). As Zarr has become more prevalent, with a wider community, we generally recommend using it to N5,
+unless your application would benefit from an N5-specific feature:
+
+1) N5 allows "partial" chunks where all Zarr chunks must be the same size. The difference appears near the upper boundary of the
+array if the array size is not evenly divisible by the chunk size. N5 chunks will end where the array does, but Zarr chunks need
+to be filled with "empty" data.
+
+2) N5 can read and write the special-case [label multi-set](https://github.com/saalfeldlab/paintera?tab=readme-ov-file#label-multisets)
+data type used by [Paintera](https://github.com/saalfeldlab/paintera). Zarr does not currently support label multi-sets.
+
+Also like Zarr, the ease-of-use of N5 largely will vary across software ecosystems. At this time, Fiji and neuroglancer have
+good support for N5. In particular, the [N5 plugins for Fiji](https://github.com/saalfeldlab/n5-ij) enable users to read and
+write to a variety of formats, including OME-Zarr, without needing to write code. For that reason, the N5-API may be a friendly
+entry-point to chunked formats for many researchers.
+
+### TileDB
+
+[TileDB](https://tiledb.com/) is a modern file format and database management system optimized for highly parallel reads and writes of n-dimensional arrays. It offers excellent performance on sparse arrays, although this use case is not common in bioimaging. Like Zarr, it's very cloud-friendly. Similar to Zarr and HDF5, it separates the storage, compression, and compute layers, providing flexibility in storage options (e.g., file systems or object storage) and access methods (e.g., Spark, Dask, or MariaDB). TileDB also supports basic versioning: its chunks are immutable, enabling users to preserve and inspect previous versions of data.
+
+One standout feature of TileDB is that it will be familiar to data engineers accustomed to tabular data. When data are stored following recommended conventions, users can query "tiles" (chunks) of n-dimensional arrays using SQL. It also has a very robust development community and strong multi-language support.
+
+TileDB is gaining traction in scientific fields like geospatial analysis and genomics, but adoption in microscopy has been slower. While the paid tier TileDB Cloud offers an image viewer, among other features, and there is a [Napari](https://www.napari.org/) [plugin](https://github.com/TileDB-Inc/napari-tiledb-bioimg) for TileDB, the format can feel overly complex for many microscopy developers' needs. If you're just sharing some data on S3 or in a repository, we recommend Zarr as a more FAIR choice. The OME-Zarr format in particular is designed with microscopy in mind. However, TileDB may excel in enterprise-scale scenarios, such as building repositories or handling large, diverse datasets with complex access requirements. In such cases, its scalability and versatility could make it a stronger choice than Zarr.
+
+## General-purpose file formats
+
+Below we describe a selection of versatile file formats that are appropriate for publication or everyday use. Building on the base formats described above, they are specifically designed to accommodate microscopy data. With the exception of BIDS, all are widely used at Janelia.
+
+### OME-TIFF
+
+OME-TIFF is a specification of the widely used TIFF format that is tailored for microscopy images. It integrates metadata based on the OME-XML specification, embedding an OME-XML header block directly into the TIFF file. Developed in the early 2000s, OME-TIFF provides a robust framework for storing both image data and richly detailed metadata ([Goldberg et al. 2005](https://doi.org/10.1186/gb-2005-6-5-r47)). OME-TIFF was originally designed for fluorescence imaging, and was adapted in 2019 to accommodate whole slide imaging ([Besson et al. 2019](https://doi.org/10.1007/978-3-030-23937-4_1)). However, new development of the OME-TIFF specification is limited, as the community shifts to OME-NGFF and considers newer metadata frameworks ([Hammer et al. 2021](https://doi.org/10.1038/s41592-021-01327-9%20)) that may be based on RDF and JSON-LD.
+
+The OME data model supports a wide range of metadata, including image characteristics (e.g., resolution, number of focal planes, time points, and channels), as well as details about the acquisition instrument, experimenters, experimental design, and more. Any software that can read TIFF files can also open OME-TIFFs. Additionally, most scientific image viewers are equipped to interpret at least the core metadata of OME-TIFF, making this format broadly interoperable. Since OME-TIFFs are TIFFs, they can store multiple image planes, but they also lack chunking capabilities.
+
+If you choose to save your data as a TIFF, it's best practice to use the OME-TIFF specification. OME-TIFF can accommodate more of your metadata than a standard TIFF, which lacks microscopy-specific fields. Even if you don't currently need all the metadata contained in the OME-XML, users analyzing or processing your data in the future may benefit from having access to this additional information. In contrast, custom metadata schemas or plain text notes won't be supported by existing tools.
+
+### OME-NGFF
+
+Like OME-TIFF, OME-NGFF is a specification of a more generic file format that is tailored for microscopy. OME-NGFF is, for the time being, synonymous with OME-Zarr; "NGFF" stands for "Next Generation File Format". An OME-NGFF data set consists of a Zarr hierarchy, which includes certain metadata files in standard locations in JSON format. OME-NGFF is much newer than OME-TIFF; its first release was in 2021 ([Moore et al. 2023](https://doi.org/10.1007/s00418-023-02209-1)). It supports some types of ancillary data, namely high-content screening (HCS) data and label images (e.g. from image segmentation). 
+
+OME-NGFF is much more scalable than OME-TIFF, being a chunked format. It is also designed to handle multi-dimensional data, though it specifies a limit of 5D. Being Zarr-based, OME-NGFF is optimized for the cloud, so it's a great format for data publication. It will soon have strong support for complex coordinate transformations, a feature that is lacking in all the other microscopy formats, to our knowledge.
+
+A weakness of OME-NGFF is that the schema is changing rapidly (though perhaps this is also a strength). Tools for working with it are immature, making it that much more complicated to learn. The metadata schema is also missing much material that is present in OME-XML, for example, instrument settings and experiment details.
+
+Even though OME-NGFF is still an emerging standard, we encourage the community to use and contribute to this format. OME is a long-standing leader in microscopy analysis standards and tools, and we are optimistic that the community will come together around this new format.
+
+### Proprietary
+
+Proprietary file formats are developed by a microscopy manufacturer, and are designed to be viewed with the manufacturer's software. Examples include .nd2 for Nikon, .lif for Leica, .oib or .oif for Olympus, .lsm or .czi for Zeiss, or .ims for Imaris. Some of these formats are variants of the base formats described above; for example, Imaris files are HDF5-based. They usually perform well in their corresponding proprietary viewers, but cannot readily be opened by open-source viewers. Luckily, the [Bio-formats](https://www.openmicroscopy.org/bio-formats/) project has made it possible to open these formats in several open-source viewers, though sometimes metadata can be lost in translation. Viewers that use the Bio-formats library often provide functionality to either translate on the fly or convert the file to a new format. There are also free versions of some proprietary viewers, such as Zeiss Zen Lite and Leica LAS AF Lite.
+
+The FAIRness of these formats is a tricky question. On the one hand, converting to an open-source format such as OME-TIFF or OME-NGFF is appealing because it makes the data accessible to users who are used to, or limited to, free, open-source viewers. On the other hand, some metadata may be lost during conversion. Additionally, conversion duplicates your data size and storage costs. When considering publishing data in a proprietary format, there is no one-size fits all solution. You should consider your audience and your budget. You may try conversion, and then assess whether any metadata have been lost by comparing what you see in the vendor interface against what you see in, say, ImageJ after conversion. The vendor may also offer tools to export the metadata in a text format, say plain text or XML. In that case, you could convert the image to an open-source format, which should retain at least the pixel/voxel data in full, and then you could archive and/or publish the much smaller text export of the metadata.
+
+### BIDS
+
+The Brain Imaging Data Structure (BIDS) is a widely used specification for organizing medical image data. It is not itself a storage backend; rather, it defines a consistent and structured way to arrange files and folders and to format JSON metadata. Originally developed by the MRI community, BIDS quickly gained traction in that field and has since been extended to support other imaging modalities, including EEG, iEEG, PET, and qMRI. Efforts to add microscopy to that list are relatively recent, having started in earnest in 2021 (see [this forum discussion](https://forum.image.sc/t/call-for-comments-on-brain-imaging-data-structure/50701)), and led to the publication of the microscopy extension in 2022 ([Bourget et al. 2022](https://doi.org/10.3389/fnins.2022.871228)).
+
+The [BIDS microscopy specification](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/microscopy.html) adds additional standards on top of OME-NGFF and OME-TIFF. The BIDS metadata complement, rather than replace, the metadata embedded in OME-TIFF headers or OME-NGFF JSON files. As a result, researchers are required to maintain metadata in two locations, which can introduce redundancy and potential inconsistencies. The authors worked to mitigate these drawbacks by specifying only the minimal metadata needed for image analysis.
+
+Adopting BIDS can help your data to integrate seamlessly with BIDS-compatible tools or repositories, such as the [DANDI Archive](https://www.dandiarchive.org/), which encourages the use of BIDS for many data types. Even if you do not require BIDS-specific tooling, modeling your Zarr or HDF5 data hierarchies according to BIDS principles can be a sensible approach to organization. However, it is worth noting that the BIDS microscopy standard is still maturing. Learning it takes time, and managing redundant metadata carries risks. For these reasons, we do not currently use BIDS for our microscopy data, though it is a robust and valuable standard, particularly for medical imaging applications.
+
+## Specialty file formats 
+
+These are formats you're more likely to inherit than select, unless you have a particular reason to. They were created to solve particular problems the other formats couldn't solve.
+
+### BigDataViewer
+
+The [BigDataViewer](https://imagej.net/plugins/bdv/) format is based on HDF5 or N5 for data and XML for metadata, and is designed for 3D multi-view light sheet microscopy data. As the name suggests, it allows for seamless viewing of terabyte-scale images. It uses both the pyramid and chunking techniques -- each dataset is stored as a series of downsampled volumes, and each volume is stored as a chunked array. This allows the lower resolution slices to be rendered almost instantly, and the higher resolution slices to be loaded soon after, if the user continues browsing in the same region.
+
+The BigDataViewer software, which comes with Fiji, can view any file format that is in the [Bio-formats](http://www.openmicroscopy.org/bio-formats/) library using the LOCI Bioformats plugin, and also natively supports the Imaris (.ims) file format. However, most of those formats don't readily support large, multiview image datasets such as those from Selective Plane Illumination Microscopy (SPIM) systems. For SPIM or light sheet fluorescence microscopy (LSFM) data, the BigDataViewer format may be a good choice. It integrates well with Fiji's Multiview Reconstruction plugins, as well as Fiji's BigStitcher plugin, and is more standardized than inventing your own custom HDF5 structure and metadata schema.
+
+### H5J
+
+[H5J](https://github.com/JaneliaSciComp/workstation/blob/master/docs/H5JFileFormat.md) is a "visually lossless" file format developed at Janelia Research Campus for storing multichannel 3D image stacks. An H5J file is simply a standard HDF5 file with a specific hierarchy structure. It uses the H.265 codec (a.k.a. HEVC or High Efficiency Video Coding) and different compression ratios per channel to obtain better compression than is readily achievable with OME-Zarr. H5J files can be read by [VVD Viewer](https://github.com/takashi310/VVD_Viewer), the [Janelia Workstation](https://github.com/JaneliaSciComp/workstation), [web-vol-viewer](https://github.com/JaneliaSciComp/web-vol-viewer), and [web-h5j-loader](https://github.com/JaneliaSciComp/web-h5j-loader). They can be read and written using [Fiji](https://fiji.sc/) or [Vaa3D](https://github.com/Vaa3D/release). You can print the metadata using any HDF5-compliant library, and/or export them to JSON.
+
+H5J is arguably more space efficient than OME-Zarr, but its lower adoption is a significant drawback. H5J is not nearly as widespread as OME-Zarr, and its development community is limited. If you're tied to HDF5, H5J is a reasonably accessible resource for achieving high compression without reinventing the wheel. However, even at Janelia, significant effort is being made to improve the performance of OME-Zarr, to support the community effort to shift to a small number of well-supported formats.  
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
