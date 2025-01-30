@@ -1,1 +1,1 @@
-Sitemap: https://JaneliaSciComp.github.io/JaneliaDataStandards/sitemap.xml
+Sitemap: https://datastandards.janelia.org/sitemap.xml
